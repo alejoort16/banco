@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+
+		<h:form prependId="false">
+			<h:panelGrid id="paneldatos" columns="3">
+
+				<h:outputLabel for="cbtipoid" id="lbltipoid"
+					value="#{msj['clientes.tipoIdentificacion']}:" />
+				<h:selectOneMenu id="cbtipoid"
+					value="#{ControladorClientes.tipoSeleccionado}">
+
+					<f:selectItems value="#{ControladorClientes.tipos}" var="t"
+						itemValue="#{t}" />
+				</h:selectOneMenu>
+				<br></br>
+				<h:outputLabel for="tfcedula" id="lblCedula"
+					value="#{msj['clientes.identificacion']}:" />
+				<h:inputText id="tfcedula"
+					value="#{ControladorClientes.numeroIdentificacion}" />
+				<p:message for="tfcedula" />
+
+				<h:outputLabel for="tfnombre" id="lblnombre" value="#{msj['clientes.nombre']}:" />
+				<h:inputText id="tfnombre" value="#{ControladorClientes.nombre}" />
+				<p:message for="tfnombre" />
+				
+				<h:outputLabel for="tfapellido" id="lblapellido" value="#{msj['clientes.apellido']}:" />
+				<h:inputText id="tfapellido" value="#{ControladorClientes.apellido}" />
+				<p:message for="tfapellido" />
+			</h:panelGrid>
+
+			<h:panelGrid id="panelbtns" columns="3">
+
+				<p:commandButton id="btncrear" value="#{msj['clientes.crear']}"
+					process="@this,paneldatos" update="paneldatos,tablaest"
+					action="#{ControladorClientes.crear}" />
+
+				<p:commandButton id="btnBuscar" value="#{msj['clientes.buscar']}"
+					process="@this,tfcedula,cbtipoid" update="paneldatos"
+					action="#{ControladorClientes.buscar}" />
+			</h:panelGrid>
+		</h:form>
+
+		<p:dataTable id="tablaest" value="#{ControladorClientes.clientes}"
+			var="est" border="3">
+
+			<p:column headerText="#{msj['clientes.tipoIdentificacion']}">
+				<h:outputLabel value="#{est.identificationType}"></h:outputLabel>
+			</p:column>
+
+			<p:column headerText="#{msj['clientes.identificacion']}">
+				<h:outputLabel value="#{est.identificationNumber}"></h:outputLabel>
+			</p:column>
+
+			<p:column headerText="#{msj['clientes.nombre']}">
+				<h:outputLabel value="#{est.name}"></h:outputLabel>
+			</p:column>
+
+			<p:column headerText="#{msj['clientes.apellido']}">
+				<h:outputLabel value="#{est.lastName}"></h:outputLabel>
+			</p:column>
+		</p:dataTable>
+	</ui:define>
+
+</ui:composition>

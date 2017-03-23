@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h1>RESUMEN DE SUS PRODUCTOS</h1>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+
+
+			<h1>Cuentas de ahorro</h1>
+			<br></br>
+			<br></br>
+			<br></br>
+
+
+			<p:dataTable id="tablaCuentas" value="#{controladorInicio.cuentas}"
+				var="cuent" border="3">
+
+				<p:column headerText="NUMERO">
+					<h:outputLabel value="#{cuent.number}"></h:outputLabel>
+				</p:column>
+
+				<p:column headerText="SALDO">
+					<h:outputLabel value="#{cuent.ammount}"></h:outputLabel>
+				</p:column>
+			</p:dataTable>
+
+			<br></br>
+			<br></br>
+			<br></br>
+
+			<h1>Tarjetas de Credito</h1>
+
+		</h:form>
+	</ui:define>
+
+
+</ui:composition>

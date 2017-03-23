@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+			<h:panelGrid id="paneldatos" columns="3">
+				<h:outputLabel for="cbtarjetas" id="lblnumero"
+					value="#{msj['consumo.numeroTarjetaCredito']}:" />	
+				<h:selectOneMenu id="cbtarjetas" value="#{ControladorPagos.tcSeleccionada}">
+						<f:selectItems value="#{ControladorPagos.tarjetas}" var="f" itemValue="#{f.number}"
+							itemLabel="#{f.number}" />
+							<f:ajax event="change" execute="@this"
+							listener="#{ControladorPagos.seleccionarTarjeta}" />
+					</h:selectOneMenu>
+					<br></br>
+					<h:outputLabel for="cbCuenta" id="lbltipoidcuent"
+				value="#{msj['consumo.numeroCuentaAhorros']}: " />
+			<h:selectOneMenu id="cbCuenta" value="#{ControladorPagos.numeroCuenta}">
+
+				<f:selectItems value="#{ControladorPagos.cuentasAhorro}" var="t"
+					itemValue="#{t.number}" itemLabel="#{t.number}" />
+			</h:selectOneMenu>			
+					</h:panelGrid>
+					<br></br>
+					<br></br>
+					<h:panelGrid id="paneldatosBotones" columns="2">
+				<p:commandButton id="btnBuscar" value="#{msj['consumo.listarConsumos']}"
+				process="@this,paneldatos" update="paneldatos,paneltabla"
+					action="#{ControladorPagos.listar}" />
+					</h:panelGrid>
+				<br></br>
+				<br></br>
+				<br></br>
+				
+				<h:panelGrid id="paneltabla" columns="4">
+				<h:form>
+					
+		<p:dataTable id="tablaConsumo" value="#{ControladorPagos.consumos}"
+						var="pago" border="1">
+
+						<p:column headerText="#{msj['consumo.fechaConsumo']}">
+							<h:outputLabel value="#{pago.dateConsume}" />
+						</p:column>
+
+						<p:column headerText="#{msj['consumo.valorConsumo']}">
+
+							<h:outputLabel value="#{pago.ammount}" />
+						</p:column>
+
+						<p:column headerText="#{msj['consumo.cuotasRestantes']}">
+
+							<h:outputLabel value="#{pago.cuotasRestantes}" />
+						</p:column>
+
+						<p:column headerText="#{msj['consumo.montoPorPagar']}">
+
+							<h:outputLabel value="#{pago.remainingAmmount}" />
+						</p:column>
+
+						<p:column headerText="#{msj['consumo.acciones']}">
+							<p:commandButton
+								action="#{ControladorPagos.pagarTodoConsumo(pago)}"
+								process="@this" value="#{msj['consumo.pagarTodoElConsumo']}"
+								update="paneltabla" />
+						</p:column>
+					</p:dataTable>
+
+		</h:form>
+				</h:panelGrid>
+
+			<br></br>
+			
+			<h:panelGrid id="panelPagoBoton">
+			<p:commandButton id="btnGenerar" value="#{msj['consumo.generarPago']}"
+			process="@this,panelPago" update="panelPago"
+					action="#{ControladorPagos.generarPago}" />
+					</h:panelGrid>
+					
+					<h:panelGrid id="panelPago" columns="2">
+
+			<h:outputLabel for="valorPagar" id="lblvalorPagar"
+				value="#{msj['consumo.valorPagar']}:" />
+			<h:inputText id="valorPagar" value="#{ControladorPagos.valorPagar}"
+				disabled="true"></h:inputText>
+
+			<h:outputLabel for="abonocap" id="lblabonocap"
+				value="#{msj['consumo.abonoCapital']}:" />
+			<h:inputText id="abonocap" value="#{ControladorPagos.capitalAmmount}"
+				disabled="true"></h:inputText>
+
+			<h:outputLabel for="abonoInt" id="lblabonoInt" value="#{msj['consumo.interes']}:" />
+			<h:inputText id="abonoInt"
+				value="#{ControladorPagos.interestAmmount}" disabled="true"></h:inputText>	
+				<br></br>
+				<br></br>
+				<br></br>
+				<p:commandButton id="btnPagar" value="#{msj['consumo.pagar']}"
+				process="@this,paneldatos,panelPago" update="paneldatos,panelPago,paneltabla"
+					action="#{ControladorPagos.pagar}" />
+					</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
