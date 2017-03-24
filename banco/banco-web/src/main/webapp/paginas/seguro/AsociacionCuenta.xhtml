@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+	
+	
+	<h:form prependId="false">
+		
+		<h:panelGrid id="paneldatos" columns="3">
+		
+		<h:outputLabel for="cbtipoid" id="lbltipoid"
+					value="#{msj['asociacion.tipoDocTit']}:" />
+				<h:selectOneMenu id="cbtipoid"
+					value="#{ControladorClientes.tipoSeleccionado}">
+
+					<f:selectItems value="#{ControladorClientes.tipos}" var="t"
+						itemValue="#{t}" />
+				</h:selectOneMenu>
+				<br></br>
+		
+		</h:panelGrid>
+	
+	
+	
+	
+	
+	
+	
+	
+		</h:form>
+	
+	</ui:define>
+
+</ui:composition>

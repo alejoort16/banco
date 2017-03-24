@@ -85,11 +85,13 @@
 							data-target=".nav-collapse"> <i class="fw-icon-th-list"></i>
 						</a>
 						<div class="nav-collapse collapse">
+						<h:panelGroup rendered= "#{!seccionControl.sesion}">
 							<ul class="nav">
 								<li><a
 									href="#{request.contextPath}/paginas/publico/Login.xhtml">Inicio
 										de sesión</a></li>
 							</ul>
+							</h:panelGroup>
 							<h:panelGroup rendered="#{seccionControl.sesion}">
 								<ul class="nav">
 									<li><a
