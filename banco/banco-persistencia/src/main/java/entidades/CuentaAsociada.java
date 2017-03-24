@@ -220,4 +220,6 @@ public class CuentaAsociada implements Serializable {
 	}
 	
 	
+	
+	
 }

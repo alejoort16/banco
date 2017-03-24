@@ -12,25 +12,53 @@
 		
 		<h:panelGrid id="paneldatos" columns="3">
 		
+		<h:outputLabel for="tfnombre" id="lblnombre" value="#{msj['asociacion.nomTitular']}:" />
+				<h:inputText id="tfnombre" value="#{ControladorCuentasAsociadas.nombreTitular}" />
+				<p:message for="tfnombre" />
+		
+		
 		<h:outputLabel for="cbtipoid" id="lbltipoid"
 					value="#{msj['asociacion.tipoDocTit']}:" />
 				<h:selectOneMenu id="cbtipoid"
-					value="#{ControladorClientes.tipoSeleccionado}">
+					value="#{ControladorCuentasAsociadas.tipoSeleccionado}">
 
-					<f:selectItems value="#{ControladorClientes.tipos}" var="t"
+					<f:selectItems value="#{ControladorCuentasAsociadas.tipos}" var="t"
 						itemValue="#{t}" />
 				</h:selectOneMenu>
 				<br></br>
-		
+				
+				<h:outputLabel for="tfcedula" id="lblCedula"
+					value="#{msj['asociacion.numeroDocTit']}:" />
+				<h:inputText id="tfcedula"
+					value="#{ControladorCuentasAsociadas.numeroIdentificacionTitular}" />
+				<p:message for="tfcedula" />
+				
+				<h:outputLabel for="cbbanco" id="lblbanco"
+					value="#{msj['asociacion.banco']}:" />
+				<h:selectOneMenu id="cbbanco"
+					value="#{ControladorCuentasAsociadas.bancoSeleccionado}">
+
+					<f:selectItems value="#{ControladorCuentasAsociadas.bancos}" var="b"
+						itemValue="#{b.name}" itemLabel="#{b.name}" />
+				</h:selectOneMenu>
+				<br></br>
+				
+				
+				<h:outputLabel for="tfCuenta" id="lblCuenta"
+				value="#{msj['asociacion.numeroCuentaTit']}:"/>
+				<h:inputText id="tfCuenta" value="#{ControladorCuentasAsociadas.numeroCuenta}" />
+				<p:message for="tfCuenta"/>
+
 		</h:panelGrid>
-	
-	
-	
-	
-	
-	
-	
-	
+		
+			<h:panelGrid id="paneldatosBotones" columns="2">
+			
+				<p:commandButton id="btnAsociar" value="#{msj['asociacion.asociar']}"
+				process="@this,paneldatos" update="paneldatos"
+					action="#{ControladorCuentasAsociadas.guardarAsociacion}" />
+					
+					</h:panelGrid>
+				
 		</h:form>
 	
 	</ui:define>

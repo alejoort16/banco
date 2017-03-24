@@ -498,5 +498,7 @@ public class ControladorPago implements Serializable {
 	public void setCuentasAhorro(List<CuentaAhorros> cuentasAhorro) {
 		this.cuentasAhorro = cuentasAhorro;
 	}
+	
+	
 
 }

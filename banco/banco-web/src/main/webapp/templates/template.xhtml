@@ -68,7 +68,8 @@
 				<h5>Tu mejor opción</h5>
 				<h:form>
 					<h:commandLink action="#{controllerIdioma.cambiarIngles()}"
-						value="Ingles"></h:commandLink> <BR></BR>
+						value="Ingles"></h:commandLink>
+					<BR></BR>
 					<h:commandLink action="#{controllerIdioma.cambiarEspañol()}"
 						value="Español"></h:commandLink>
 
@@ -85,12 +86,12 @@
 							data-target=".nav-collapse"> <i class="fw-icon-th-list"></i>
 						</a>
 						<div class="nav-collapse collapse">
-						<h:panelGroup rendered= "#{!seccionControl.sesion}">
-							<ul class="nav">
-								<li><a
-									href="#{request.contextPath}/paginas/publico/Login.xhtml">Inicio
-										de sesión</a></li>
-							</ul>
+							<h:panelGroup rendered="#{!seccionControl.sesion}">
+								<ul class="nav">
+									<li><a
+										href="#{request.contextPath}/paginas/publico/Login.xhtml">Inicio
+											de sesión</a></li>
+								</ul>
 							</h:panelGroup>
 							<h:panelGroup rendered="#{seccionControl.sesion}">
 								<ul class="nav">
@@ -101,6 +102,8 @@
 									<li><a
 										href="#{request.contextPath}/paginas/seguro/pagarConsumos.xhtml">Pago
 											del consumo</a></li>
+									<li><a
+										href="#{request.contextPath}/paginas/seguro/AsociacionCuenta.xhtml">Asociación de cuentas</a></li>
 									<li><h:commandLink
 											action="#{seccionControl.cerrarSession}"
 											value="Cerrar sesion"></h:commandLink></li>
