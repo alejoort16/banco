@@ -46,6 +46,8 @@ public class ControladorCuentasAsociadas implements Serializable {
 	private Banco bancoSeleccionado;
 
 	private List<Banco> bancos;
+	
+	private List<CuentaAsociada> cuentasAsociadas;
 
 	@Pattern(regexp = "[0-9]*", message = "solo numeros")
 	@Length(min = 4, max = 15, message = "longitud entre 4 y 15")
@@ -81,6 +83,7 @@ public class ControladorCuentasAsociadas implements Serializable {
 		//id_cliente = sesion.getUsuario().getCliente().getIdentificationNumber();
 	//	clienteejb.buscarCliente(tipoSeleccionadoPrincipal, id_cliente);
 		bancos = asociadasejb.listarBancos();
+		cuentasAsociadas =	asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
 
 	}
 
@@ -96,6 +99,7 @@ public class ControladorCuentasAsociadas implements Serializable {
 			CuentaAsociada cu = new CuentaAsociada(numeroCuenta, nombreAsociacion, nombreTitular,
 					tipoSeleccionado, numeroIdentificacionTitular, estado, bancoSeleccionado, sesion.getUsuario().getCliente());
 					asociadasejb.crearAsociacion(cu);
+					asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
 					
 					// limpiar campos
 					numeroCuenta ="";
@@ -107,6 +111,18 @@ public class ControladorCuentasAsociadas implements Serializable {
 			}catch(ExcepcionNegocio e){
 				Messages.addGlobalError(e.getMessage());
 			}
+	}
+	
+	public void eliminarAsociacion(CuentaAsociada cuenta){
+		try{
+			asociadasejb.eliminarCuentaAsociada(cuenta);
+			asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
+			Messages.addFlashGlobalInfo("Cuenta de ahorros eliminada");
+			
+		}catch (ExcepcionNegocio e) {
+			// TODO: handle exception
+			Messages.addGlobalError(e.getMessage());
+		}
 	}
 
 	/**
@@ -226,7 +242,19 @@ public class ControladorCuentasAsociadas implements Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
-	
+
+	/**
+	 * @return the cuentasAsociadas
+	 */
+	public List<CuentaAsociada> getCuentasAsociadas() {
+		return cuentasAsociadas;
+	}
+
+	/**
+	 * @param cuentasAsociadas the cuentasAsociadas to set
+	 */
+	public void setCuentasAsociadas(List<CuentaAsociada> cuentasAsociadas) {
+		this.cuentasAsociadas = cuentasAsociadas;
+	}
 
 }

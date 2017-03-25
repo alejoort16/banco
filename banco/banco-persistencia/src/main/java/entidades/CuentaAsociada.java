@@ -23,10 +23,14 @@ import enumeraciones.TipoDocumento;
  * @author Alejandro Ortega
  *
  */
-
+@NamedQueries({
+@NamedQuery(name=CuentaAsociada.findbyCliente, query="select c from CuentaAsociada c where c.clientePrincipal = ?1")
+})
 @Entity
 @Table(name = "T_CUENTA_ASOCIADA")
 public class CuentaAsociada implements Serializable {
+	
+	public static final String findbyCliente = "listarCuentasAsociadas";
 
 	@Id
 	@Column(name = "numero_cuenta", nullable = false, length = 20)

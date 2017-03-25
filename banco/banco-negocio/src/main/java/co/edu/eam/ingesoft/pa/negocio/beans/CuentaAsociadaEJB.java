@@ -45,6 +45,17 @@ public class CuentaAsociadaEJB {
 
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public void eliminarCuentaAsociada(CuentaAsociada cuenta) {
+						cuenta = buscarCuentaAsociada(cuenta.getNumeroCuenta());
+		//if (bus != null) {
+			em.remove(cuenta);
+		//}else{
+			//throw new ExcepcionNegocio("Este numero de cuenta no existe");
+		//}
+
+	}
+	
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public CuentaAsociada buscarCuentaAsociada(String numeroCuenta) {
 		CuentaAsociada cu = em.find(CuentaAsociada.class, numeroCuenta);
@@ -55,6 +66,14 @@ public class CuentaAsociadaEJB {
 	public ArrayList<Banco> listarBancos() {
 		ArrayList<Banco> list;
 		list = (ArrayList<Banco>) em.createNamedQuery(Banco.findAll).getResultList();
+		return list;
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public ArrayList<CuentaAsociada> listarCuentasAsociadas(Cliente cli) {
+		ArrayList<CuentaAsociada> list;
+		list = (ArrayList<CuentaAsociada>) em.createNamedQuery(CuentaAsociada.findbyCliente)
+				.setParameter(1, cli).getResultList();
 		return list;
 	}
 

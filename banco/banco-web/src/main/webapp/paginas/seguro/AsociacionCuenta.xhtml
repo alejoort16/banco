@@ -6,18 +6,18 @@
 	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
 
 	<ui:define name="cuerpo">
-	
-	
-	<h:form prependId="false">
-		
-		<h:panelGrid id="paneldatos" columns="3">
-		
-		<h:outputLabel for="tfnombre" id="lblnombre" value="#{msj['asociacion.nomTitular']}:" />
-				<h:inputText id="tfnombre" value="#{ControladorCuentasAsociadas.nombreTitular}" />
+		<h:form prependId="false">
+
+			<h:panelGrid id="paneldatos" columns="3">
+
+				<h:outputLabel for="tfnombre" id="lblnombre"
+					value="#{msj['asociacion.nomTitular']}:" />
+				<h:inputText id="tfnombre"
+					value="#{ControladorCuentasAsociadas.nombreTitular}" />
 				<p:message for="tfnombre" />
-		
-		
-		<h:outputLabel for="cbtipoid" id="lbltipoid"
+
+
+				<h:outputLabel for="cbtipoid" id="lbltipoid"
 					value="#{msj['asociacion.tipoDocTit']}:" />
 				<h:selectOneMenu id="cbtipoid"
 					value="#{ControladorCuentasAsociadas.tipoSeleccionado}">
@@ -26,46 +26,89 @@
 						itemValue="#{t}" />
 				</h:selectOneMenu>
 				<br></br>
-				
+
 				<h:outputLabel for="tfcedula" id="lblCedula"
 					value="#{msj['asociacion.numeroDocTit']}:" />
 				<h:inputText id="tfcedula"
 					value="#{ControladorCuentasAsociadas.numeroIdentificacionTitular}" />
 				<p:message for="tfcedula" />
-				
+
 				<h:outputLabel for="cbbanco" id="lblbanco"
 					value="#{msj['asociacion.banco']}:" />
 				<h:selectOneMenu id="cbbanco"
 					value="#{ControladorCuentasAsociadas.bancoSeleccionado}">
 
-					<f:selectItems value="#{ControladorCuentasAsociadas.bancos}" var="b"
-						itemValue="#{b}" itemLabel="#{b.name}" />
+					<f:selectItems value="#{ControladorCuentasAsociadas.bancos}"
+						var="b" itemValue="#{b}" itemLabel="#{b.name}" />
 				</h:selectOneMenu>
 				<br></br>
-				
-				
-				<h:outputLabel for="tfCuenta" id="lblCuenta"
-				value="#{msj['asociacion.numeroCuentaTit']}:"/>
-				<h:inputText id="tfCuenta" value="#{ControladorCuentasAsociadas.numeroCuenta}" />
-				<p:message for="tfCuenta"/>
-				
-				<h:outputLabel for="tfnombreAso" id="lblaso"
-				value="#{msj['asociacion.nombreAsoci']}:"/>
-				<h:inputText id="tfnombreAso" value="#{ControladorCuentasAsociadas.nombreAsociacion}" />
-				<p:message for="tfnombreAso"/>
 
-		</h:panelGrid>
-		<h:form>
+
+				<h:outputLabel for="tfCuenta" id="lblCuenta"
+					value="#{msj['asociacion.numeroCuentaTit']}:" />
+				<h:inputText id="tfCuenta"
+					value="#{ControladorCuentasAsociadas.numeroCuenta}" />
+				<p:message for="tfCuenta" />
+
+				<h:outputLabel for="tfnombreAso" id="lblaso"
+					value="#{msj['asociacion.nombreAsoci']}:" />
+				<h:inputText id="tfnombreAso"
+					value="#{ControladorCuentasAsociadas.nombreAsociacion}" />
+				<p:message for="tfnombreAso" />
+
+			</h:panelGrid>
+
 			<h:panelGrid id="paneldatosBotones" columns="2">
-			
-				<p:commandButton id="btnAsociar" value="#{msj['asociacion.asociar']}"
-				process="@this,paneldatos, paneldatosBotones" update="paneldatos"
+				<p:commandButton id="btnAsociar"
+					value="#{msj['asociacion.asociar']}"
+					process="@this,paneldatos,paneldatosBotones" update="paneldatos"
 					action="#{ControladorCuentasAsociadas.guardarAsociacion}" />
-					
-					</h:panelGrid>
-				</h:form>
+			</h:panelGrid>
+
+			<h:panelGrid id="panelTabla">
+
+				<p:dataTable id="tablaest"
+					value="#{ControladorCuentasAsociadas.cuentasAsociadas}"
+					var="cuentas" border="3">
+
+					<p:column headerText="#{msj['asociacion.nombreAsoci']}">
+						<h:outputLabel value="#{cuentas.nombreAsociacion}"></h:outputLabel>
+					</p:column>
+
+					<p:column headerText="#{msj['asociacion.numeroCuentaTit']}">
+						<h:outputLabel value="#{cuentas.numeroCuenta}"></h:outputLabel>
+					</p:column>
+
+					<p:column headerText="#{msj['asociacion.nomTitular']}">
+						<h:outputLabel value="#{cuentas.nombreTitular}"></h:outputLabel>
+					</p:column>
+
+					<p:column headerText="#{msj['asociacion.numeroDocTit']}">
+						<h:outputLabel value="#{cuentas.numeroDocumento}"></h:outputLabel>
+					</p:column>
+
+					<p:column headerText="#{msj['asociacion.estado']}">
+						<h:outputLabel value="#{cuentas.estado}"></h:outputLabel>
+					</p:column>
+
+					<p:column headerText="#{msj['asociacion.banco']}">
+						<h:outputLabel value="#{cuentas.banco.name}"></h:outputLabel>
+					</p:column>
+
+					<p:column headerText="#{msj['asociacion.acciones']}">
+						<p:commandButton
+							action="#{ControladorCuentasAsociadas.eliminarAsociacion(cuentas)}"
+							process="@this" value="#{msj['asociacion.eliminar']}"
+							update="panelTabla" />
+					</p:column>
+
+				</p:dataTable>
+			</h:panelGrid>
+
 		</h:form>
-	
+
+
+
 	</ui:define>
 
 </ui:composition>
