@@ -39,7 +39,7 @@
 					value="#{ControladorCuentasAsociadas.bancoSeleccionado}">
 
 					<f:selectItems value="#{ControladorCuentasAsociadas.bancos}"
-						var="b" itemValue="#{b}" itemLabel="#{b.name}" />
+						var="b" itemValue="#{b.id}" itemLabel="#{b.name}" />
 				</h:selectOneMenu>
 				<br></br>
 
@@ -61,8 +61,8 @@
 			<h:panelGrid id="paneldatosBotones" columns="2">
 				<p:commandButton id="btnAsociar"
 					value="#{msj['asociacion.asociar']}"
-					process="@this,paneldatos,paneldatosBotones" update="paneldatos"
-					action="#{ControladorCuentasAsociadas.guardarAsociacion}" />
+					process="@this paneldatos paneldatosBotones" update="paneldatos panelTabla"
+					action="#{ControladorCuentasAsociadas.guardarAsociacion()}" />
 			</h:panelGrid>
 
 			<h:panelGrid id="panelTabla">

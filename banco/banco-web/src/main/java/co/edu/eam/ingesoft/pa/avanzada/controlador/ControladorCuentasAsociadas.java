@@ -17,6 +17,7 @@ import org.hibernate.validator.constraints.Length;
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
 
+import co.edu.eam.ingesoft.pa.negocio.beans.BancoEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.ClienteEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.CuentaAsociadaEJB;
 import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
@@ -43,7 +44,9 @@ public class ControladorCuentasAsociadas implements Serializable {
 	private TipoDocumento tipoSeleccionadoPrincipal;
 	private String id_cliente;
 
-	private Banco bancoSeleccionado;
+	private String bancoSeleccionado;
+	
+	private Banco banco;
 
 	private List<Banco> bancos;
 	
@@ -73,6 +76,9 @@ public class ControladorCuentasAsociadas implements Serializable {
 	@EJB
 	private ClienteEJB clienteejb;
 	
+	@EJB
+	private BancoEJB bancoejb;
+	
 	@Inject
 	private ControladorSesion sesion;
 
@@ -96,10 +102,11 @@ public class ControladorCuentasAsociadas implements Serializable {
 	
 	public void guardarAsociacion(){
 		try{
+			banco = bancoejb.buscarBanco(bancoSeleccionado);
 			CuentaAsociada cu = new CuentaAsociada(numeroCuenta, nombreAsociacion, nombreTitular,
-					tipoSeleccionado, numeroIdentificacionTitular, estado, bancoSeleccionado, sesion.getUsuario().getCliente());
+					tipoSeleccionado, numeroIdentificacionTitular, estado, banco, sesion.getUsuario().getCliente());
 					asociadasejb.crearAsociacion(cu);
-					asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
+					cuentasAsociadas = asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
 					
 					// limpiar campos
 					numeroCuenta ="";
@@ -116,7 +123,7 @@ public class ControladorCuentasAsociadas implements Serializable {
 	public void eliminarAsociacion(CuentaAsociada cuenta){
 		try{
 			asociadasejb.eliminarCuentaAsociada(cuenta);
-			asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
+			cuentasAsociadas = asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
 			Messages.addFlashGlobalInfo("Cuenta de ahorros eliminada");
 			
 		}catch (ExcepcionNegocio e) {
@@ -140,20 +147,7 @@ public class ControladorCuentasAsociadas implements Serializable {
 		this.tipoSeleccionado = tipoSeleccionado;
 	}
 
-	/**
-	 * @return the bancoSeleccionado
-	 */
-	public Banco getBancoSeleccionado() {
-		return bancoSeleccionado;
-	}
-
-	/**
-	 * @param bancoSeleccionado
-	 *            the bancoSeleccionado to set
-	 */
-	public void setBancoSeleccionado(Banco bancoSeleccionado) {
-		this.bancoSeleccionado = bancoSeleccionado;
-	}
+	
 
 	/**
 	 * @return the numeroIdentificacionTitular
@@ -255,6 +249,34 @@ public class ControladorCuentasAsociadas implements Serializable {
 	 */
 	public void setCuentasAsociadas(List<CuentaAsociada> cuentasAsociadas) {
 		this.cuentasAsociadas = cuentasAsociadas;
+	}
+
+	/**
+	 * @return the bancoSeleccionado
+	 */
+	public String getBancoSeleccionado() {
+		return bancoSeleccionado;
+	}
+
+	/**
+	 * @param bancoSeleccionado the bancoSeleccionado to set
+	 */
+	public void setBancoSeleccionado(String bancoSeleccionado) {
+		this.bancoSeleccionado = bancoSeleccionado;
+	}
+
+	/**
+	 * @return the banco
+	 */
+	public Banco getBanco() {
+		return banco;
+	}
+
+	/**
+	 * @param banco the banco to set
+	 */
+	public void setBanco(Banco banco) {
+		this.banco = banco;
 	}
 
 }

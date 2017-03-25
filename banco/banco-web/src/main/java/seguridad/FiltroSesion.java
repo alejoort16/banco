@@ -32,6 +32,9 @@ public class FiltroSesion implements Filter{
 			throws IOException, ServletException {
 		System.out.println("Filtrando peticion!!!!!");
 		
+		
+		
+		
 		HttpServletRequest req=(HttpServletRequest) arg0;
 		HttpServletResponse res=(HttpServletResponse) arg1;
 		
@@ -42,8 +45,7 @@ public class FiltroSesion implements Filter{
 			chain.doFilter(arg0, arg1);
 		}else{
 			res.sendRedirect(req.getContextPath()+"/paginas/publico/Login.xhtml");
-		}
-		
+		}		
 		
 	}
 
