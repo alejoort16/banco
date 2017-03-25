@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h:panelGrid id="paneldatos" columns="3">
+			
+			<h:outputLabel for="cbCuentaOrigen" id="lbltipoidcuent"
+				value="#{msj['tranferencia.origen']}: " />
+			<h:selectOneMenu id="cbCuentaOrigen" value="#{controladorTrans.numeroCuentaOrigen}">
+				<f:selectItems value="#{controladorTrans.cuentasAhorro}" var="t"
+					itemValue="#{t.number}" itemLabel="#{t.number}" />
+			</h:selectOneMenu>
+			<br></br>
+			
+					<h:outputLabel for="cbCuentaDestino" id="lbltipoidcuentDes"
+				value="#{msj['tranferencia.destino']}: " />				
+			<h:selectOneMenu id="cbCuentaDestino" value="#{controladorTrans.numeroCuentaAsociada}">
+
+				<f:selectItems value="#{controladorTrans.cuentasAsociadas}" var="t"
+					itemValue="#{t.numeroCuenta}" itemLabel="#{t.nombreAsociacion}" />
+			</h:selectOneMenu>
+			<br></br>	
+			
+			
+			<h:outputLabel for="tfmonto" id="lblmonto"
+					value="#{msj['transferencia.monto']}:" />
+				<h:inputText id="tfmonto"
+					value="#{controladorTrans.cantidad}" />
+				<p:message for="tfmonto" />
+			</h:panelGrid>
+			
+			<br></br>
+			<br></br>
+
+			<h:panelGrid id="paneldatosBotones" columns="2">
+				<p:commandButton id="btnTransferirr"
+					value="#{msj['transferencia.aceptar']}"
+					process="@this paneldatos" update="paneldatos"
+					action="#{controladorTrans.realizarTransferencia}" />
+			</h:panelGrid>
+			
+			
+			</h:form>
+			
+			</ui:define>
+			
+			
+</ui:composition>

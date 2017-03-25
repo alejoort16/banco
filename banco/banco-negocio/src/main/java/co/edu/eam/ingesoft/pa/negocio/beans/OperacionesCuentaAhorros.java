@@ -162,30 +162,28 @@ public class OperacionesCuentaAhorros {
 		}
 	}
 	
-	/**
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public boolean transferencia(CuentaAhorros cuenta, double cantidad,Date fechaTransaccion,
-			String fuenteTr,String tipo){
+	public void transferenciaACH(String numeroCuenta, String cuentaExtranjera,double cantidad){
 		double nuevoValor = 0;
+		CuentaAhorros cuenta= em.find(CuentaAhorros.class, numeroCuenta);
+		if(cuenta==null){
+			throw new ExcepcionNegocio("NO HAY CUENTA DE AHORRO");
+		}
 		nuevoValor = cuenta.getAmmount() - cantidad;
 		if (nuevoValor <= 0) {
 			//NO SE PUEDE PONER MENSAJES EN EL EJB, EN YA QUE VA AL SERVIDOR, I AM IDIOT
 			//JOptionPane.showMessageDialog(null,
 			//"No es posible la transacción, la cuenta no puede quedar en $0");
-			return false;
+			throw new ExcepcionNegocio("No tiene el dinero suficiente en su cuenta para esta transferencia");
 
 		} else {
 			Transaccion tr;
-			CuentaAhorros cu2= em.find(CuentaAhorros.class, cuenta.getNumber());
-			cu2.setAmmount(nuevoValor);
-			producto.editarCuentaAhorros(cu2);
-			tr = new Transaccion(0, cantidad, fechaTransaccion, fuenteTr, cuenta, tipo);
-			GuardarTransaccion(tr);
-			return true;
-			
+			cuenta.setAmmount(nuevoValor);
+			producto.editarCuentaAhorros(cuenta);
+			tr = new Transaccion(0, cantidad, new Date(), "PAGINA WEB(Tranferencia ACH)", cuenta, "Transferencia ACH");
+			GuardarTransaccion(tr);		
 		}
 	}
-**/
 	
 	
 	
