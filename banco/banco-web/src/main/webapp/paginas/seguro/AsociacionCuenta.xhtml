@@ -39,7 +39,7 @@
 					value="#{ControladorCuentasAsociadas.bancoSeleccionado}">
 
 					<f:selectItems value="#{ControladorCuentasAsociadas.bancos}" var="b"
-						itemValue="#{b.name}" itemLabel="#{b.name}" />
+						itemValue="#{b}" itemLabel="#{b.name}" />
 				</h:selectOneMenu>
 				<br></br>
 				
@@ -48,17 +48,22 @@
 				value="#{msj['asociacion.numeroCuentaTit']}:"/>
 				<h:inputText id="tfCuenta" value="#{ControladorCuentasAsociadas.numeroCuenta}" />
 				<p:message for="tfCuenta"/>
+				
+				<h:outputLabel for="tfnombreAso" id="lblaso"
+				value="#{msj['asociacion.nombreAsoci']}:"/>
+				<h:inputText id="tfnombreAso" value="#{ControladorCuentasAsociadas.nombreAsociacion}" />
+				<p:message for="tfnombreAso"/>
 
 		</h:panelGrid>
-		
+		<h:form>
 			<h:panelGrid id="paneldatosBotones" columns="2">
 			
 				<p:commandButton id="btnAsociar" value="#{msj['asociacion.asociar']}"
-				process="@this,paneldatos" update="paneldatos"
+				process="@this,paneldatos, paneldatosBotones" update="paneldatos"
 					action="#{ControladorCuentasAsociadas.guardarAsociacion}" />
 					
 					</h:panelGrid>
-				
+				</h:form>
 		</h:form>
 	
 	</ui:define>
