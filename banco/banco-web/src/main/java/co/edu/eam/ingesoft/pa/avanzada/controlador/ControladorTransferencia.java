@@ -50,7 +50,6 @@ public class ControladorTransferencia implements Serializable {
 	private List<CuentaAsociada> cuentasAsociadas;
 	private String numeroCuentaAsociada;
 	
-	@Pattern(regexp = "[0-9]*", message = "solo numeros")
 	private double cantidad;
 	
 	@PostConstruct

@@ -150,6 +150,8 @@ public class ControladorPago implements Serializable {
 	 */
 	public void pagarTodoConsumo(ConsumoTarjetaCredito consumo) {
 		pagoejb.pagarUnConsumoWeb(consumo, numeroCuenta);
+		listar();
+		Messages.addGlobalInfo("Consumo pagado");
 
 	}
 
@@ -220,9 +222,7 @@ public class ControladorPago implements Serializable {
 				valorPagar = 0;
 				interestAmmount = 0;
 				capitalAmmount = 0;
-				numeroCuenta = "";
-				numeroTc = "";
-				id_cliente = "";
+				listar();
 			}
 		} catch (ExcepcionNegocio e) {
 			// TODO: handle exception
@@ -247,6 +247,7 @@ public class ControladorPago implements Serializable {
 					interestAmmount = 3.6;
 					valorDeuda = pagoejb.valorDeuda(tc);
 					Messages.addGlobalInfo("Cuota generada");
+					consumos = pagoejb.listar(numeroTc, id_cliente);
 				}
 			}
 		}catch(
