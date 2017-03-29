@@ -40,6 +40,29 @@
 			<br></br>
 
 			<h1>Tarjetas de Credito</h1>
+			<br></br>
+			<br></br>
+			<br></br>
+
+			<p:dataTable id="tablaTarjetas" value="#{controladorInicio.listaDTO}"
+				var="dto" border="3">
+
+				<p:column headerText="NUMERO">
+					<h:outputLabel value="#{dto.numTarjeta}"></h:outputLabel>
+				</p:column>
+
+				<p:column headerText="FRANQUICIA">
+					<h:outputLabel value="#{dto.nomFranquicia}"></h:outputLabel>
+				</p:column>
+
+				<p:column headerText="DEUDA A LA FECHA">
+					<h:outputLabel value="#{dto.deudaAlaFecha}"></h:outputLabel>
+				</p:column>
+
+				<p:column headerText="SALDO DISPONIBLE">
+					<h:outputLabel value="#{dto.diponible}"></h:outputLabel>
+				</p:column>
+			</p:dataTable>
 
 		</h:form>
 	</ui:define>

@@ -180,4 +180,8 @@ public class ProductoEJB {
 				.getSingleResult();
 		return cantidad.intValue();
 	}
+	
+	
+	
+	
 }

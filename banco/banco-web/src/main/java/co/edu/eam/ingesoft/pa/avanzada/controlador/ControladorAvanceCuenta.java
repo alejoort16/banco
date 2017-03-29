@@ -20,13 +20,13 @@ import enumeraciones.TipoDocumento;
 
 @Named("controladorAvanceCuenta")
 @ViewScoped
-public class ControladorAvanceCuenta implements Serializable{
+public class ControladorAvanceCuenta implements Serializable {
 
 	/**
 	 * campo cantidad
 	 */
 	private String cantidad;
-	
+
 	/**
 	 * tarjeta de credito seleccionada
 	 */
@@ -70,14 +70,16 @@ public class ControladorAvanceCuenta implements Serializable{
 
 	/**
 	 * buscar un cliente por identificacion y tipo, si lo encuentra
-	 * automaticamente carga los prouctos combos de tc y cuentas con sus respectivas
+	 * automaticamente carga los prouctos combos de tc y cuentas con sus
+	 * respectivas
 	 */
 	public void listarProductos() {
 		try {
 
 			TipoDocumento tipoSeleccionado = sesion.getUsuario().getCliente().getIdentificationType();
 			String id_client = sesion.getUsuario().getCliente().getIdentificationNumber();
-
+			System.out.println("tipoooooooo :" + tipoSeleccionado);
+			System.out.println("ideeeeeeeeee :" + id_client);
 			tarjetas = pagoejb.listarTCCliente(id_client, tipoSeleccionado);
 			cuentasAhorro = operacionesejb.listarCuentaAhorros(tipoSeleccionado, id_client);
 
@@ -88,12 +90,13 @@ public class ControladorAvanceCuenta implements Serializable{
 			Messages.addGlobalError(e.getMessage());
 		}
 	}
-	
+
 	/**
-	 * metodo que redirige a la  pagina inicio
+	 * metodo que redirige a la pagina inicio
+	 * 
 	 * @return
 	 */
-	public String cancelar(){
+	public String cancelar() {
 		return "/paginas/seguro/inicio.xhtml";
 	}
 
@@ -145,5 +148,4 @@ public class ControladorAvanceCuenta implements Serializable{
 		this.cantidad = cantidad;
 	}
 
-	
 }

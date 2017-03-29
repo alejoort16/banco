@@ -19,6 +19,7 @@ import javax.persistence.TemporalType;
 		+ " t WHERE t.cliente=?1"),	//recibe cliente!!!!
 @NamedQuery(name=TarjetaCredito.tarjetasCliente, query="SELECT t FROM TarjetaCredito t "
 		+ "WHERE t.cliente=?1")
+
 })
 @Entity
 @Table(name = "T_CREDITCARD")

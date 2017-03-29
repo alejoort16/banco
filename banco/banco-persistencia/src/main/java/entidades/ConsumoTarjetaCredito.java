@@ -21,61 +21,60 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @NamedQueries({
-@NamedQuery(name=ConsumoTarjetaCredito.finByTc, query="select f from ConsumoTarjetaCredito f where f.isPayed = false and "
-		+ "f.creditCardNumber =?1"),
-@NamedQuery(name=ConsumoTarjetaCredito.finByTcyWeb, query="select f from ConsumoTarjetaCredito"
-		+ " f join f.creditCardNumber tc  where f.isPayed = false and "
-		+ "f.creditCardNumber =?1 and tc.cliente.identificationNumber=?2")
-})
+		@NamedQuery(name = ConsumoTarjetaCredito.finByTc, query = "select f from ConsumoTarjetaCredito f where f.isPayed = false and "
+				+ "f.creditCardNumber =?1"),
+		@NamedQuery(name = ConsumoTarjetaCredito.finByTcyWeb, query = "select f from ConsumoTarjetaCredito"
+				+ " f join f.creditCardNumber tc  where f.isPayed = false and "
+				+ "f.creditCardNumber =?1 and tc.cliente.identificationNumber=?2"),
+		@NamedQuery(name = ConsumoTarjetaCredito.sumaRemainin, query = "SELECT SUM(c.remainingAmmount)FROM ConsumoTarjetaCredito c where c.creditCardNumber = ?1") })
 @Entity
-@Table(name="T_CREDITCARD_CONSUME")
+@Table(name = "T_CREDITCARD_CONSUME")
 public class ConsumoTarjetaCredito implements Serializable {
-	
+
+	public static final String sumaRemainin = "sumatoriaRemainin";
 	public static final String finByTc = "listarConsumos";
 	public static final String finByTcyWeb = "listarConsumosParaWeb";
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="id", nullable = false)
+	@Column(name = "id", nullable = false)
 	private int id;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="date_consume", nullable = false)
+	@Column(name = "date_consume", nullable = false)
 	private Date dateConsume;
-	
-	@Column(name="number_shares", nullable = false)
+
+	@Column(name = "number_shares", nullable = false)
 	private int numberShares;
-	
-	@Column(name="ammount", nullable = false)
+
+	@Column(name = "ammount", nullable = false)
 	private double ammount;
-	
-	@Column(name="interest", nullable = false)
+
+	@Column(name = "interest", nullable = false)
 	private double interest;
-	
-	@Column(name="remaining_ammount", nullable = false)
+
+	@Column(name = "remaining_ammount", nullable = false)
 	private double remainingAmmount;
-	
-	@Column(name="is_payed", nullable = false)	
+
+	@Column(name = "is_payed", nullable = false)
 	private boolean isPayed;
-	
-	@JoinColumn(name="creditcard_number")
+
+	@JoinColumn(name = "creditcard_number")
 	@ManyToOne
 	private TarjetaCredito creditCardNumber;
-	
-	@Column(name="cuotas_restantes")
+
+	@Column(name = "cuotas_restantes")
 	private int cuotasRestantes;
-	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy= "idConsume")
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "idConsume")
 	private List<PagoCunsumoTarCredito> pago;
-	
-	public ConsumoTarjetaCredito(){
-		
+
+	public ConsumoTarjetaCredito() {
+
 	}
 
-	
-	
 	public ConsumoTarjetaCredito(int id, Date dateConsume, int numberShares, double ammount, double interest,
-			double remainingAmmount, boolean isPayed, TarjetaCredito creditCardNumber,int cuotRes) {
+			double remainingAmmount, boolean isPayed, TarjetaCredito creditCardNumber, int cuotRes) {
 		super();
 		this.id = id;
 		this.dateConsume = dateConsume;
@@ -87,10 +86,6 @@ public class ConsumoTarjetaCredito implements Serializable {
 		this.creditCardNumber = creditCardNumber;
 		this.cuotasRestantes = cuotRes;
 	}
-	
-	
-
-
 
 	/**
 	 * @return the cuotasRestantes
@@ -99,16 +94,13 @@ public class ConsumoTarjetaCredito implements Serializable {
 		return cuotasRestantes;
 	}
 
-
-
 	/**
-	 * @param cuotasRestantes the cuotasRestantes to set
+	 * @param cuotasRestantes
+	 *            the cuotasRestantes to set
 	 */
 	public void setCuotasRestantes(int cuotasRestantes) {
 		this.cuotasRestantes = cuotasRestantes;
 	}
-
-
 
 	/**
 	 * @return the id
@@ -117,16 +109,13 @@ public class ConsumoTarjetaCredito implements Serializable {
 		return id;
 	}
 
-
-
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 
 	/**
 	 * @return the dateConsume
@@ -135,16 +124,13 @@ public class ConsumoTarjetaCredito implements Serializable {
 		return dateConsume;
 	}
 
-
-
 	/**
-	 * @param dateConsume the dateConsume to set
+	 * @param dateConsume
+	 *            the dateConsume to set
 	 */
 	public void setDateConsume(Date dateConsume) {
 		this.dateConsume = dateConsume;
 	}
-
-
 
 	/**
 	 * @return the numberShares
@@ -153,16 +139,13 @@ public class ConsumoTarjetaCredito implements Serializable {
 		return numberShares;
 	}
 
-
-
 	/**
-	 * @param numberShares the numberShares to set
+	 * @param numberShares
+	 *            the numberShares to set
 	 */
 	public void setNumberShares(int numberShares) {
 		this.numberShares = numberShares;
 	}
-
-
 
 	/**
 	 * @return the ammount
@@ -171,16 +154,13 @@ public class ConsumoTarjetaCredito implements Serializable {
 		return ammount;
 	}
 
-
-
 	/**
-	 * @param ammount the ammount to set
+	 * @param ammount
+	 *            the ammount to set
 	 */
 	public void setAmmount(double ammount) {
 		this.ammount = ammount;
 	}
-
-
 
 	/**
 	 * @return the interest
@@ -189,16 +169,13 @@ public class ConsumoTarjetaCredito implements Serializable {
 		return interest;
 	}
 
-
-
 	/**
-	 * @param interest the interest to set
+	 * @param interest
+	 *            the interest to set
 	 */
 	public void setInterest(double interest) {
 		this.interest = interest;
 	}
-
-
 
 	/**
 	 * @return the remainingAmmount
@@ -207,16 +184,13 @@ public class ConsumoTarjetaCredito implements Serializable {
 		return remainingAmmount;
 	}
 
-
-
 	/**
-	 * @param remainingAmmount the remainingAmmount to set
+	 * @param remainingAmmount
+	 *            the remainingAmmount to set
 	 */
 	public void setRemainingAmmount(double remainingAmmount) {
 		this.remainingAmmount = remainingAmmount;
 	}
-
-
 
 	/**
 	 * @return the isPayed
@@ -225,16 +199,13 @@ public class ConsumoTarjetaCredito implements Serializable {
 		return isPayed;
 	}
 
-
-
 	/**
-	 * @param isPayed the isPayed to set
+	 * @param isPayed
+	 *            the isPayed to set
 	 */
 	public void setPayed(boolean isPayed) {
 		this.isPayed = isPayed;
 	}
-
-
 
 	/**
 	 * @return the creditCardNumber
@@ -243,16 +214,13 @@ public class ConsumoTarjetaCredito implements Serializable {
 		return creditCardNumber;
 	}
 
-
-
 	/**
-	 * @param creditCardNumber the creditCardNumber to set
+	 * @param creditCardNumber
+	 *            the creditCardNumber to set
 	 */
 	public void setCreditCardNumber(TarjetaCredito creditCardNumber) {
 		this.creditCardNumber = creditCardNumber;
 	}
-
-
 
 	/**
 	 * @return the pago
@@ -261,18 +229,17 @@ public class ConsumoTarjetaCredito implements Serializable {
 		return pago;
 	}
 
-
-
 	/**
-	 * @param pago the pago to set
+	 * @param pago
+	 *            the pago to set
 	 */
 	public void setPago(List<PagoCunsumoTarCredito> pago) {
 		this.pago = pago;
 	}
 
-
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -295,7 +262,9 @@ public class ConsumoTarjetaCredito implements Serializable {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -336,9 +305,5 @@ public class ConsumoTarjetaCredito implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }
