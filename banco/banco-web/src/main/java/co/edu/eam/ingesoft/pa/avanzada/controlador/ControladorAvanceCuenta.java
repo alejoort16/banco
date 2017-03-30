@@ -60,7 +60,7 @@ public class ControladorAvanceCuenta implements Serializable {
 	PagoConsumoEJB pagoejb;
 
 	@Inject
-	private SesionController sesion;
+	private ControladorSesion sesion;
 
 	@PostConstruct
 	public void inicializar() {
@@ -78,8 +78,6 @@ public class ControladorAvanceCuenta implements Serializable {
 
 			TipoDocumento tipoSeleccionado = sesion.getUsuario().getCliente().getIdentificationType();
 			String id_client = sesion.getUsuario().getCliente().getIdentificationNumber();
-			System.out.println("tipoooooooo :" + tipoSeleccionado);
-			System.out.println("ideeeeeeeeee :" + id_client);
 			tarjetas = pagoejb.listarTCCliente(id_client, tipoSeleccionado);
 			cuentasAhorro = operacionesejb.listarCuentaAhorros(tipoSeleccionado, id_client);
 
@@ -132,11 +130,11 @@ public class ControladorAvanceCuenta implements Serializable {
 		this.tarjetas = tarjetas;
 	}
 
-	public SesionController getSesion() {
+	public ControladorSesion getSesion() {
 		return sesion;
 	}
 
-	public void setSesion(SesionController sesion) {
+	public void setSesion(ControladorSesion sesion) {
 		this.sesion = sesion;
 	}
 
