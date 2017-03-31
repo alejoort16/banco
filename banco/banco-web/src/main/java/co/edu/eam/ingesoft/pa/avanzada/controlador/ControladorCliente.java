@@ -8,6 +8,7 @@ import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
@@ -38,6 +39,13 @@ public class ControladorCliente implements Serializable{
 	@Length(min=3,max=50,message="longitud entre 3 y 50")
 	private String apellido;
 	
+	@Email
+	private String correo;
+	
+	@Pattern(regexp="[0-9]*",message="solo numeros")
+	@Length(min=10,max=13,message="longitud entre 10 y 13")
+	private String celular;
+	
 	private List<Cliente> clientes;
 	
 
@@ -59,13 +67,15 @@ public class ControladorCliente implements Serializable{
 	 */
 	public void crear(){
 		try{
-		Cliente cli = new Cliente(nombre, apellido, tipoSeleccionado, numeroIdentificacion);
+		Cliente cli = new Cliente(nombre, apellido,celular,correo,tipoSeleccionado, numeroIdentificacion);
 				clienteEJB.crearCliente(cli);
 				
 				// limpiar campos
 				nombre ="";
 				apellido  ="";
 				numeroIdentificacion ="";
+				celular ="";
+				correo="";
 				clientes = clienteEJB.listar();	
 				
 				Messages.addFlashGlobalInfo("Cliente creado");
@@ -172,5 +182,35 @@ public class ControladorCliente implements Serializable{
 	public void setClientes(List<Cliente> clientes) {
 		this.clientes = clientes;
 	}
+
+	/**
+	 * @return the correo
+	 */
+	public String getCorreo() {
+		return correo;
+	}
+
+	/**
+	 * @param correo the correo to set
+	 */
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	/**
+	 * @return the celular
+	 */
+	public String getCelular() {
+		return celular;
+	}
+
+	/**
+	 * @param celular the celular to set
+	 */
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+	
+	
 
 }

@@ -43,6 +43,13 @@
 					value="#{msj['transferencia.aceptar']}"
 					process="@this paneldatos" update="paneldatos"
 					action="#{controladorTrans.realizarTransferencia}" />
+					
+					<p:commandButton id="btnCancelar"
+					value="#{msj['mensajes.cancelar']}"
+					process="@this paneldatos" update="paneldatos"
+					action="#{controladorTrans.cancelar}" />
+					
+					
 			</h:panelGrid>
 			
 			

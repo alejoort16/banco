@@ -5,6 +5,7 @@ package co.edu.eam.ingesoft.pa.negocio.beans;
 
 import java.util.ArrayList;
 
+import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
@@ -33,12 +34,24 @@ public class CuentaAsociadaEJB {
 	@PersistenceContext
 	EntityManager em;
 	
+	@EJB
+	NotificacionesEJB notificaciones;
+	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void crearAsociacion(CuentaAsociada cuenta) {
 
 		CuentaAsociada bus = buscarCuentaAsociada(cuenta.getNumeroCuenta());
 		if (bus == null) {
 			em.persist(cuenta);
+			notificaciones.enviarCorreo("A su perfil en el banco Concordia se le asocio la cuenta "+cuenta.getNumeroCuenta()+" del"
+					+ " banco "+cuenta.getBanco().getName()+" "
+					+ "pertenecienta a "+cuenta.getNombreTitular(), "infobanco@hotmail.com", 
+					cuenta.getClientePrincipal().getCorreo(), "ASOCIACION DE CUENTA EXTRANJERA");
+			
+			//notificaciones.enviarSms("A su perfil en el banco Concordia se le asocio la cuenta "+cuenta.getNumeroCuenta()+" del"
+				//	+ " banco "+cuenta.getBanco().getName()+" "
+					//+ "pertenecienta a "+cuenta.getNombreTitular(), cuenta.getClientePrincipal().getCelular());
+			
 		}else{
 			throw new ExcepcionNegocio("Este numero de cuenta ya esta asociado");
 		}

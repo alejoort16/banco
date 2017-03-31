@@ -45,9 +45,16 @@ public class Cliente implements Serializable  {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy= "cliente")
 	private List<Producto> productos;
+	
 	public Cliente(){
 		
 	}
+	
+	@Column(name="celular",  length=50)
+	private String celular;
+	
+	@Column(name="correo",  length=50)
+	private String correo;
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -175,6 +182,40 @@ public class Cliente implements Serializable  {
 		super();
 		this.name = name;
 		this.lastName = lastName;
+		this.identificationType = identificationType;
+		this.identificationNumber = identificationNumber;
+	}
+	/**
+	 * @return the celular
+	 */
+	public String getCelular() {
+		return celular;
+	}
+	/**
+	 * @param celular the celular to set
+	 */
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+	/**
+	 * @return the correo
+	 */
+	public String getCorreo() {
+		return correo;
+	}
+	/**
+	 * @param correo the correo to set
+	 */
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	public Cliente(String name, String lastName, String celular, String correo, TipoDocumento identificationType,
+			String identificationNumber) {
+		super();
+		this.name = name;
+		this.lastName = lastName;
+		this.celular = celular;
+		this.correo = correo;
 		this.identificationType = identificationType;
 		this.identificationNumber = identificationNumber;
 	}

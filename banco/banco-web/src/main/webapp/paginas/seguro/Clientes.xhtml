@@ -32,6 +32,14 @@
 				<h:outputLabel for="tfapellido" id="lblapellido" value="#{msj['clientes.apellido']}:" />
 				<h:inputText id="tfapellido" value="#{ControladorClientes.apellido}" />
 				<p:message for="tfapellido" />
+				
+				<h:outputLabel for="tfcorreo" id="lblcorreo" value="#{msj['clientes.correo']}:" />
+				<h:inputText id="tfcorreo" value="#{ControladorClientes.correo}" />
+				<p:message for="tfcorreo" />
+				
+				<h:outputLabel for="tfcelular" id="lblcelular" value="#{msj['clientes.celular']}:" />
+				<h:inputText id="tfcelular" value="#{ControladorClientes.celular}" />
+				<p:message for="tfcelular" />
 			</h:panelGrid>
 
 			<h:panelGrid id="panelbtns" columns="3">
@@ -63,6 +71,14 @@
 
 			<p:column headerText="#{msj['clientes.apellido']}">
 				<h:outputLabel value="#{est.lastName}"></h:outputLabel>
+			</p:column>
+			
+			<p:column headerText="#{msj['clientes.correo']}">
+				<h:outputLabel value="#{est.correo}"></h:outputLabel>
+			</p:column>
+			
+			<p:column headerText="#{msj['clientes.celular']}">
+				<h:outputLabel value="#{est.celular}"></h:outputLabel>
 			</p:column>
 		</p:dataTable>
 	</ui:define>

@@ -61,6 +61,15 @@ public class ControladorTransferencia implements Serializable {
 		cuentasAsociadas = asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
 	}
 	
+	/**
+	 * metodo que redirige a la pagina inicio
+	 * 
+	 * @return
+	 */
+	public String cancelar() {
+		return "/paginas/seguro/inicio.xhtml";
+	}
+	
 	public void realizarTransferencia(){
 	try{	
 		transaccionejb.transferenciaACH(numeroCuentaOrigen, numeroCuentaAsociada, cantidad);

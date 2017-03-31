@@ -34,6 +34,9 @@ public class Transaccion implements Serializable{
 	@Column(name="source_transaction", nullable= false)
 	private String sourceTransaction;
 	
+	@Column(name="numero_verificacion")
+	private int numeroVerificacion;
+	
 	@JoinColumn(name="saving_account_number")
 	@ManyToOne
 	private CuentaAhorros savingAccountNumber;
