@@ -1,6 +1,7 @@
 package co.edu.eam.ingesoft.pa.negocio.beans;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -116,6 +117,38 @@ public class ConsumoTCEJB {
 			throw new ExcepcionNegocio("no hay datos para mostrar");
 		}
 
+	}
+
+	public void avanceCuenta(String tarjeta, double cantidad, String cuenta) {
+
+		CuentaAhorros cuent = productosejb.buscarCuentaAhorros(cuenta);
+		TarjetaCredito tarj = productosejb.buscarTarjeta(tarjeta);
+		double monto = tarj.getAmmount();
+		double porc = monto * 0.3;
+		int cuotasRest = 24;
+		boolean isPayed = false;
+		if (cantidad < porc) {
+			if (cantidad < monto) {
+				double montoCuenta = cuent.getAmmount() + cantidad;
+				cuent.setAmmount(montoCuenta);
+				em.merge(cuent);
+
+				double montoTarjeta = tarj.getAmmount() - cantidad;
+				tarj.setAmmount(montoTarjeta);
+				em.merge(tarj);
+
+				Date fecha = new Date();
+				ConsumoTarjetaCredito consumo = new ConsumoTarjetaCredito(0, fecha, 24, cantidad, 3.6, cantidad,
+						isPayed, tarj, cuotasRest);
+				em.persist(consumo);
+
+			} else {
+				throw new ExcepcionNegocio("no tiene suficiente monto para hacer la operacion");
+			}
+
+		} else {
+			throw new ExcepcionNegocio("solo se puede hasta el 30% del monto disponible de su tarjeta");
+		}
 	}
 
 }
