@@ -27,30 +27,34 @@ import enumeraciones.TipoDocumento;
 @Stateless
 @Remote(ITransaccionesRemote.class)
 public class OperacionesCuentaAhorros {
-	
+
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@EJB
 	private ProductoEJB producto;
-	
+
 	@EJB
 	private ClienteEJB clienteejb;
-	
+
+	@EJB
+	NotificacionesEJB notificaciones;
+
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void GuardarTransaccion(Transaccion tra) {
 
 		Transaccion bus = buscarTransaccion(tra.getId());
 		if (bus == null) {
 			em.persist(tra);
-		}else{
+		} else {
 			throw new ExcepcionNegocio("Ya existe el cliente");
 		}
 	}
 
 	/**
 	 * 
-	 * @param num, numero de la transaccion a buscar
+	 * @param num,
+	 *            numero de la transaccion a buscar
 	 * @return
 	 */
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
@@ -58,10 +62,10 @@ public class OperacionesCuentaAhorros {
 		Transaccion tr = em.find(Transaccion.class, num);
 		return tr;
 	}
-	
+
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public boolean consignacion(CuentaAhorros cuenta, double cantidad,Date fechaTransaccion,
-			String fuenteTr,String tipo) {
+	public boolean consignacion(CuentaAhorros cuenta, double cantidad, Date fechaTransaccion, String fuenteTr,
+			String tipo) {
 		double nuevoValor = 0;
 		nuevoValor = cuenta.getAmmount() + cantidad;
 
@@ -69,27 +73,39 @@ public class OperacionesCuentaAhorros {
 				cuenta.getSavingInterest(), nuevoValor);
 
 		producto.editarCuentaAhorros(cu);
+
+		notificaciones
+				.enviarCorreo(
+						"ud ha hecho una consignacion bancaria con un saldo de: " + cantidad
+								+ "\n Fecha de consignacion : " + fechaTransaccion,
+						"cualquiera@hotmail.com", "romanleon2010@hotmail.com", "Consignacion");
+
 		return true;
 	}
-	
+
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public boolean retiro(CuentaAhorros cuenta, double cantidad,Date fechaTransaccion,
-			String fuenteTr,String tipo){
+	public boolean retiro(CuentaAhorros cuenta, double cantidad, Date fechaTransaccion, String fuenteTr, String tipo) {
 		double nuevoValor = 0;
 		nuevoValor = cuenta.getAmmount() - cantidad;
 		if (nuevoValor <= 0) {
 			return false;
 		} else {
 			Transaccion tr;
-			CuentaAhorros cu2= em.find(CuentaAhorros.class, cuenta.getNumber());
+			CuentaAhorros cu2 = em.find(CuentaAhorros.class, cuenta.getNumber());
 			cu2.setAmmount(nuevoValor);
 			producto.editarCuentaAhorros(cu2);
 			tr = new Transaccion(0, cantidad, fechaTransaccion, fuenteTr, cuenta, tipo);
 			GuardarTransaccion(tr);
+
+			notificaciones.enviarCorreo(
+					"ud ha hecho un retiro bancario con un saldo de: " + cantidad + "\n Fecha de consignacion : "
+							+ fechaTransaccion,
+					"cualquiera@hotmail.com", "romanleon2010@hotmail.com", "Retiro bancario");
 			return true;
+
 		}
 	}
-	
+
 	/**
 	 * metodo que lista las cuentas de ahorro de un cliente
 	 * 
@@ -105,7 +121,7 @@ public class OperacionesCuentaAhorros {
 		List<CuentaAhorros> lista = q.getResultList();
 		return lista;
 	}
-	
+
 	/**
 	 * metodo para transferir saldo de una cuenta a otra
 	 * 
@@ -124,7 +140,8 @@ public class OperacionesCuentaAhorros {
 
 		double amm = cuentaActual.getAmmount();
 
-		if (cuentaActual.getCliente().getIdentificationNumber().equals(cuentaDestino.getCliente().getIdentificationNumber())) {
+		if (cuentaActual.getCliente().getIdentificationNumber()
+				.equals(cuentaDestino.getCliente().getIdentificationNumber())) {
 			if ((cuentaActual != null) && (cuentaDestino != null)) {
 
 				if (monto > amm) {
@@ -140,7 +157,7 @@ public class OperacionesCuentaAhorros {
 
 					double saldoAct = cuentaDestino.getAmmount();
 					double saldoFinal = saldoAct + monto;
-					CuentaAhorros cuentaDos= em.find(CuentaAhorros.class, cuentaDest);
+					CuentaAhorros cuentaDos = em.find(CuentaAhorros.class, cuentaDest);
 					cuentaDos.setAmmount(saldoFinal);
 					producto.editarCuentaAhorros(cuentaDos);
 
@@ -153,6 +170,13 @@ public class OperacionesCuentaAhorros {
 					transaccion.setTransactionDate(trans);
 					transaccion.setType("Transferencia");
 					GuardarTransaccion(transaccion);
+
+					notificaciones
+							.enviarCorreo(
+									"ud ha hecho una transferencia bancaria con un saldo de: " + monto
+											+ "\nCuenta Origen : " + cuentaActu + "\nCuenta Destino: " + cuentaDest
+											+ "\n Fecha de consignacion : " + trans,
+									"cualquiera@hotmail.com", "romanleon2010@hotmail.com", "Consignacion");
 				}
 			} else {
 				throw new ExcepcionNegocio("verifique que haya escrito bien los numeros de las cuentas");
@@ -161,19 +185,20 @@ public class OperacionesCuentaAhorros {
 			throw new ExcepcionNegocio("solo se permite hacer transferencias a cuentas del mismo cliente");
 		}
 	}
-	
+
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public void transferenciaACH(String numeroCuenta, String cuentaExtranjera,double cantidad){
+	public void transferenciaACH(String numeroCuenta, String cuentaExtranjera, double cantidad) {
 		double nuevoValor = 0;
-		CuentaAhorros cuenta= em.find(CuentaAhorros.class, numeroCuenta);
-		if(cuenta==null){
+		CuentaAhorros cuenta = em.find(CuentaAhorros.class, numeroCuenta);
+		if (cuenta == null) {
 			throw new ExcepcionNegocio("NO HAY CUENTA DE AHORRO");
 		}
 		nuevoValor = cuenta.getAmmount() - cantidad;
 		if (nuevoValor <= 0) {
-			//NO SE PUEDE PONER MENSAJES EN EL EJB, EN YA QUE VA AL SERVIDOR, I AM IDIOT
-			//JOptionPane.showMessageDialog(null,
-			//"No es posible la transacción, la cuenta no puede quedar en $0");
+			// NO SE PUEDE PONER MENSAJES EN EL EJB, EN YA QUE VA AL SERVIDOR, I
+			// AM IDIOT
+			// JOptionPane.showMessageDialog(null,
+			// "No es posible la transacción, la cuenta no puede quedar en $0");
 			throw new ExcepcionNegocio("No tiene el dinero suficiente en su cuenta para esta transferencia");
 
 		} else {
@@ -181,10 +206,8 @@ public class OperacionesCuentaAhorros {
 			cuenta.setAmmount(nuevoValor);
 			producto.editarCuentaAhorros(cuenta);
 			tr = new Transaccion(0, cantidad, new Date(), "PAGINA WEB(Tranferencia ACH)", cuenta, "Transferencia ACH");
-			GuardarTransaccion(tr);		
+			GuardarTransaccion(tr);
 		}
 	}
-	
-	
-	
+
 }
