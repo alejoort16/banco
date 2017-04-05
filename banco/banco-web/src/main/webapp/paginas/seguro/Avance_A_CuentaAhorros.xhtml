@@ -39,7 +39,8 @@
 			</h:panelGrid>
 
 			<h:panelGrid id="panebotones" columns="2">
-				<p:commandButton id="btnAceptar" value="#{msj['mensajes.aceptar']}" />
+				<p:commandButton id="btnAceptar" value="#{msj['mensajes.aceptar']}"
+				action="#{controladorAvanceCuenta.transferir}" />
 				<p:commandButton id="btnCancelar"
 					value="#{msj['mensajes.cancelar']}"
 					action="#{controladorAvanceCuenta.cancelar}" />

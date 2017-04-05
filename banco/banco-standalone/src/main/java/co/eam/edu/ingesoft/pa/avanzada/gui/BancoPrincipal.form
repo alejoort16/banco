@@ -554,40 +554,42 @@
                       <Component id="jBGuardarTransaccion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="316" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLCantidadOperacion" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="jLCantidadOperacion" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jTFCantidadTransaccion" min="-2" pref="194" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                       <Component id="jlTipoOperacion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLFuenteTransaccion1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLNumeroCuentaTransaccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLNumeroCuentaTransaccionOrigen" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="jLNumeroCuentaTransaccion" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jCBTipoTransaccion" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
+                                          <Component id="jTFNumeroCuentaOrigen" min="-2" pref="194" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTFNumeroCuentaTransaccion" min="-2" pref="194" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLNumeroCuentaTransaccionOrigen" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jCBTipoTransaccion" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTFFuenteTransaccion1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTFCantidadTransaccion" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTFNumeroCuentaTransaccion" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jTFNumeroCuentaOrigen" min="-2" pref="194" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                      <EmptySpace min="131" pref="131" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -595,27 +597,26 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jlTipoOperacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCBTipoTransaccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jlTipoOperacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCBTipoTransaccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLCantidadOperacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jTFCantidadTransaccion" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLFuenteTransaccion1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTFFuenteTransaccion1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLNumeroCuentaTransaccion" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFNumeroCuentaTransaccion" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLCantidadOperacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTFCantidadTransaccion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLNumeroCuentaTransaccion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTFNumeroCuentaTransaccion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLNumeroCuentaTransaccionOrigen" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTFNumeroCuentaOrigen" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -653,21 +654,6 @@
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCBTipoTransaccionItemStateChanged"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLFuenteTransaccion1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Simplified Arabic" size="12" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="FUENTE DE LA TRANSACCI&#xd3;N:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTFFuenteTransaccion1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Simplified Arabic" size="12" style="0"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLCantidadOperacion">
               <Properties>

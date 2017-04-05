@@ -86,774 +86,740 @@ public class BancoPrincipal extends javax.swing.JFrame {
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
-	// Code">//GEN-BEGIN:initComponents
-	private void initComponents() {
-
-		jLabel1 = new javax.swing.JLabel();
-		jTPPrincipal = new javax.swing.JTabbedPane();
-		jPCliente = new javax.swing.JPanel();
-		jLTipo = new javax.swing.JLabel();
-		jCBTipoId = new javax.swing.JComboBox();
-		jLId = new javax.swing.JLabel();
-		jTFId = new javax.swing.JTextField();
-		jLNombre = new javax.swing.JLabel();
-		jLApellido = new javax.swing.JLabel();
-		jTFNombre = new javax.swing.JTextField();
-		jTFApellido = new javax.swing.JTextField();
-		jBGuardarCliente = new javax.swing.JButton();
-		jBBuscarCliente = new javax.swing.JButton();
-		jPProducto = new javax.swing.JPanel();
-		jLabel6 = new javax.swing.JLabel();
-		jCBTipoProducto = new javax.swing.JComboBox();
-		jLabel7 = new javax.swing.JLabel();
-		jTFNumeroPro = new javax.swing.JTextField();
-		jTFIdCLienteProducto = new javax.swing.JTextField();
-		jCBIdClienteProducto = new javax.swing.JComboBox();
-		jLabel8 = new javax.swing.JLabel();
-		jLIdClienteProducto = new javax.swing.JLabel();
-		jTFSaldo = new javax.swing.JTextField();
-		jLSaldo = new javax.swing.JLabel();
-		jLabel11 = new javax.swing.JLabel();
-		jLCvc = new javax.swing.JLabel();
-		jTFCvc = new javax.swing.JTextField();
-		jLFechaExpiracion = new javax.swing.JLabel();
-		jDateFechaExpiracion = new com.toedter.calendar.JDateChooser();
-		jLFranquicia = new javax.swing.JLabel();
-		jCBFranquicia = new javax.swing.JComboBox();
-		jBCrearProducto = new javax.swing.JButton();
-		jLInteres = new javax.swing.JLabel();
-		jTFInteres = new javax.swing.JTextField();
-		jBBuscarProducto = new javax.swing.JButton();
-		jPOperacion = new javax.swing.JPanel();
-		jlTipoOperacion = new javax.swing.JLabel();
-		jCBTipoTransaccion = new javax.swing.JComboBox();
-		jLFuenteTransaccion1 = new javax.swing.JLabel();
-		jTFFuenteTransaccion1 = new javax.swing.JTextField();
-		jLCantidadOperacion = new javax.swing.JLabel();
-		jLabel12 = new javax.swing.JLabel();
-		jTFCantidadTransaccion = new javax.swing.JTextField();
-		jLNumeroCuentaTransaccion = new javax.swing.JLabel();
-		jTFNumeroCuentaTransaccion = new javax.swing.JTextField();
-		jBGuardarTransaccion = new javax.swing.JButton();
-		jLNumeroCuentaTransaccionOrigen = new javax.swing.JLabel();
-		jTFNumeroCuentaOrigen = new javax.swing.JTextField();
-		jPConsumo = new javax.swing.JPanel();
-		jLValorTotalConsumo = new javax.swing.JLabel();
-		jTFValorTotalConsumo = new javax.swing.JTextField();
-		jInteresConsumo = new javax.swing.JLabel();
-		jTFInteresConsumo = new javax.swing.JTextField();
-		jLNumeroCuotasConsumo = new javax.swing.JLabel();
-		jLValorPorPagarConsumo = new javax.swing.JLabel();
-		jLTarjetaCreditoConsumo = new javax.swing.JLabel();
-		jTFValorXPagarConsumo = new javax.swing.JTextField();
-		jTFTarjetaCreditoConsumo = new javax.swing.JTextField();
-		jCBCuotasConsumo = new javax.swing.JComboBox();
-		jLPag = new javax.swing.JLabel();
-		jLPagadoBoolean = new javax.swing.JLabel();
-		jLabel2 = new javax.swing.JLabel();
-		jLabel3 = new javax.swing.JLabel();
-		jBGuardarConsumo = new javax.swing.JButton();
-		jLabel4 = new javax.swing.JLabel();
-		jCBTipoConsumo = new javax.swing.JComboBox();
-		jPanel1 = new javax.swing.JPanel();
-		jLValorPagarPago = new javax.swing.JLabel();
-		jLAbonoCapital = new javax.swing.JLabel();
-		jLAbonoInteres = new javax.swing.JLabel();
-		jLabel13 = new javax.swing.JLabel();
-		jTFValorPagarPago = new javax.swing.JTextField();
-		jTFAbonoCapital = new javax.swing.JTextField();
-		jTFAbonoInteres = new javax.swing.JTextField();
-		jtfNumeroTCPago = new javax.swing.JTextField();
-		jLabel14 = new javax.swing.JLabel();
-		jCBComoElPago = new javax.swing.JComboBox();
-		jBGenerarPago = new javax.swing.JButton();
-		jBRealizarPago = new javax.swing.JButton();
-		jLIngreseValorPago = new javax.swing.JLabel();
-		jTFIngreseValorPago = new javax.swing.JTextField();
-
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-		jLabel1.setFont(new java.awt.Font("Simplified Arabic", 1, 18)); // NOI18N
-		jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		jLabel1.setText("Banco CONCORDIA");
-
-		jTPPrincipal.setFont(new java.awt.Font("Simplified Arabic", 1, 14)); // NOI18N
-
-		jLTipo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLTipo.setText("TIPO DE IDENTIFICACIÓN:");
-
-		jCBTipoId.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jLId.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLId.setText("IDENTIFICACIÓN:");
-
-		jTFId.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jLNombre.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLNombre.setText("NOMBRE:");
-
-		jLApellido.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLApellido.setText("APELLIDO:");
-
-		jTFNombre.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jTFApellido.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jBGuardarCliente.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jBGuardarCliente.setText("GUARDAR CLIENTE");
-		jBGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBGuardarClienteActionPerformed(evt);
-			}
-		});
-
-		jBBuscarCliente.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jBBuscarCliente.setText("BUSCAR CLIENTE");
-		jBBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBBuscarClienteActionPerformed(evt);
-			}
-		});
-
-		javax.swing.GroupLayout jPClienteLayout = new javax.swing.GroupLayout(jPCliente);
-		jPCliente.setLayout(jPClienteLayout);
-		jPClienteLayout
-				.setHorizontalGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(jPClienteLayout.createSequentialGroup().addContainerGap()
-								.addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(jLTipo).addComponent(jLId).addComponent(jLNombre)
-										.addComponent(jLApellido))
-								.addGap(18, 18, 18)
-								.addGroup(jPClienteLayout
-										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-										.addComponent(jTFApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 201,
-												Short.MAX_VALUE)
-										.addComponent(jCBTipoId, 0, 201, Short.MAX_VALUE).addComponent(jTFId)
-										.addComponent(jTFNombre))
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158,
-										Short.MAX_VALUE)
-								.addGroup(jPClienteLayout
-										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-										.addComponent(jBGuardarCliente, javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(jBBuscarCliente, javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-								.addGap(103, 103, 103)));
-		jPClienteLayout.setVerticalGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPClienteLayout.createSequentialGroup().addGap(55, 55, 55)
-						.addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLTipo).addComponent(jCBTipoId, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(30, 30, 30)
-						.addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLId).addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jBGuardarCliente))
-						.addGap(29, 29, 29)
-						.addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLNombre)
-								.addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jBBuscarCliente))
-						.addGap(32, 32, 32)
-						.addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLApellido).addComponent(jTFApellido,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(207, Short.MAX_VALUE)));
-
-		jTPPrincipal.addTab("Cliente", jPCliente);
-
-		jLabel6.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLabel6.setText("TIPO DE PRODUCTO:");
-
-		jCBTipoProducto.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jCBTipoProducto.setModel(new javax.swing.DefaultComboBoxModel(
-				new String[] { "Seleccione una opción:", "Cuenta de ahorros", "Tarjeta de credito" }));
-		jCBTipoProducto.addItemListener(new java.awt.event.ItemListener() {
-			public void itemStateChanged(java.awt.event.ItemEvent evt) {
-				jCBTipoProductoItemStateChanged(evt);
-			}
-		});
-
-		jLabel7.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLabel7.setText("NUMERO:");
-
-		jTFNumeroPro.setEditable(false);
-		jTFNumeroPro.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jTFIdCLienteProducto.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jCBIdClienteProducto.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jLabel8.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLabel8.setText("TIPO DE IDENTIFICACIÓN:");
-
-		jLIdClienteProducto.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLIdClienteProducto.setText("IDENTIFICACIÓN:");
-
-		jTFSaldo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jLSaldo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLSaldo.setText("SALDO");
-
-		jLabel11.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jLabel11.setText("$");
-
-		jLCvc.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLCvc.setText("CVC*");
-
-		jTFCvc.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jTFCvc.setEnabled(false);
-
-		jLFechaExpiracion.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLFechaExpiracion.setText("FECHA EXPIRACIÓN:");
-
-		jDateFechaExpiracion.setEnabled(false);
-
-		jLFranquicia.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLFranquicia.setText("FRANQUICIA:");
-
-		jCBFranquicia.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jCBFranquicia.setModel(
-				new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-		jBCrearProducto.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jBCrearProducto.setText("CREAR PRODUCTO");
-		jBCrearProducto.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBCrearProductoActionPerformed(evt);
-			}
-		});
-
-		jLInteres.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLInteres.setText("INTERES DE AHORRO:");
-
-		jTFInteres.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jBBuscarProducto.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jBBuscarProducto.setText("BUSCAR PRODUCTO");
-		jBBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBBuscarProductoActionPerformed(evt);
-			}
-		});
-
-		javax.swing.GroupLayout jPProductoLayout = new javax.swing.GroupLayout(jPProducto);
-		jPProducto.setLayout(jPProductoLayout);
-		jPProductoLayout.setHorizontalGroup(jPProductoLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPProductoLayout.createSequentialGroup().addGap(112, 112, 112).addGroup(jPProductoLayout
-						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-								jPProductoLayout.createSequentialGroup().addGroup(
-										jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(jLFranquicia).addComponent(jLFechaExpiracion))
-										.addGap(0, 0, Short.MAX_VALUE))
-						.addGroup(jPProductoLayout.createSequentialGroup().addGroup(jPProductoLayout
-								.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-								.addGroup(jPProductoLayout
-										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(jLabel6).addComponent(jLabel7).addComponent(jLabel8)
-										.addComponent(jLInteres)
-										.addGroup(jPProductoLayout.createSequentialGroup().addGap(50, 50, 50)
-												.addComponent(jBCrearProducto))
-										.addGroup(jPProductoLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-												.addComponent(jLSaldo, javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(jLIdClienteProducto,
-														javax.swing.GroupLayout.PREFERRED_SIZE, 185,
-														javax.swing.GroupLayout.PREFERRED_SIZE)))
-								.addComponent(jLCvc, javax.swing.GroupLayout.Alignment.LEADING))
-								.addGroup(jPProductoLayout
-										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addGroup(jPProductoLayout.createSequentialGroup().addGap(112, 112, 112)
-												.addComponent(jBBuscarProducto)
-												.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-										.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPProductoLayout
-												.createSequentialGroup()
-												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33,
-														Short.MAX_VALUE)
-												.addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 12,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-												.addGroup(jPProductoLayout
-														.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-														.addComponent(jCBTipoProducto,
-																javax.swing.GroupLayout.PREFERRED_SIZE, 325,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(jTFNumeroPro,
-																javax.swing.GroupLayout.PREFERRED_SIZE, 325,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(jCBIdClienteProducto,
-																javax.swing.GroupLayout.PREFERRED_SIZE, 325,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(jTFIdCLienteProducto,
-																javax.swing.GroupLayout.PREFERRED_SIZE, 325,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(jTFSaldo, javax.swing.GroupLayout.PREFERRED_SIZE,
-																325, javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(jDateFechaExpiracion,
-																javax.swing.GroupLayout.PREFERRED_SIZE, 325,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(jCBFranquicia,
-																javax.swing.GroupLayout.PREFERRED_SIZE, 325,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(jTFInteres,
-																javax.swing.GroupLayout.PREFERRED_SIZE, 325,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(jTFCvc, javax.swing.GroupLayout.PREFERRED_SIZE,
-																325, javax.swing.GroupLayout.PREFERRED_SIZE))
-												.addGap(91, 91, 91)))))));
-		jPProductoLayout.setVerticalGroup(jPProductoLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPProductoLayout.createSequentialGroup().addGap(38, 38, 38)
-						.addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLabel6).addComponent(jCBTipoProducto,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jTFNumeroPro, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jLabel7))
-						.addGap(18, 18, 18)
-						.addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLabel8).addComponent(jCBIdClienteProducto,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLIdClienteProducto).addComponent(jTFIdCLienteProducto,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(
-								jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-										.addGroup(jPProductoLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(jTFSaldo, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jLabel11))
-										.addComponent(jLSaldo))
-						.addGap(18, 18, 18)
-						.addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLInteres).addComponent(jTFInteres,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-								.addComponent(jLFechaExpiracion).addComponent(jDateFechaExpiracion,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLFranquicia).addComponent(jCBFranquicia,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLCvc).addComponent(jTFCvc, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jBCrearProducto).addComponent(jBBuscarProducto))
-						.addContainerGap()));
-
-		jTPPrincipal.addTab("Producto", jPProducto);
-
-		jlTipoOperacion.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jlTipoOperacion.setText("TIPO:");
-
-		jCBTipoTransaccion.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jCBTipoTransaccion.setModel(new javax.swing.DefaultComboBoxModel(
-				new String[] { "Seleccione una transacción:", "Consignación", "Retiro", "Transferencia" }));
-		jCBTipoTransaccion.addItemListener(new java.awt.event.ItemListener() {
-			public void itemStateChanged(java.awt.event.ItemEvent evt) {
-				jCBTipoTransaccionItemStateChanged(evt);
-			}
-		});
-
-		jLFuenteTransaccion1.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLFuenteTransaccion1.setText("FUENTE DE LA TRANSACCIÓN:");
-
-		jTFFuenteTransaccion1.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jLCantidadOperacion.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLCantidadOperacion.setText("CANTIDAD:");
-
-		jLabel12.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jLabel12.setText("$");
-
-		jTFCantidadTransaccion.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jLNumeroCuentaTransaccion.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLNumeroCuentaTransaccion.setText("NUMERO DE CUENTA DE AHORROS:");
-
-		jTFNumeroCuentaTransaccion.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jBGuardarTransaccion.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jBGuardarTransaccion.setText("ACEPTAR TRANSACCIÓN");
-		jBGuardarTransaccion.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBGuardarTransaccionActionPerformed(evt);
-			}
-		});
-
-		jLNumeroCuentaTransaccionOrigen.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLNumeroCuentaTransaccionOrigen.setText(" CUENTA DE AHORROS ORIGEN:");
-
-		jTFNumeroCuentaOrigen.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		javax.swing.GroupLayout jPOperacionLayout = new javax.swing.GroupLayout(jPOperacion);
-		jPOperacion.setLayout(jPOperacionLayout);
-		jPOperacionLayout.setHorizontalGroup(jPOperacionLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPOperacionLayout.createSequentialGroup().addGap(283, 283, 283)
-						.addComponent(jBGuardarTransaccion).addContainerGap(316, Short.MAX_VALUE))
-				.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPOperacionLayout.createSequentialGroup()
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(jPOperacionLayout
-										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-										.addGroup(jPOperacionLayout.createSequentialGroup()
-												.addComponent(jLCantidadOperacion).addPreferredGap(
-														javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-														javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addComponent(jLabel12)
-												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-										.addGroup(jPOperacionLayout.createSequentialGroup().addGroup(jPOperacionLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(jlTipoOperacion).addComponent(jLFuenteTransaccion1)
-												.addComponent(jLNumeroCuentaTransaccion)).addGap(93, 93, 93)))
-								.addGroup(jPOperacionLayout.createSequentialGroup()
-										.addComponent(jLNumeroCuentaTransaccionOrigen).addGap(114, 114, 114)))
-						.addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(jPOperacionLayout
-										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-										.addComponent(jCBTipoTransaccion, 0, javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(jTFFuenteTransaccion1).addComponent(jTFCantidadTransaccion)
-										.addComponent(jTFNumeroCuentaTransaccion,
-												javax.swing.GroupLayout.PREFERRED_SIZE, 194,
-												javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addComponent(jTFNumeroCuentaOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 194,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(139, 139, 139)));
-		jPOperacionLayout.setVerticalGroup(jPOperacionLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPOperacionLayout.createSequentialGroup().addGap(40, 40, 40)
-						.addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jlTipoOperacion).addComponent(jCBTipoTransaccion,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(39, 39, 39)
-						.addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLFuenteTransaccion1)
-								.addComponent(jTFFuenteTransaccion1, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(40, 40, 40)
-						.addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLCantidadOperacion)
-								.addComponent(jTFCantidadTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jLabel12))
-						.addGap(44, 44, 44)
-						.addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLNumeroCuentaTransaccion).addComponent(jTFNumeroCuentaTransaccion,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(49, 49, 49)
-						.addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLNumeroCuentaTransaccionOrigen).addComponent(jTFNumeroCuentaOrigen,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-						.addComponent(jBGuardarTransaccion).addGap(27, 27, 27)));
-
-		jTPPrincipal.addTab("Operaciones de la cuenta", jPOperacion);
-
-		jLValorTotalConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLValorTotalConsumo.setText("VALOR TOTAL DEL CONSUMO:");
-
-		jTFValorTotalConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jTFValorTotalConsumo.addKeyListener(new java.awt.event.KeyAdapter() {
-			public void keyReleased(java.awt.event.KeyEvent evt) {
-				jTFValorTotalConsumoKeyReleased(evt);
-			}
-		});
-
-		jInteresConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jInteresConsumo.setText("INTERES:");
-
-		jTFInteresConsumo.setEditable(false);
-		jTFInteresConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jTFInteresConsumo.setText("3.6");
-
-		jLNumeroCuotasConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLNumeroCuotasConsumo.setText("NUMERO DE CUOTAS:");
-
-		jLValorPorPagarConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLValorPorPagarConsumo.setText("VALOR POR PAGAR:");
-
-		jLTarjetaCreditoConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLTarjetaCreditoConsumo.setText("TARJETA DE CREDITO:");
-
-		jTFValorXPagarConsumo.setEditable(false);
-		jTFValorXPagarConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jTFTarjetaCreditoConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jCBCuotasConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jCBCuotasConsumo.setModel(new javax.swing.DefaultComboBoxModel(
-				new String[] { "Seleccione numero de cuotas:", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
-						"12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
-
-		jLPag.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLPag.setText("PAGADO:");
-
-		jLPagadoBoolean.setText("NO PAGO");
-
-		jLabel2.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jLabel2.setText("$");
-
-		jLabel3.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jLabel3.setText("$");
-
-		jBGuardarConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jBGuardarConsumo.setText("GUARDAR CONSUMO");
-		jBGuardarConsumo.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBGuardarConsumoActionPerformed(evt);
-			}
-		});
-
-		jLabel4.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLabel4.setText("TIPO:");
-
-		jCBTipoConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jCBTipoConsumo.setModel(
-				new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un tipo:", "Avance", "Consumo" }));
-		jCBTipoConsumo.addItemListener(new java.awt.event.ItemListener() {
-			public void itemStateChanged(java.awt.event.ItemEvent evt) {
-				jCBTipoConsumoItemStateChanged(evt);
-			}
-		});
-
-		javax.swing.GroupLayout jPConsumoLayout = new javax.swing.GroupLayout(jPConsumo);
-		jPConsumo.setLayout(jPConsumoLayout);
-		jPConsumoLayout.setHorizontalGroup(jPConsumoLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPConsumoLayout.createSequentialGroup().addGap(151, 151, 151).addGroup(jPConsumoLayout
-						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(jPConsumoLayout.createSequentialGroup()
-								.addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(jInteresConsumo).addComponent(jLNumeroCuotasConsumo)
-										.addComponent(jLTarjetaCreditoConsumo).addComponent(jLValorPorPagarConsumo)
-										.addComponent(jLPag).addComponent(jLValorTotalConsumo))
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addGroup(
-										jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-												.addComponent(jLabel3).addComponent(jLabel2))
-								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-						.addGroup(jPConsumoLayout.createSequentialGroup().addComponent(jLabel4).addGap(299, 299, 299)))
-						.addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(jTFValorTotalConsumo).addComponent(jTFInteresConsumo)
-								.addComponent(jTFValorXPagarConsumo, javax.swing.GroupLayout.DEFAULT_SIZE, 269,
-										Short.MAX_VALUE)
-								.addComponent(jCBCuotasConsumo, 0, javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)
-								.addComponent(jTFTarjetaCreditoConsumo, javax.swing.GroupLayout.DEFAULT_SIZE, 269,
-										Short.MAX_VALUE)
-								.addComponent(jLPagadoBoolean, javax.swing.GroupLayout.PREFERRED_SIZE, 170,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jCBTipoConsumo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-						.addContainerGap(22, Short.MAX_VALUE))
-				.addGroup(jPConsumoLayout.createSequentialGroup().addGap(291, 291, 291).addComponent(jBGuardarConsumo)
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		jPConsumoLayout.setVerticalGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPConsumoLayout.createSequentialGroup().addContainerGap()
-						.addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLabel4).addComponent(jCBTipoConsumo,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(32, 32, 32)
-						.addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLValorTotalConsumo)
-								.addComponent(jTFValorTotalConsumo, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jLabel2))
-						.addGap(36, 36, 36)
-						.addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jInteresConsumo).addComponent(jTFInteresConsumo,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(31, 31, 31)
-						.addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLNumeroCuotasConsumo).addComponent(jCBCuotasConsumo,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(36, 36, 36)
-						.addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLValorPorPagarConsumo).addComponent(jTFValorXPagarConsumo,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jLabel3))
-						.addGap(32, 32, 32)
-						.addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLTarjetaCreditoConsumo).addComponent(jTFTarjetaCreditoConsumo,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(35, 35, 35)
-						.addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLPag).addComponent(jLPagadoBoolean))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(jBGuardarConsumo).addGap(23, 23, 23)));
-
-		jTPPrincipal.addTab("Consumo de tarjeta de credito", jPConsumo);
-
-		jLValorPagarPago.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLValorPagarPago.setText("VALOR A PAGAR:");
-
-		jLAbonoCapital.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLAbonoCapital.setText("ABONO A CAPITAL:");
-
-		jLAbonoInteres.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLAbonoInteres.setText("ABONO A INTERES:");
-
-		jLabel13.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLabel13.setText("NUMERO DE TARJETA DE CREDITO:");
-
-		jTFValorPagarPago.setEditable(false);
-		jTFValorPagarPago.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jTFAbonoCapital.setEditable(false);
-		jTFAbonoCapital.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jTFAbonoInteres.setEditable(false);
-		jTFAbonoInteres.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jtfNumeroTCPago.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		jLabel14.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLabel14.setText("¿COMO DESEA REALIZAR EL PAGO?");
-
-		jCBComoElPago.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-		jCBComoElPago.setModel(new javax.swing.DefaultComboBoxModel(
-				new String[] { "Seleccione como desea realizar el pago:", "Pago definido", "Ingresar valor" }));
-		jCBComoElPago.addItemListener(new java.awt.event.ItemListener() {
-			public void itemStateChanged(java.awt.event.ItemEvent evt) {
-				jCBComoElPagoItemStateChanged(evt);
-			}
-		});
-
-		jBGenerarPago.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jBGenerarPago.setText("GENERAR PAGO");
-		jBGenerarPago.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBGenerarPagoActionPerformed(evt);
-			}
-		});
-
-		jBRealizarPago.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jBRealizarPago.setText("REALIZAR PAGO");
-		jBRealizarPago.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBRealizarPagoActionPerformed(evt);
-			}
-		});
-
-		jLIngreseValorPago.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
-		jLIngreseValorPago.setText("INGRESE VALOR A PAGAR:");
-
-		jTFIngreseValorPago.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
-
-		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-		jPanel1.setLayout(jPanel1Layout);
-		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout
-						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(jPanel1Layout.createSequentialGroup().addGap(100, 100, 100)
-								.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(jLabel13).addComponent(jLabel14).addComponent(jLAbonoInteres)
-										.addComponent(jLIngreseValorPago).addComponent(jLValorPagarPago)
-										.addComponent(jLAbonoCapital))
-								.addGap(109, 109, 109)
-								.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(jTFAbonoCapital, javax.swing.GroupLayout.PREFERRED_SIZE, 319,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(jTFAbonoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 319,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addComponent(jCBComoElPago, javax.swing.GroupLayout.PREFERRED_SIZE, 319,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGroup(jPanel1Layout.createSequentialGroup()
-												.addComponent(jtfNumeroTCPago, javax.swing.GroupLayout.PREFERRED_SIZE,
-														223, javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-												.addComponent(jBGenerarPago))
-										.addGroup(jPanel1Layout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-												.addComponent(jTFValorPagarPago,
-														javax.swing.GroupLayout.Alignment.LEADING,
-														javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
-												.addComponent(jTFIngreseValorPago,
-														javax.swing.GroupLayout.Alignment.LEADING))))
-						.addGroup(jPanel1Layout.createSequentialGroup().addGap(309, 309, 309)
-								.addComponent(jBRealizarPago)))
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup().addGap(67, 67, 67)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLabel14).addComponent(jCBComoElPago,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLabel13)
-								.addComponent(jtfNumeroTCPago, javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jBGenerarPago))
-						.addGap(11, 11, 11)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLIngreseValorPago).addComponent(jTFIngreseValorPago,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLValorPagarPago).addComponent(jTFValorPagarPago,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLAbonoCapital).addComponent(jTFAbonoCapital,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLAbonoInteres).addComponent(jTFAbonoInteres,
-										javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-						.addComponent(jBRealizarPago).addGap(46, 46, 46)));
-
-		jTPPrincipal.addTab("Pago del consumo", jPanel1);
-
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
-				.createSequentialGroup().addContainerGap()
-				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(jTPPrincipal))
-				.addContainerGap()));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jLabel1).addGap(18, 18, 18)
-						.addComponent(jTPPrincipal).addContainerGap()));
-
-		pack();
-	}// </editor-fold>//GEN-END:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+        jTPPrincipal = new javax.swing.JTabbedPane();
+        jPCliente = new javax.swing.JPanel();
+        jLTipo = new javax.swing.JLabel();
+        jCBTipoId = new javax.swing.JComboBox();
+        jLId = new javax.swing.JLabel();
+        jTFId = new javax.swing.JTextField();
+        jLNombre = new javax.swing.JLabel();
+        jLApellido = new javax.swing.JLabel();
+        jTFNombre = new javax.swing.JTextField();
+        jTFApellido = new javax.swing.JTextField();
+        jBGuardarCliente = new javax.swing.JButton();
+        jBBuscarCliente = new javax.swing.JButton();
+        jPProducto = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jCBTipoProducto = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        jTFNumeroPro = new javax.swing.JTextField();
+        jTFIdCLienteProducto = new javax.swing.JTextField();
+        jCBIdClienteProducto = new javax.swing.JComboBox();
+        jLabel8 = new javax.swing.JLabel();
+        jLIdClienteProducto = new javax.swing.JLabel();
+        jTFSaldo = new javax.swing.JTextField();
+        jLSaldo = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLCvc = new javax.swing.JLabel();
+        jTFCvc = new javax.swing.JTextField();
+        jLFechaExpiracion = new javax.swing.JLabel();
+        jDateFechaExpiracion = new com.toedter.calendar.JDateChooser();
+        jLFranquicia = new javax.swing.JLabel();
+        jCBFranquicia = new javax.swing.JComboBox();
+        jBCrearProducto = new javax.swing.JButton();
+        jLInteres = new javax.swing.JLabel();
+        jTFInteres = new javax.swing.JTextField();
+        jBBuscarProducto = new javax.swing.JButton();
+        jPOperacion = new javax.swing.JPanel();
+        jlTipoOperacion = new javax.swing.JLabel();
+        jCBTipoTransaccion = new javax.swing.JComboBox();
+        jLCantidadOperacion = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jTFCantidadTransaccion = new javax.swing.JTextField();
+        jLNumeroCuentaTransaccion = new javax.swing.JLabel();
+        jTFNumeroCuentaTransaccion = new javax.swing.JTextField();
+        jBGuardarTransaccion = new javax.swing.JButton();
+        jLNumeroCuentaTransaccionOrigen = new javax.swing.JLabel();
+        jTFNumeroCuentaOrigen = new javax.swing.JTextField();
+        jPConsumo = new javax.swing.JPanel();
+        jLValorTotalConsumo = new javax.swing.JLabel();
+        jTFValorTotalConsumo = new javax.swing.JTextField();
+        jInteresConsumo = new javax.swing.JLabel();
+        jTFInteresConsumo = new javax.swing.JTextField();
+        jLNumeroCuotasConsumo = new javax.swing.JLabel();
+        jLValorPorPagarConsumo = new javax.swing.JLabel();
+        jLTarjetaCreditoConsumo = new javax.swing.JLabel();
+        jTFValorXPagarConsumo = new javax.swing.JTextField();
+        jTFTarjetaCreditoConsumo = new javax.swing.JTextField();
+        jCBCuotasConsumo = new javax.swing.JComboBox();
+        jLPag = new javax.swing.JLabel();
+        jLPagadoBoolean = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jBGuardarConsumo = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jCBTipoConsumo = new javax.swing.JComboBox();
+        jPanel1 = new javax.swing.JPanel();
+        jLValorPagarPago = new javax.swing.JLabel();
+        jLAbonoCapital = new javax.swing.JLabel();
+        jLAbonoInteres = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jTFValorPagarPago = new javax.swing.JTextField();
+        jTFAbonoCapital = new javax.swing.JTextField();
+        jTFAbonoInteres = new javax.swing.JTextField();
+        jtfNumeroTCPago = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jCBComoElPago = new javax.swing.JComboBox();
+        jBGenerarPago = new javax.swing.JButton();
+        jBRealizarPago = new javax.swing.JButton();
+        jLIngreseValorPago = new javax.swing.JLabel();
+        jTFIngreseValorPago = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Simplified Arabic", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Banco CONCORDIA");
+
+        jTPPrincipal.setFont(new java.awt.Font("Simplified Arabic", 1, 14)); // NOI18N
+
+        jLTipo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLTipo.setText("TIPO DE IDENTIFICACIÓN:");
+
+        jCBTipoId.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jLId.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLId.setText("IDENTIFICACIÓN:");
+
+        jTFId.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jLNombre.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLNombre.setText("NOMBRE:");
+
+        jLApellido.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLApellido.setText("APELLIDO:");
+
+        jTFNombre.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jTFApellido.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jBGuardarCliente.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jBGuardarCliente.setText("GUARDAR CLIENTE");
+        jBGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarClienteActionPerformed(evt);
+            }
+        });
+
+        jBBuscarCliente.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jBBuscarCliente.setText("BUSCAR CLIENTE");
+        jBBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarClienteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPClienteLayout = new javax.swing.GroupLayout(jPCliente);
+        jPCliente.setLayout(jPClienteLayout);
+        jPClienteLayout.setHorizontalGroup(
+            jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLTipo)
+                    .addComponent(jLId)
+                    .addComponent(jLNombre)
+                    .addComponent(jLApellido))
+                .addGap(18, 18, 18)
+                .addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTFApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .addComponent(jCBTipoId, 0, 201, Short.MAX_VALUE)
+                    .addComponent(jTFId)
+                    .addComponent(jTFNombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBGuardarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBBuscarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(103, 103, 103))
+        );
+        jPClienteLayout.setVerticalGroup(
+            jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPClienteLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLTipo)
+                    .addComponent(jCBTipoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLId)
+                    .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBGuardarCliente))
+                .addGap(29, 29, 29)
+                .addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLNombre)
+                    .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBBuscarCliente))
+                .addGap(32, 32, 32)
+                .addGroup(jPClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLApellido)
+                    .addComponent(jTFApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(207, Short.MAX_VALUE))
+        );
+
+        jTPPrincipal.addTab("Cliente", jPCliente);
+
+        jLabel6.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLabel6.setText("TIPO DE PRODUCTO:");
+
+        jCBTipoProducto.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jCBTipoProducto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una opción:", "Cuenta de ahorros", "Tarjeta de credito" }));
+        jCBTipoProducto.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCBTipoProductoItemStateChanged(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLabel7.setText("NUMERO:");
+
+        jTFNumeroPro.setEditable(false);
+        jTFNumeroPro.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jTFIdCLienteProducto.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jCBIdClienteProducto.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLabel8.setText("TIPO DE IDENTIFICACIÓN:");
+
+        jLIdClienteProducto.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLIdClienteProducto.setText("IDENTIFICACIÓN:");
+
+        jTFSaldo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jLSaldo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLSaldo.setText("SALDO");
+
+        jLabel11.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jLabel11.setText("$");
+
+        jLCvc.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLCvc.setText("CVC*");
+
+        jTFCvc.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jTFCvc.setEnabled(false);
+
+        jLFechaExpiracion.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLFechaExpiracion.setText("FECHA EXPIRACIÓN:");
+
+        jDateFechaExpiracion.setEnabled(false);
+
+        jLFranquicia.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLFranquicia.setText("FRANQUICIA:");
+
+        jCBFranquicia.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jCBFranquicia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jBCrearProducto.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jBCrearProducto.setText("CREAR PRODUCTO");
+        jBCrearProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCrearProductoActionPerformed(evt);
+            }
+        });
+
+        jLInteres.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLInteres.setText("INTERES DE AHORRO:");
+
+        jTFInteres.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jBBuscarProducto.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jBBuscarProducto.setText("BUSCAR PRODUCTO");
+        jBBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarProductoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPProductoLayout = new javax.swing.GroupLayout(jPProducto);
+        jPProducto.setLayout(jPProductoLayout);
+        jPProductoLayout.setHorizontalGroup(
+            jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPProductoLayout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPProductoLayout.createSequentialGroup()
+                        .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLFranquicia)
+                            .addComponent(jLFechaExpiracion))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPProductoLayout.createSequentialGroup()
+                        .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel8)
+                                .addComponent(jLInteres)
+                                .addGroup(jPProductoLayout.createSequentialGroup()
+                                    .addGap(50, 50, 50)
+                                    .addComponent(jBCrearProducto))
+                                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLSaldo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLIdClienteProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLCvc, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPProductoLayout.createSequentialGroup()
+                                .addGap(112, 112, 112)
+                                .addComponent(jBBuscarProducto)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPProductoLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCBTipoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTFNumeroPro, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCBIdClienteProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTFIdCLienteProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTFSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jDateFechaExpiracion, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCBFranquicia, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTFInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTFCvc, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(91, 91, 91))))))
+        );
+        jPProductoLayout.setVerticalGroup(
+            jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPProductoLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jCBTipoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFNumeroPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jCBIdClienteProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLIdClienteProducto)
+                    .addComponent(jTFIdCLienteProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTFSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11))
+                    .addComponent(jLSaldo))
+                .addGap(18, 18, 18)
+                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLInteres)
+                    .addComponent(jTFInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLFechaExpiracion)
+                    .addComponent(jDateFechaExpiracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLFranquicia)
+                    .addComponent(jCBFranquicia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLCvc)
+                    .addComponent(jTFCvc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBCrearProducto)
+                    .addComponent(jBBuscarProducto))
+                .addContainerGap())
+        );
+
+        jTPPrincipal.addTab("Producto", jPProducto);
+
+        jlTipoOperacion.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jlTipoOperacion.setText("TIPO:");
+
+        jCBTipoTransaccion.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jCBTipoTransaccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una transacción:", "Consignación", "Retiro", "Transferencia" }));
+        jCBTipoTransaccion.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCBTipoTransaccionItemStateChanged(evt);
+            }
+        });
+
+        jLCantidadOperacion.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLCantidadOperacion.setText("CANTIDAD:");
+
+        jLabel12.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jLabel12.setText("$");
+
+        jTFCantidadTransaccion.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jLNumeroCuentaTransaccion.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLNumeroCuentaTransaccion.setText("NUMERO DE CUENTA DE AHORROS:");
+
+        jTFNumeroCuentaTransaccion.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jBGuardarTransaccion.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jBGuardarTransaccion.setText("ACEPTAR TRANSACCIÓN");
+        jBGuardarTransaccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarTransaccionActionPerformed(evt);
+            }
+        });
+
+        jLNumeroCuentaTransaccionOrigen.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLNumeroCuentaTransaccionOrigen.setText(" CUENTA DE AHORROS ORIGEN:");
+
+        jTFNumeroCuentaOrigen.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        javax.swing.GroupLayout jPOperacionLayout = new javax.swing.GroupLayout(jPOperacion);
+        jPOperacion.setLayout(jPOperacionLayout);
+        jPOperacionLayout.setHorizontalGroup(
+            jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPOperacionLayout.createSequentialGroup()
+                .addGap(283, 283, 283)
+                .addComponent(jBGuardarTransaccion)
+                .addContainerGap(316, Short.MAX_VALUE))
+            .addGroup(jPOperacionLayout.createSequentialGroup()
+                .addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPOperacionLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(jLCantidadOperacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTFCantidadTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPOperacionLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jlTipoOperacion)
+                                .addComponent(jLNumeroCuentaTransaccionOrigen))
+                            .addComponent(jLNumeroCuentaTransaccion, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPOperacionLayout.createSequentialGroup()
+                                .addGap(114, 114, 114)
+                                .addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCBTipoTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTFNumeroCuentaOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPOperacionLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTFNumeroCuentaTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(131, 131, 131))
+        );
+        jPOperacionLayout.setVerticalGroup(
+            jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPOperacionLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPOperacionLayout.createSequentialGroup()
+                        .addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlTipoOperacion)
+                            .addComponent(jCBTipoTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(75, 75, 75)
+                        .addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jLCantidadOperacion)))
+                    .addComponent(jTFCantidadTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLNumeroCuentaTransaccion)
+                    .addComponent(jTFNumeroCuentaTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72)
+                .addGroup(jPOperacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLNumeroCuentaTransaccionOrigen)
+                    .addComponent(jTFNumeroCuentaOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(jBGuardarTransaccion)
+                .addGap(27, 27, 27))
+        );
+
+        jTPPrincipal.addTab("Operaciones de la cuenta", jPOperacion);
+
+        jLValorTotalConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLValorTotalConsumo.setText("VALOR TOTAL DEL CONSUMO:");
+
+        jTFValorTotalConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jTFValorTotalConsumo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFValorTotalConsumoKeyReleased(evt);
+            }
+        });
+
+        jInteresConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jInteresConsumo.setText("INTERES:");
+
+        jTFInteresConsumo.setEditable(false);
+        jTFInteresConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jTFInteresConsumo.setText("3.6");
+
+        jLNumeroCuotasConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLNumeroCuotasConsumo.setText("NUMERO DE CUOTAS:");
+
+        jLValorPorPagarConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLValorPorPagarConsumo.setText("VALOR POR PAGAR:");
+
+        jLTarjetaCreditoConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLTarjetaCreditoConsumo.setText("TARJETA DE CREDITO:");
+
+        jTFValorXPagarConsumo.setEditable(false);
+        jTFValorXPagarConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jTFTarjetaCreditoConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jCBCuotasConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jCBCuotasConsumo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione numero de cuotas:", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+
+        jLPag.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLPag.setText("PAGADO:");
+
+        jLPagadoBoolean.setText("NO PAGO");
+
+        jLabel2.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jLabel2.setText("$");
+
+        jLabel3.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jLabel3.setText("$");
+
+        jBGuardarConsumo.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jBGuardarConsumo.setText("GUARDAR CONSUMO");
+        jBGuardarConsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarConsumoActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLabel4.setText("TIPO:");
+
+        jCBTipoConsumo.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jCBTipoConsumo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un tipo:", "Avance", "Consumo" }));
+        jCBTipoConsumo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCBTipoConsumoItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPConsumoLayout = new javax.swing.GroupLayout(jPConsumo);
+        jPConsumo.setLayout(jPConsumoLayout);
+        jPConsumoLayout.setHorizontalGroup(
+            jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPConsumoLayout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPConsumoLayout.createSequentialGroup()
+                        .addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jInteresConsumo)
+                            .addComponent(jLNumeroCuotasConsumo)
+                            .addComponent(jLTarjetaCreditoConsumo)
+                            .addComponent(jLValorPorPagarConsumo)
+                            .addComponent(jLPag)
+                            .addComponent(jLValorTotalConsumo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(jPConsumoLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(299, 299, 299)))
+                .addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTFValorTotalConsumo)
+                    .addComponent(jTFInteresConsumo)
+                    .addComponent(jTFValorXPagarConsumo, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                    .addComponent(jCBCuotasConsumo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTFTarjetaCreditoConsumo, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                    .addComponent(jLPagadoBoolean, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCBTipoConsumo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(jPConsumoLayout.createSequentialGroup()
+                .addGap(291, 291, 291)
+                .addComponent(jBGuardarConsumo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPConsumoLayout.setVerticalGroup(
+            jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPConsumoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jCBTipoConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLValorTotalConsumo)
+                    .addComponent(jTFValorTotalConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(36, 36, 36)
+                .addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jInteresConsumo)
+                    .addComponent(jTFInteresConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLNumeroCuotasConsumo)
+                    .addComponent(jCBCuotasConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLValorPorPagarConsumo)
+                    .addComponent(jTFValorXPagarConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(32, 32, 32)
+                .addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLTarjetaCreditoConsumo)
+                    .addComponent(jTFTarjetaCreditoConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(jPConsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLPag)
+                    .addComponent(jLPagadoBoolean))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBGuardarConsumo)
+                .addGap(23, 23, 23))
+        );
+
+        jTPPrincipal.addTab("Consumo de tarjeta de credito", jPConsumo);
+
+        jLValorPagarPago.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLValorPagarPago.setText("VALOR A PAGAR:");
+
+        jLAbonoCapital.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLAbonoCapital.setText("ABONO A CAPITAL:");
+
+        jLAbonoInteres.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLAbonoInteres.setText("ABONO A INTERES:");
+
+        jLabel13.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLabel13.setText("NUMERO DE TARJETA DE CREDITO:");
+
+        jTFValorPagarPago.setEditable(false);
+        jTFValorPagarPago.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jTFAbonoCapital.setEditable(false);
+        jTFAbonoCapital.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jTFAbonoInteres.setEditable(false);
+        jTFAbonoInteres.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jtfNumeroTCPago.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        jLabel14.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLabel14.setText("¿COMO DESEA REALIZAR EL PAGO?");
+
+        jCBComoElPago.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+        jCBComoElPago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione como desea realizar el pago:", "Pago definido", "Ingresar valor" }));
+        jCBComoElPago.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCBComoElPagoItemStateChanged(evt);
+            }
+        });
+
+        jBGenerarPago.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jBGenerarPago.setText("GENERAR PAGO");
+        jBGenerarPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGenerarPagoActionPerformed(evt);
+            }
+        });
+
+        jBRealizarPago.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jBRealizarPago.setText("REALIZAR PAGO");
+        jBRealizarPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBRealizarPagoActionPerformed(evt);
+            }
+        });
+
+        jLIngreseValorPago.setFont(new java.awt.Font("Simplified Arabic", 1, 12)); // NOI18N
+        jLIngreseValorPago.setText("INGRESE VALOR A PAGAR:");
+
+        jTFIngreseValorPago.setFont(new java.awt.Font("Simplified Arabic", 0, 12)); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(jLAbonoInteres)
+                            .addComponent(jLIngreseValorPago)
+                            .addComponent(jLValorPagarPago)
+                            .addComponent(jLAbonoCapital))
+                        .addGap(109, 109, 109)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFAbonoCapital, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFAbonoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCBComoElPago, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jtfNumeroTCPago, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBGenerarPago))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTFValorPagarPago, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                                .addComponent(jTFIngreseValorPago, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(309, 309, 309)
+                        .addComponent(jBRealizarPago)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jCBComoElPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jtfNumeroTCPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBGenerarPago))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLIngreseValorPago)
+                    .addComponent(jTFIngreseValorPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLValorPagarPago)
+                    .addComponent(jTFValorPagarPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLAbonoCapital)
+                    .addComponent(jTFAbonoCapital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLAbonoInteres)
+                    .addComponent(jTFAbonoInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addComponent(jBRealizarPago)
+                .addGap(46, 46, 46))
+        );
+
+        jTPPrincipal.addTab("Pago del consumo", jPanel1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTPPrincipal))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jTPPrincipal)
+                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
 	private void jCBTipoTransaccionItemStateChanged(java.awt.event.ItemEvent evt) {// GEN-FIRST:event_jCBTipoTransaccionItemStateChanged
 		// TODO add your handling code here:
@@ -991,16 +957,16 @@ public class BancoPrincipal extends javax.swing.JFrame {
 		// TODO add your handling code here:
 		try {
 			if (jCBTipoTransaccion.getSelectedIndex() == 0 || jTFCantidadTransaccion.getText().isEmpty()
-					|| jTFFuenteTransaccion1.getText().isEmpty() || jTFNumeroCuentaTransaccion.getText().isEmpty()) {
+					 || jTFNumeroCuentaTransaccion.getText().isEmpty()) {
 				JOptionPane.showMessageDialog(null, "Porfavor llene todos los campos");
 			} else {
 				String tipo = (String) jCBTipoTransaccion.getSelectedItem();
-				String fuenteTr = jTFFuenteTransaccion1.getText();
 				double cantidad = Double.parseDouble(jTFCantidadTransaccion.getText());
 				String numeroCuenta = jTFNumeroCuentaTransaccion.getText();
 				CuentaAhorros cuenta = controlador.buscarCuentaAhorros(numeroCuenta);
 				Date fechaTransaccion = new Date();
-				// DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss
+				String fuenteTr = "appMovil";
+						// DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss
 				// dd/MM/yyyy");
 				if (cuenta != null) {
 
@@ -1008,7 +974,7 @@ public class BancoPrincipal extends javax.swing.JFrame {
 
 					if (jCBTipoTransaccion.getSelectedIndex() == 1) {
 						// consignacion
-						bandera = controlador.consignacion(cuenta, cantidad, fechaTransaccion, fuenteTr, tipo);
+						bandera = controlador.consignacion(cuenta, cantidad, fechaTransaccion,fuenteTr, tipo);
 					} else if (jCBTipoTransaccion.getSelectedIndex() == 2) {
 						// retiro
 						bandera = controlador.retiro(cuenta, cantidad, fechaTransaccion, fuenteTr, tipo);
@@ -1284,7 +1250,6 @@ public class BancoPrincipal extends javax.swing.JFrame {
 	}// GEN-LAST:event_jBBuscarClienteActionPerformed
 
 	public void limpiarCamposTransaccion() {
-		jTFFuenteTransaccion1.setText("");
 		jTFCantidadTransaccion.setText("");
 		jTFNumeroCuentaTransaccion.setText("");
 		jCBTipoTransaccion.setSelectedIndex(0);
@@ -1383,87 +1348,85 @@ public class BancoPrincipal extends javax.swing.JFrame {
 		});
 	}
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JButton jBBuscarCliente;
-	private javax.swing.JButton jBBuscarProducto;
-	private javax.swing.JButton jBCrearProducto;
-	private javax.swing.JButton jBGenerarPago;
-	private javax.swing.JButton jBGuardarCliente;
-	private javax.swing.JButton jBGuardarConsumo;
-	private javax.swing.JButton jBGuardarTransaccion;
-	private javax.swing.JButton jBRealizarPago;
-	private javax.swing.JComboBox jCBComoElPago;
-	private javax.swing.JComboBox jCBCuotasConsumo;
-	private javax.swing.JComboBox jCBFranquicia;
-	private javax.swing.JComboBox jCBIdClienteProducto;
-	private javax.swing.JComboBox jCBTipoConsumo;
-	private javax.swing.JComboBox jCBTipoId;
-	private javax.swing.JComboBox jCBTipoProducto;
-	private javax.swing.JComboBox jCBTipoTransaccion;
-	private com.toedter.calendar.JDateChooser jDateFechaExpiracion;
-	private javax.swing.JLabel jInteresConsumo;
-	private javax.swing.JLabel jLAbonoCapital;
-	private javax.swing.JLabel jLAbonoInteres;
-	private javax.swing.JLabel jLApellido;
-	private javax.swing.JLabel jLCantidadOperacion;
-	private javax.swing.JLabel jLCvc;
-	private javax.swing.JLabel jLFechaExpiracion;
-	private javax.swing.JLabel jLFranquicia;
-	private javax.swing.JLabel jLFuenteTransaccion1;
-	private javax.swing.JLabel jLId;
-	private javax.swing.JLabel jLIdClienteProducto;
-	private javax.swing.JLabel jLIngreseValorPago;
-	private javax.swing.JLabel jLInteres;
-	private javax.swing.JLabel jLNombre;
-	private javax.swing.JLabel jLNumeroCuentaTransaccion;
-	private javax.swing.JLabel jLNumeroCuentaTransaccionOrigen;
-	private javax.swing.JLabel jLNumeroCuotasConsumo;
-	private javax.swing.JLabel jLPag;
-	private javax.swing.JLabel jLPagadoBoolean;
-	private javax.swing.JLabel jLSaldo;
-	private javax.swing.JLabel jLTarjetaCreditoConsumo;
-	private javax.swing.JLabel jLTipo;
-	private javax.swing.JLabel jLValorPagarPago;
-	private javax.swing.JLabel jLValorPorPagarConsumo;
-	private javax.swing.JLabel jLValorTotalConsumo;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel11;
-	private javax.swing.JLabel jLabel12;
-	private javax.swing.JLabel jLabel13;
-	private javax.swing.JLabel jLabel14;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel6;
-	private javax.swing.JLabel jLabel7;
-	private javax.swing.JLabel jLabel8;
-	private javax.swing.JPanel jPCliente;
-	private javax.swing.JPanel jPConsumo;
-	private javax.swing.JPanel jPOperacion;
-	private javax.swing.JPanel jPProducto;
-	private javax.swing.JPanel jPanel1;
-	private javax.swing.JTextField jTFAbonoCapital;
-	private javax.swing.JTextField jTFAbonoInteres;
-	private javax.swing.JTextField jTFApellido;
-	private javax.swing.JTextField jTFCantidadTransaccion;
-	private javax.swing.JTextField jTFCvc;
-	private javax.swing.JTextField jTFFuenteTransaccion1;
-	private javax.swing.JTextField jTFId;
-	private javax.swing.JTextField jTFIdCLienteProducto;
-	private javax.swing.JTextField jTFIngreseValorPago;
-	private javax.swing.JTextField jTFInteres;
-	private javax.swing.JTextField jTFInteresConsumo;
-	private javax.swing.JTextField jTFNombre;
-	private javax.swing.JTextField jTFNumeroCuentaOrigen;
-	private javax.swing.JTextField jTFNumeroCuentaTransaccion;
-	private javax.swing.JTextField jTFNumeroPro;
-	private javax.swing.JTextField jTFSaldo;
-	private javax.swing.JTextField jTFTarjetaCreditoConsumo;
-	private javax.swing.JTextField jTFValorPagarPago;
-	private javax.swing.JTextField jTFValorTotalConsumo;
-	private javax.swing.JTextField jTFValorXPagarConsumo;
-	private javax.swing.JTabbedPane jTPPrincipal;
-	private javax.swing.JLabel jlTipoOperacion;
-	private javax.swing.JTextField jtfNumeroTCPago;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBBuscarCliente;
+    private javax.swing.JButton jBBuscarProducto;
+    private javax.swing.JButton jBCrearProducto;
+    private javax.swing.JButton jBGenerarPago;
+    private javax.swing.JButton jBGuardarCliente;
+    private javax.swing.JButton jBGuardarConsumo;
+    private javax.swing.JButton jBGuardarTransaccion;
+    private javax.swing.JButton jBRealizarPago;
+    private javax.swing.JComboBox jCBComoElPago;
+    private javax.swing.JComboBox jCBCuotasConsumo;
+    private javax.swing.JComboBox jCBFranquicia;
+    private javax.swing.JComboBox jCBIdClienteProducto;
+    private javax.swing.JComboBox jCBTipoConsumo;
+    private javax.swing.JComboBox jCBTipoId;
+    private javax.swing.JComboBox jCBTipoProducto;
+    private javax.swing.JComboBox jCBTipoTransaccion;
+    private com.toedter.calendar.JDateChooser jDateFechaExpiracion;
+    private javax.swing.JLabel jInteresConsumo;
+    private javax.swing.JLabel jLAbonoCapital;
+    private javax.swing.JLabel jLAbonoInteres;
+    private javax.swing.JLabel jLApellido;
+    private javax.swing.JLabel jLCantidadOperacion;
+    private javax.swing.JLabel jLCvc;
+    private javax.swing.JLabel jLFechaExpiracion;
+    private javax.swing.JLabel jLFranquicia;
+    private javax.swing.JLabel jLId;
+    private javax.swing.JLabel jLIdClienteProducto;
+    private javax.swing.JLabel jLIngreseValorPago;
+    private javax.swing.JLabel jLInteres;
+    private javax.swing.JLabel jLNombre;
+    private javax.swing.JLabel jLNumeroCuentaTransaccion;
+    private javax.swing.JLabel jLNumeroCuentaTransaccionOrigen;
+    private javax.swing.JLabel jLNumeroCuotasConsumo;
+    private javax.swing.JLabel jLPag;
+    private javax.swing.JLabel jLPagadoBoolean;
+    private javax.swing.JLabel jLSaldo;
+    private javax.swing.JLabel jLTarjetaCreditoConsumo;
+    private javax.swing.JLabel jLTipo;
+    private javax.swing.JLabel jLValorPagarPago;
+    private javax.swing.JLabel jLValorPorPagarConsumo;
+    private javax.swing.JLabel jLValorTotalConsumo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPCliente;
+    private javax.swing.JPanel jPConsumo;
+    private javax.swing.JPanel jPOperacion;
+    private javax.swing.JPanel jPProducto;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTFAbonoCapital;
+    private javax.swing.JTextField jTFAbonoInteres;
+    private javax.swing.JTextField jTFApellido;
+    private javax.swing.JTextField jTFCantidadTransaccion;
+    private javax.swing.JTextField jTFCvc;
+    private javax.swing.JTextField jTFId;
+    private javax.swing.JTextField jTFIdCLienteProducto;
+    private javax.swing.JTextField jTFIngreseValorPago;
+    private javax.swing.JTextField jTFInteres;
+    private javax.swing.JTextField jTFInteresConsumo;
+    private javax.swing.JTextField jTFNombre;
+    private javax.swing.JTextField jTFNumeroCuentaOrigen;
+    private javax.swing.JTextField jTFNumeroCuentaTransaccion;
+    private javax.swing.JTextField jTFNumeroPro;
+    private javax.swing.JTextField jTFSaldo;
+    private javax.swing.JTextField jTFTarjetaCreditoConsumo;
+    private javax.swing.JTextField jTFValorPagarPago;
+    private javax.swing.JTextField jTFValorTotalConsumo;
+    private javax.swing.JTextField jTFValorXPagarConsumo;
+    private javax.swing.JTabbedPane jTPPrincipal;
+    private javax.swing.JLabel jlTipoOperacion;
+    private javax.swing.JTextField jtfNumeroTCPago;
+    // End of variables declaration//GEN-END:variables
 }

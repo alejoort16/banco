@@ -11,6 +11,7 @@ import javax.inject.Named;
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
 
+import co.edu.eam.ingesoft.pa.negocio.beans.ConsumoTCEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.OperacionesCuentaAhorros;
 import co.edu.eam.ingesoft.pa.negocio.beans.PagoConsumoEJB;
 import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
@@ -25,7 +26,7 @@ public class ControladorAvanceCuenta implements Serializable {
 	/**
 	 * campo cantidad
 	 */
-	private String cantidad;
+	private double cantidad;
 
 	/**
 	 * tarjeta de credito seleccionada
@@ -59,6 +60,12 @@ public class ControladorAvanceCuenta implements Serializable {
 	@EJB
 	PagoConsumoEJB pagoejb;
 
+	/**
+	 * Ejb del consumo de la tarjeta
+	 */
+	@EJB
+	ConsumoTCEJB consumo;
+
 	@Inject
 	private ControladorSesion sesion;
 
@@ -84,6 +91,16 @@ public class ControladorAvanceCuenta implements Serializable {
 			tcSeleccionada = tarjetas.get(0).getNumber();
 			cuentaSeleccionada = cuentasAhorro.get(0).getNumber();
 
+		} catch (ExcepcionNegocio e) {
+			Messages.addGlobalError(e.getMessage());
+		}
+	}
+
+	public void transferir() {
+
+		try {
+			consumo.avanceCuenta(tcSeleccionada, cantidad, cuentaSeleccionada);
+			Messages.addFlashGlobalInfo("operacion exitoso");
 		} catch (ExcepcionNegocio e) {
 			Messages.addGlobalError(e.getMessage());
 		}
@@ -138,11 +155,11 @@ public class ControladorAvanceCuenta implements Serializable {
 		this.sesion = sesion;
 	}
 
-	public String getCantidad() {
+	public double getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(String cantidad) {
+	public void setCantidad(double cantidad) {
 		this.cantidad = cantidad;
 	}
 
