@@ -9,53 +9,49 @@
 		<h:form prependId="false">
 
 			<h:panelGrid id="paneldatos" columns="3">
-			
-			<h:outputLabel for="cbCuentaOrigen" id="lbltipoidcuent"
-				value="#{msj['tranferencia.origen']}: " />
-			<h:selectOneMenu id="cbCuentaOrigen" value="#{controladorTrans.numeroCuentaOrigen}">
-				<f:selectItems value="#{controladorTrans.cuentasAhorro}" var="t"
-					itemValue="#{t.number}" itemLabel="#{t.number}" />
-			</h:selectOneMenu>
-			<br></br>
-			
-					<h:outputLabel for="cbCuentaDestino" id="lbltipoidcuentDes"
-				value="#{msj['tranferencia.destino']}: " />				
-			<h:selectOneMenu id="cbCuentaDestino" value="#{controladorTrans.numeroCuentaAsociada}">
 
-				<f:selectItems value="#{controladorTrans.cuentasAsociadas}" var="t"
-					itemValue="#{t.numeroCuenta}" itemLabel="#{t.nombreAsociacion}" />
-			</h:selectOneMenu>
-			<br></br>	
-			
-			
-			<h:outputLabel for="tfmonto" id="lblmonto"
+				<h:outputLabel for="cbCuentaOrigen" id="lbltipoidcuent"
+					value="#{msj['tranferencia.origen']}: " />
+				<h:selectOneMenu id="cbCuentaOrigen"
+					value="#{controladorTrans.numeroCuentaOrigen}">
+					<f:selectItems value="#{controladorTrans.cuentasAhorro}" var="t"
+						itemValue="#{t.number}" itemLabel="#{t.number}" />
+				</h:selectOneMenu>
+				<br></br>
+
+				<h:outputLabel for="cbCuentaDestino" id="lbltipoidcuentDes"
+					value="#{msj['tranferencia.destino']}: " />
+				<h:selectOneMenu id="cbCuentaDestino"
+					value="#{controladorTrans.numeroCuentaAsociada}">
+
+					<f:selectItems value="#{controladorTrans.cuentasAsociadas}" var="t"
+						itemValue="#{t.numeroCuenta}" itemLabel="#{t.nombreAsociacion}" />
+				</h:selectOneMenu>
+				<br></br>
+
+
+				<h:outputLabel for="tfmonto" id="lblmonto"
 					value="#{msj['transferencia.monto']}:" />
-				<h:inputText id="tfmonto"
-					value="#{controladorTrans.cantidad}" />
+				<h:inputText id="tfmonto" value="#{controladorTrans.cantidad}" />
 				<p:message for="tfmonto" />
 			</h:panelGrid>
-			
+
 			<br></br>
 			<br></br>
 
-			<h:panelGrid id="paneldatosBotones" columns="2">
+			<h:panelGrid id="paneldatosBotones" columns="2" cellpadding="5">
 				<p:commandButton id="btnTransferirr"
-					value="#{msj['transferencia.aceptar']}"
-					process="@this paneldatos" update="paneldatos"
+					value="#{msj['transferencia.aceptar']}" process="@this paneldatos"
+					update="paneldatos"
 					action="#{controladorTrans.realizarTransferencia}" />
-					
-					<p:commandButton id="btnCancelar"
-					value="#{msj['mensajes.cancelar']}"
-					process="@this paneldatos" update="paneldatos"
-					action="#{controladorTrans.cancelar}" />
-					
-					
+
+				<p:commandButton id="btnCancelar"
+					value="#{msj['mensajes.cancelar']}" process="@this paneldatos"
+					update="paneldatos" action="#{controladorTrans.cancelar}" />
 			</h:panelGrid>
-			
-			
-			</h:form>
-			
-			</ui:define>
-			
-			
+		</h:form>
+
+	</ui:define>
+
+
 </ui:composition>

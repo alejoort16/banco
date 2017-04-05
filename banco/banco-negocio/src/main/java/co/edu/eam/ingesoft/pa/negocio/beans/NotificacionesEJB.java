@@ -1,9 +1,16 @@
 package co.edu.eam.ingesoft.pa.negocio.beans;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.xml.ws.BindingProvider;
 
+import co.edu.eam.pa.bancows.Banco;
+import co.edu.eam.pa.bancows.InterbancarioWS;
+import co.edu.eam.pa.bancows.InterbancarioWS_Service;
+import co.edu.eam.pa.bancows.ListarBancos;
+import co.edu.eam.pa.bancows.ListarBancosResponse;
 import co.edu.eam.pa.clientews.Mail;
 import co.edu.eam.pa.clientews.Notificaciones;
 import co.edu.eam.pa.clientews.NotificacionesService;
@@ -51,6 +58,21 @@ public class NotificacionesEJB {
 		
 		RespuestaNotificacion resp = servicio.enviarSMS(sms);
 		System.out.println(resp.getMensaje());
+	}
+	
+	public List<Banco> listarBancossss(){
+		InterbancarioWS_Service banco = new InterbancarioWS_Service();
+		InterbancarioWS servicio =  banco.getInterbancarioWSPort();
+		
+		
+		String endpointURL = "http://104.197.238.134:8080/interbancario/InterbancarioWS";
+		BindingProvider bp = (BindingProvider)servicio;
+		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
+		
+		List<Banco> bancos;
+		bancos = servicio.listarBancos();	
+		return bancos;
+		
 	}
 
 }

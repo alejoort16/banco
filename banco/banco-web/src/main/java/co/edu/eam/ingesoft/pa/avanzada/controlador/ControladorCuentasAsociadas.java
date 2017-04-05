@@ -20,6 +20,7 @@ import org.omnifaces.util.Messages;
 import co.edu.eam.ingesoft.pa.negocio.beans.BancoEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.ClienteEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.CuentaAsociadaEJB;
+import co.edu.eam.ingesoft.pa.negocio.beans.NotificacionesEJB;
 import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
 import entidades.Banco;
 import entidades.Cliente;
@@ -46,9 +47,11 @@ public class ControladorCuentasAsociadas implements Serializable {
 
 	private String bancoSeleccionado;
 	
-	private Banco banco;
+	private entidades.Banco banco;
+	
+	private co.edu.eam.pa.bancows.Banco bancoservicioweb;
 
-	private List<Banco> bancos;
+	private List<co.edu.eam.pa.bancows.Banco> bancos;
 	
 	private List<CuentaAsociada> cuentasAsociadas;
 
@@ -79,6 +82,9 @@ public class ControladorCuentasAsociadas implements Serializable {
 	@EJB
 	private BancoEJB bancoejb;
 	
+	@EJB
+	private NotificacionesEJB notificaciones;
+	
 	@Inject
 	private ControladorSesion sesion;
 
@@ -88,7 +94,7 @@ public class ControladorCuentasAsociadas implements Serializable {
 		//tipoSeleccionadoPrincipal = sesion.getUsuario().getCliente().getIdentificationType();
 		//id_cliente = sesion.getUsuario().getCliente().getIdentificationNumber();
 	//	clienteejb.buscarCliente(tipoSeleccionadoPrincipal, id_cliente);
-		bancos = asociadasejb.listarBancos();
+		bancos = notificaciones.listarBancossss();
 		cuentasAsociadas =	asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
 
 	}
@@ -212,14 +218,14 @@ public class ControladorCuentasAsociadas implements Serializable {
 	/**
 	 * @return the bancos
 	 */
-	public List<Banco> getBancos() {
+	public List<co.edu.eam.pa.bancows.Banco> getBancos() {
 		return bancos;
 	}
 
 	/**
 	 * @param bancos the bancos to set
 	 */
-	public void setBancos(List<Banco> bancos) {
+	public void setBancos(List<co.edu.eam.pa.bancows.Banco> bancos) {
 		this.bancos = bancos;
 	}
 
@@ -268,15 +274,15 @@ public class ControladorCuentasAsociadas implements Serializable {
 	/**
 	 * @return the banco
 	 */
-	public Banco getBanco() {
-		return banco;
+	public co.edu.eam.pa.bancows.Banco getBanco() {
+		return bancoservicioweb;
 	}
 
 	/**
 	 * @param banco the banco to set
 	 */
-	public void setBanco(Banco banco) {
-		this.banco = banco;
+	public void setBanco(co.edu.eam.pa.bancows.Banco banco) {
+		this.bancoservicioweb = banco;
 	}
 
 }
