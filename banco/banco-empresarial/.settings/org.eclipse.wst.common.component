@@ -2,7 +2,10 @@
     <wb-module deploy-name="banco-empresarial-0.0.1-SNAPSHOT">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
-        <dependent-module archiveName="banco-negocio.jar" deploy-path="/" handle="module:/resource/banco-negocio/banco-negocio">
+        <dependent-module archiveName="banco-negocio6" deploy-path="/" handle="module:/resource/banco-negocio/banco-negocio">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="banco-web.war" deploy-path="/" handle="module:/resource/banco-web/banco-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="jboss-ejb-api_3.2_spec.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/jboss/spec/javax/ejb/jboss-ejb-api_3.2_spec/1.0.0.Final/jboss-ejb-api_3.2_spec-1.0.0.Final.jar">
@@ -24,9 +27,6 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="banco-persistencia.jar" deploy-path="/lib" handle="module:/resource/banco-persistencia/banco-persistencia">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="banco-web.war" deploy-path="/" handle="module:/resource/banco-web/banco-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
