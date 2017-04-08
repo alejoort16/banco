@@ -2,5 +2,5 @@ package enumeraciones;
 
 public enum TipoDocumento {
 
-	CC,TI,RC,CE
+	CC,TI,PAS,CE
 }

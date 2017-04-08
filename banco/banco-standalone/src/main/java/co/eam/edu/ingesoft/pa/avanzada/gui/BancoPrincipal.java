@@ -58,13 +58,13 @@ public class BancoPrincipal extends javax.swing.JFrame {
 			jCBTipoId.addItem("Seleccione una opción");
 			jCBTipoId.addItem(TipoDocumento.CC);
 			jCBTipoId.addItem(TipoDocumento.CE);
-			jCBTipoId.addItem(TipoDocumento.RC);
+			jCBTipoId.addItem(TipoDocumento.PAS);
 			jCBTipoId.addItem(TipoDocumento.TI);
 
 			jCBIdClienteProducto.addItem("Seleccione una opción");
 			jCBIdClienteProducto.addItem(TipoDocumento.CC);
 			jCBIdClienteProducto.addItem(TipoDocumento.CE);
-			jCBIdClienteProducto.addItem(TipoDocumento.RC);
+			jCBIdClienteProducto.addItem(TipoDocumento.PAS);
 			jCBIdClienteProducto.addItem(TipoDocumento.TI);
 
 		} catch (NamingException e) {
