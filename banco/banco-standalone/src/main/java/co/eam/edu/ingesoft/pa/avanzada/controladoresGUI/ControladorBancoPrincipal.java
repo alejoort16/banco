@@ -60,6 +60,9 @@ public class ControladorBancoPrincipal {
 		return productoRemoto.listarFranquicias();
 	}
 
+	/*
+	 * oe
+	 */
 	public Franquicia buscarPorNombreFranquicia(String nombre) {
 		return productoRemoto.buscarPorNombreFranquicia(nombre);
 	}
