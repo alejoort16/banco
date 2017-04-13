@@ -84,4 +84,10 @@ public class RespuestaServicio {
         this.mensaje = value;
     }
 
+	@Override
+	public String toString() {
+		return mensaje;
+	}
+
+
 }
