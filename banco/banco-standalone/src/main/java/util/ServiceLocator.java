@@ -7,8 +7,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 public class ServiceLocator {
-private static final String APP_NAME = "banco-empresarial";
-private static final String MODULE_NAME = "banco-negocio";
+private static final String APP_NAME = "banco6";
+private static final String MODULE_NAME = "banco-negocio6";
 private static final String DISTINCT_NAME = "";
 /**
 * MEtodo par aubicar el EJB remoto

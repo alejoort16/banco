@@ -7,11 +7,10 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.validation.constraints.Pattern;
 
-import org.hibernate.validator.constraints.Length;
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
+import org.primefaces.context.RequestContext;
 
 import co.edu.eam.ingesoft.pa.negocio.beans.CuentaAsociadaEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.OperacionesCuentaAhorros;
@@ -27,40 +26,40 @@ public class ControladorTransferencia implements Serializable {
 
 	@Inject
 	private ControladorSesion sesion;
-	
+
 	@EJB
 	private CuentaAsociadaEJB asociadasejb;
-	
+
 	@EJB
 	private PagoConsumoEJB pagoejb;
-	
+
 	@EJB
 	private OperacionesCuentaAhorros transaccionejb;
-	
+
 	/**
 	 * tipo de documento del cliente
 	 */
 	private TipoDocumento tipoSeleccionado;
-	
+
 	private String id_cliente;
-	
+
 	private List<CuentaAhorros> cuentasAhorro;
 	private String numeroCuentaOrigen;
-	
+
 	private List<CuentaAsociada> cuentasAsociadas;
 	private String numeroCuentaAsociada;
-	
+
 	private double cantidad;
-	
+
 	@PostConstruct
 	public void inicializar() {
 		tipoSeleccionado = sesion.getUsuario().getCliente().getIdentificationType();
 		id_cliente = sesion.getUsuario().getCliente().getIdentificationNumber();
-		
+
 		cuentasAhorro = pagoejb.listarCuentaAhorros(tipoSeleccionado, id_cliente);
 		cuentasAsociadas = asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
 	}
-	
+
 	/**
 	 * metodo que redirige a la pagina inicio
 	 * 
@@ -69,17 +68,23 @@ public class ControladorTransferencia implements Serializable {
 	public String cancelar() {
 		return "/paginas/seguro/inicio.xhtml";
 	}
-	
-	public void realizarTransferencia(){
-	try{	
-		transaccionejb.transferenciaACH(numeroCuentaOrigen, numeroCuentaAsociada, cantidad);
-		System.out.println(cantidad+"**********************************");
-		Messages.addFlashGlobalInfo("Transferencia realizada");
-		cantidad = 0;
-	}catch (ExcepcionNegocio e) {
-		// TODO: handle exception
-		Messages.addGlobalError(e.getMessage());
+
+	public void realizarTransferencia() {
+		try {
+			transaccionejb.transferenciaACH(numeroCuentaOrigen, numeroCuentaAsociada, cantidad);
+			System.out.println(cantidad + "**********************************");
+			Messages.addFlashGlobalInfo("Transferencia realizada");
+			cantidad = 0;
+		} catch (ExcepcionNegocio e) {
+			// TODO: handle exception
+			Messages.addGlobalError(e.getMessage());
+		}
 	}
+
+	public void abrirDialogo() {
+		System.out.println("abriendo dialgo.......");
+		RequestContext context = RequestContext.getCurrentInstance();
+		context.execute("dlg2.show();");
 	}
 
 	/**
@@ -90,7 +95,8 @@ public class ControladorTransferencia implements Serializable {
 	}
 
 	/**
-	 * @param cuentasAhorro the cuentasAhorro to set
+	 * @param cuentasAhorro
+	 *            the cuentasAhorro to set
 	 */
 	public void setCuentasAhorro(List<CuentaAhorros> cuentasAhorro) {
 		this.cuentasAhorro = cuentasAhorro;
@@ -104,7 +110,8 @@ public class ControladorTransferencia implements Serializable {
 	}
 
 	/**
-	 * @param cuentasAsociadas the cuentasAsociadas to set
+	 * @param cuentasAsociadas
+	 *            the cuentasAsociadas to set
 	 */
 	public void setCuentasAsociadas(List<CuentaAsociada> cuentasAsociadas) {
 		this.cuentasAsociadas = cuentasAsociadas;
@@ -118,7 +125,8 @@ public class ControladorTransferencia implements Serializable {
 	}
 
 	/**
-	 * @param cantidad the cantidad to set
+	 * @param cantidad
+	 *            the cantidad to set
 	 */
 	public void setCantidad(double cantidad) {
 		this.cantidad = cantidad;
@@ -132,7 +140,8 @@ public class ControladorTransferencia implements Serializable {
 	}
 
 	/**
-	 * @param numeroCuentaOrigen the numeroCuentaOrigen to set
+	 * @param numeroCuentaOrigen
+	 *            the numeroCuentaOrigen to set
 	 */
 	public void setNumeroCuentaOrigen(String numeroCuentaOrigen) {
 		this.numeroCuentaOrigen = numeroCuentaOrigen;
@@ -146,11 +155,11 @@ public class ControladorTransferencia implements Serializable {
 	}
 
 	/**
-	 * @param numeroCuentaAsociada the numeroCuentaAsociada to set
+	 * @param numeroCuentaAsociada
+	 *            the numeroCuentaAsociada to set
 	 */
 	public void setNumeroCuentaAsociada(String numeroCuentaAsociada) {
 		this.numeroCuentaAsociada = numeroCuentaAsociada;
 	}
-	
-	
+
 }

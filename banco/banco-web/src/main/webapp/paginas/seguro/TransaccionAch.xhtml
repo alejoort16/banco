@@ -48,7 +48,17 @@
 				<p:commandButton id="btnCancelar"
 					value="#{msj['mensajes.cancelar']}" process="@this paneldatos"
 					update="paneldatos" action="#{controladorTrans.cancelar}" />
+
+				<p:commandButton value="Modal" 
+					action="#{controladorTrans.abrirDialogo}" process="@this"
+					update="dialogo" />
+
 			</h:panelGrid>
+
+			<p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true"
+				id="dialogo" height="100" width="250">
+				<h:outputText value="This is a Modal Dialog." />
+			</p:dialog>
 		</h:form>
 
 	</ui:define>
