@@ -24,13 +24,14 @@ import enumeraciones.TipoDocumento;
  *
  */
 @NamedQueries({
-@NamedQuery(name=CuentaAsociada.findbyCliente, query="select c from CuentaAsociada c where c.clientePrincipal = ?1")
-})
+		@NamedQuery(name = CuentaAsociada.findbyCliente, query = "select c from CuentaAsociada c where c.clientePrincipal = ?1 AND c.estado= 'Asociada'"),
+		@NamedQuery(name = CuentaAsociada.CuentasAsociadas, query = "select c from CuentaAsociada c where c.clientePrincipal = ?1") })
 @Entity
 @Table(name = "T_CUENTA_ASOCIADA")
 public class CuentaAsociada implements Serializable {
-	
-	public static final String findbyCliente = "listarCuentasAsociadas";
+
+	public static final String findbyCliente = "listarCuentasAsociadasVerificadas";
+	public static final String CuentasAsociadas = "listarCuentasAsociadas";
 
 	@Id
 	@Column(name = "numero_cuenta", nullable = false, length = 20)
@@ -48,8 +49,8 @@ public class CuentaAsociada implements Serializable {
 
 	@Column(name = "numero_documento", nullable = false, length = 15)
 	private String numeroDocumento;
-	
-	@Column(name = "estado", nullable= false, length= 20)
+
+	@Column(name = "estado", nullable = false, length = 20)
 	private String estado;
 
 	@JoinColumn(name = "banco")
@@ -62,11 +63,11 @@ public class CuentaAsociada implements Serializable {
 			@JoinColumn(name = "identificationNumber", referencedColumnName = "identification_number") })
 	@ManyToOne
 	private Cliente clientePrincipal;
-	
-	public CuentaAsociada(){
-		
+
+	public CuentaAsociada() {
+
 	}
-		
+
 	public CuentaAsociada(String numeroCuenta, String nombreAsociacion, String nombreTitular,
 			TipoDocumento tipoDocumento, String numeroDocumento, String estado, Banco banco, Cliente clientePrincipal) {
 		super();
@@ -88,7 +89,8 @@ public class CuentaAsociada implements Serializable {
 	}
 
 	/**
-	 * @param numeroCuenta the numeroCuenta to set
+	 * @param numeroCuenta
+	 *            the numeroCuenta to set
 	 */
 	public void setNumeroCuenta(String numeroCuenta) {
 		this.numeroCuenta = numeroCuenta;
@@ -102,7 +104,8 @@ public class CuentaAsociada implements Serializable {
 	}
 
 	/**
-	 * @param nombreAsociacion the nombreAsociacion to set
+	 * @param nombreAsociacion
+	 *            the nombreAsociacion to set
 	 */
 	public void setNombreAsociacion(String nombreAsociacion) {
 		this.nombreAsociacion = nombreAsociacion;
@@ -116,7 +119,8 @@ public class CuentaAsociada implements Serializable {
 	}
 
 	/**
-	 * @param nombreTitular the nombreTitular to set
+	 * @param nombreTitular
+	 *            the nombreTitular to set
 	 */
 	public void setNombreTitular(String nombreTitular) {
 		this.nombreTitular = nombreTitular;
@@ -130,7 +134,8 @@ public class CuentaAsociada implements Serializable {
 	}
 
 	/**
-	 * @param tipoDocumento the tipoDocumento to set
+	 * @param tipoDocumento
+	 *            the tipoDocumento to set
 	 */
 	public void setTipoDocumento(TipoDocumento tipoDocumento) {
 		this.tipoDocumento = tipoDocumento;
@@ -144,7 +149,8 @@ public class CuentaAsociada implements Serializable {
 	}
 
 	/**
-	 * @param numeroDocumento the numeroDocumento to set
+	 * @param numeroDocumento
+	 *            the numeroDocumento to set
 	 */
 	public void setNumeroDocumento(String numeroDocumento) {
 		this.numeroDocumento = numeroDocumento;
@@ -156,9 +162,10 @@ public class CuentaAsociada implements Serializable {
 	public Banco getBanco() {
 		return banco;
 	}
-	
+
 	/**
-	 * @param banco the banco to set
+	 * @param banco
+	 *            the banco to set
 	 */
 	public void setBanco(Banco banco) {
 		this.banco = banco;
@@ -172,13 +179,16 @@ public class CuentaAsociada implements Serializable {
 	}
 
 	/**
-	 * @param clientePrincipal the clientePrincipal to set
+	 * @param clientePrincipal
+	 *            the clientePrincipal to set
 	 */
 	public void setClientePrincipal(Cliente clientePrincipal) {
 		this.clientePrincipal = clientePrincipal;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -189,7 +199,9 @@ public class CuentaAsociada implements Serializable {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -217,13 +229,11 @@ public class CuentaAsociada implements Serializable {
 	}
 
 	/**
-	 * @param estado the estado to set
+	 * @param estado
+	 *            the estado to set
 	 */
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
-	
-	
-	
+
 }

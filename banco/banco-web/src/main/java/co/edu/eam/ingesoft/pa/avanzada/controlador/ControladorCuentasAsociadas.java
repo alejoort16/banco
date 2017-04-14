@@ -22,6 +22,8 @@ import co.edu.eam.ingesoft.pa.negocio.beans.ClienteEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.CuentaAsociadaEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.NotificacionesEJB;
 import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
+import co.edu.eam.pa.bancows.RespuestaServicio;
+import co.edu.eam.pa.bancows.TipoDocumentoEnum;
 import entidades.Banco;
 import entidades.Cliente;
 import entidades.ConsumoTarjetaCredito;
@@ -42,17 +44,17 @@ public class ControladorCuentasAsociadas implements Serializable {
 	private TipoDocumento tipoSeleccionado;
 
 	// DATOS DEL QUE INICIO SESION
-	private TipoDocumento tipoSeleccionadoPrincipal;
+	private TipoDocumentoEnum tipoDocumentoServicio;
 	private String id_cliente;
 
 	private String bancoSeleccionado;
-	
+
 	private entidades.Banco banco;
-	
+
 	private co.edu.eam.pa.bancows.Banco bancoservicioweb;
 
 	private List<co.edu.eam.pa.bancows.Banco> bancos;
-	
+
 	private List<CuentaAsociada> cuentasAsociadas;
 
 	@Pattern(regexp = "[0-9]*", message = "solo numeros")
@@ -70,72 +72,79 @@ public class ControladorCuentasAsociadas implements Serializable {
 	@Pattern(regexp = "[A-Za-z ]*", message = "solo Letras")
 	@Length(min = 3, max = 50, message = "longitud entre 3 y 50")
 	private String nombreAsociacion;
-	
-	private String estado = "VERIFICADO";
+
+	private String estado = "NO VERIFICADO";
 
 	@EJB
 	private CuentaAsociadaEJB asociadasejb;
-	
+
 	@EJB
 	private ClienteEJB clienteejb;
-	
+
 	@EJB
 	private BancoEJB bancoejb;
-	
+
 	@EJB
 	private NotificacionesEJB notificaciones;
-	
+
 	@Inject
 	private ControladorSesion sesion;
 
-
 	@PostConstruct
 	public void inicializar() {
-		//tipoSeleccionadoPrincipal = sesion.getUsuario().getCliente().getIdentificationType();
-		//id_cliente = sesion.getUsuario().getCliente().getIdentificationNumber();
-	//	clienteejb.buscarCliente(tipoSeleccionadoPrincipal, id_cliente);
 		bancos = notificaciones.listarBancossss();
-		cuentasAsociadas =	asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
+		cuentasAsociadas = asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
 
 	}
 
 	public TipoDocumento[] getTipos() {
 		return TipoDocumento.values();
 	}
-	
-	
-	
-	
-	public void guardarAsociacion(){
-		try{
+
+	public void guardarAsociacion() {
+		try {
 			banco = bancoejb.buscarBanco(bancoSeleccionado);
-			CuentaAsociada cu = new CuentaAsociada(numeroCuenta, nombreAsociacion, nombreTitular,
-					tipoSeleccionado, numeroIdentificacionTitular, estado, banco, sesion.getUsuario().getCliente());
-					asociadasejb.crearAsociacion(cu);
-					cuentasAsociadas = asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
-					
-					// limpiar campos
-					numeroCuenta ="";
-					nombreAsociacion  ="";
-					nombreTitular ="";
-					numeroIdentificacionTitular ="";
-					
-					Messages.addFlashGlobalInfo("Cuenta de ahorros asociada");
-			}catch(ExcepcionNegocio e){
-				Messages.addGlobalError(e.getMessage());
-			}
+			CuentaAsociada cu = new CuentaAsociada(numeroCuenta, nombreAsociacion, nombreTitular, tipoSeleccionado,
+					numeroIdentificacionTitular, estado, banco, sesion.getUsuario().getCliente());
+			asociadasejb.crearAsociacion(cu);
+			cuentasAsociadas = asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
+
+			// limpiar campos
+			numeroCuenta = "";
+			nombreAsociacion = "";
+			nombreTitular = "";
+			numeroIdentificacionTitular = "";
+
+			Messages.addFlashGlobalInfo("Cuenta de ahorros asociada");
+		} catch (ExcepcionNegocio e) {
+			Messages.addGlobalError(e.getMessage());
+		}
 	}
-	
-	public void eliminarAsociacion(CuentaAsociada cuenta){
-		try{
+
+	public void eliminarAsociacion(CuentaAsociada cuenta) {
+		try {
 			asociadasejb.eliminarCuentaAsociada(cuenta);
 			cuentasAsociadas = asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
 			Messages.addFlashGlobalInfo("Cuenta de ahorros eliminada");
-			
-		}catch (ExcepcionNegocio e) {
+
+		} catch (ExcepcionNegocio e) {
 			// TODO: handle exception
 			Messages.addGlobalError(e.getMessage());
 		}
+	}
+
+	public void verificarCuenta(CuentaAsociada cuenta) {
+
+		try {
+			String msj = notificaciones.verificarCuenta(cuenta.getBanco().getId(), cuenta.getTipoDocumento()+"",
+					cuenta.getNumeroDocumento(), cuenta.getNombreTitular(), cuenta.getNumeroCuenta());
+			cuentasAsociadas = asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
+			Messages.addFlashGlobalInfo(msj);
+
+		} catch (ExcepcionNegocio e) {
+			Messages.addGlobalError(e.getMessage());
+		}
+
 	}
 
 	/**
@@ -152,8 +161,6 @@ public class ControladorCuentasAsociadas implements Serializable {
 	public void setTipoSeleccionado(TipoDocumento tipoSeleccionado) {
 		this.tipoSeleccionado = tipoSeleccionado;
 	}
-
-	
 
 	/**
 	 * @return the numeroIdentificacionTitular
@@ -223,7 +230,8 @@ public class ControladorCuentasAsociadas implements Serializable {
 	}
 
 	/**
-	 * @param bancos the bancos to set
+	 * @param bancos
+	 *            the bancos to set
 	 */
 	public void setBancos(List<co.edu.eam.pa.bancows.Banco> bancos) {
 		this.bancos = bancos;
@@ -237,7 +245,8 @@ public class ControladorCuentasAsociadas implements Serializable {
 	}
 
 	/**
-	 * @param estado the estado to set
+	 * @param estado
+	 *            the estado to set
 	 */
 	public void setEstado(String estado) {
 		this.estado = estado;
@@ -251,7 +260,8 @@ public class ControladorCuentasAsociadas implements Serializable {
 	}
 
 	/**
-	 * @param cuentasAsociadas the cuentasAsociadas to set
+	 * @param cuentasAsociadas
+	 *            the cuentasAsociadas to set
 	 */
 	public void setCuentasAsociadas(List<CuentaAsociada> cuentasAsociadas) {
 		this.cuentasAsociadas = cuentasAsociadas;
@@ -265,7 +275,8 @@ public class ControladorCuentasAsociadas implements Serializable {
 	}
 
 	/**
-	 * @param bancoSeleccionado the bancoSeleccionado to set
+	 * @param bancoSeleccionado
+	 *            the bancoSeleccionado to set
 	 */
 	public void setBancoSeleccionado(String bancoSeleccionado) {
 		this.bancoSeleccionado = bancoSeleccionado;
@@ -279,7 +290,8 @@ public class ControladorCuentasAsociadas implements Serializable {
 	}
 
 	/**
-	 * @param banco the banco to set
+	 * @param banco
+	 *            the banco to set
 	 */
 	public void setBanco(co.edu.eam.pa.bancows.Banco banco) {
 		this.bancoservicioweb = banco;

@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.Pattern;
 
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
@@ -57,7 +58,7 @@ public class ControladorTransferencia implements Serializable {
 		id_cliente = sesion.getUsuario().getCliente().getIdentificationNumber();
 
 		cuentasAhorro = pagoejb.listarCuentaAhorros(tipoSeleccionado, id_cliente);
-		cuentasAsociadas = asociadasejb.listarCuentasAsociadas(sesion.getUsuario().getCliente());
+		cuentasAsociadas = asociadasejb.listarCuentasAsociadasVerificadas(sesion.getUsuario().getCliente());
 	}
 
 	/**
@@ -80,11 +81,6 @@ public class ControladorTransferencia implements Serializable {
 			Messages.addGlobalError(e.getMessage());
 		}
 	}
-
-	public void abrirDialogo() {
-		System.out.println("abriendo dialgo.......");
-		RequestContext context = RequestContext.getCurrentInstance();
-		context.execute("dlg2.show();");
 	}
 
 	/**

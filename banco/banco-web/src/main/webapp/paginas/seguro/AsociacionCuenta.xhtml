@@ -105,7 +105,12 @@
 							action="#{ControladorCuentasAsociadas.eliminarAsociacion(cuentas)}"
 							process="@this" value="#{msj['asociacion.eliminar']}"
 							update="panelTabla" />
+							<p:commandButton
+							action="#{ControladorCuentasAsociadas.verificarCuenta(cuentas)}"
+							process="@this" value="#{msj['asociacion.verificar']}"
+							update="panelTabla" />
 					</p:column>
+					
 
 				</p:dataTable>
 			</h:panelGrid>
