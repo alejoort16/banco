@@ -81,7 +81,7 @@ public class ControladorTransferencia implements Serializable {
 			Messages.addGlobalError(e.getMessage());
 		}
 	}
-	}
+	
 
 	/**
 	 * @return the cuentasAhorro

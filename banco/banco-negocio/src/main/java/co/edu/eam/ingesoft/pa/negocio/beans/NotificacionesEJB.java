@@ -140,7 +140,7 @@ public class NotificacionesEJB {
 			CuentaAsociada cuen = cuentaAsociada.buscarCuentaAsociada(numerocuenta);
 			if (cuen != null) {
 				cuen.setEstado(respuesta.getMensaje());
-				em.remove(cuen);
+				cuentaAsociada.eliminarCuentaAsociada(cuen);
 				return "Esta cuenta no es valida, por lo tanto se eliminara";
 				
 			} else {
@@ -150,8 +150,7 @@ public class NotificacionesEJB {
 		} else if (respuesta.getCodigo().equals("0010")) {
 			CuentaAsociada cuen = cuentaAsociada.buscarCuentaAsociada(numerocuenta);
 			if (cuen != null) {
-				em.remove(cuen);
-				
+				cuentaAsociada.eliminarCuentaAsociada(cuen);		
 				return "El banco de esta cuenta no existe, por lo tanto se eliminara";
 			} else {
 				throw new ExcepcionNegocio("Esta cuenta no existe");
