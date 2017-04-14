@@ -19,6 +19,7 @@ import co.edu.eam.ingesoft.pa.negocio.interfaces.ITransaccionesRemote;
 import entidades.Cliente;
 import entidades.ClientePK;
 import entidades.CuentaAhorros;
+import entidades.SegundaClave;
 import entidades.TarjetaCredito;
 import entidades.Transaccion;
 import enumeraciones.TipoDocumento;
@@ -39,6 +40,9 @@ public class OperacionesCuentaAhorros {
 
 	@EJB
 	NotificacionesEJB notificaciones;
+	
+	@EJB
+	CodigosEJB segundacontra;
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void GuardarTransaccion(Transaccion tra) {
@@ -209,5 +213,18 @@ public class OperacionesCuentaAhorros {
 			GuardarTransaccion(tr);
 		}
 	}
-
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public void generarSegundaClave(String correo, String celular) {
+		String total = "";
+		for (int i = 0; i < 6; i++) {
+			int valorx = (int) ((Math.random() * 9) + 1);
+			total = total + valorx;
+		}
+		
+		SegundaClave codigo = new SegundaClave(new Date(), total);
+		segundacontra.GuardarCodigo(codigo);
+		//notificaciones.enviarSms("Su codigo es: "+total , celular);
+		notificaciones.enviarCorreo("Su codigo es: "+total, "cualquiera@hotmail.com", correo, "Codigo transacción");
+	}
 }

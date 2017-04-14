@@ -34,13 +34,23 @@
 					value="#{msj['transferencia.monto']}:" />
 				<h:inputText id="tfmonto" value="#{controladorTrans.cantidad}" />
 				<p:message for="tfmonto" />
+				
+				<h:outputLabel for="tfCodigo" id="lblcodigo"
+					value="#{msj['transferencia.codigo']}:" />
+				<h:inputText id="tfCodigo" value="#{controladorTrans.codigo}" />
+				<p:message for="tfCodigo" />
+			
 			</h:panelGrid>
 
 			<br></br>
 			<br></br>
 
 			<h:panelGrid id="paneldatosBotones" columns="2" cellpadding="5">
-				<p:commandButton id="btnTransferirr"
+		
+					<p:commandButton value="#{msj['transferencia.generar']}" 
+					action="#{controladorTrans.generarCodigo}" process="@this"/>
+					 
+					 <p:commandButton id="btnTransferirr"
 					value="#{msj['transferencia.aceptar']}" process="@this paneldatos"
 					update="paneldatos"
 					action="#{controladorTrans.realizarTransferencia}" />
@@ -49,16 +59,8 @@
 					value="#{msj['mensajes.cancelar']}" process="@this paneldatos"
 					update="paneldatos" action="#{controladorTrans.cancelar}" />
 
-				<p:commandButton value="Modal" 
-					action="#{controladorTrans.abrirDialogo}" process="@this"
-					update="dialogo" />
-
 			</h:panelGrid>
-
-			<p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true"
-				id="dialogo" height="100" width="250">
-				<h:outputText value="This is a Modal Dialog." />
-			</p:dialog>
+			
 		</h:form>
 
 	</ui:define>
