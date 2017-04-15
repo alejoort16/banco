@@ -17,6 +17,7 @@ import org.primefaces.context.RequestContext;
 
 import co.edu.eam.ingesoft.pa.negocio.beans.CodigosEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.CuentaAsociadaEJB;
+import co.edu.eam.ingesoft.pa.negocio.beans.NotificacionesEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.OperacionesCuentaAhorros;
 import co.edu.eam.ingesoft.pa.negocio.beans.PagoConsumoEJB;
 import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
@@ -43,6 +44,9 @@ public class ControladorTransferencia implements Serializable {
 
 	@EJB
 	private CodigosEJB codigosejb;
+	
+	@EJB
+	private NotificacionesEJB webservice;
 
 	/**
 	 * tipo de documento del cliente
@@ -101,8 +105,9 @@ public class ControladorTransferencia implements Serializable {
 			if(res<2){
 				if(segundaClave.getCodigo().equals(codigo)){
 					if(cantidad>0){
-				transaccionejb.transferenciaACH(numeroCuentaOrigen, numeroCuentaAsociada, cantidad);
-				Messages.addFlashGlobalInfo("Transferencia realizada con exito");
+					CuentaAsociada cu	= asociadasejb.buscarCuentaAsociada(numeroCuentaAsociada);
+			String msj =	webservice.transferirMonto(numeroCuentaOrigen, cu.getBanco().getId(), numeroCuentaAsociada, cantidad);
+				Messages.addFlashGlobalInfo(msj);
 					}else{
 						Messages.addGlobalError("Ingrese valor de la transferencia");
 					}

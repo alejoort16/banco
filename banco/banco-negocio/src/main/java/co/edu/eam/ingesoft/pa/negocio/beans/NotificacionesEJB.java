@@ -32,6 +32,9 @@ public class NotificacionesEJB {
 
 	@EJB
 	CuentaAsociadaEJB cuentaAsociada;
+	
+	@EJB
+	OperacionesCuentaAhorros operaciones;
 
 	@PersistenceContext
 	private EntityManager em;
@@ -159,5 +162,32 @@ public class NotificacionesEJB {
 			throw new ExcepcionNegocio("codigo no valido");
 		}
 	}
+	
+	
+	public String transferirMonto(String cuentaOrigen, String idbanco, String numeroCuenta, double monto){
+		InterbancarioWS_Service banco = new InterbancarioWS_Service();
+		InterbancarioWS servicio = banco.getInterbancarioWSPort();
 
+		String endpointURL = "http://104.197.238.134:8080/interbancario/InterbancarioWS";
+		BindingProvider bp = (BindingProvider) servicio;
+		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
+	
+			RespuestaServicio respuesta = servicio.transferirMonto(idbanco, numeroCuenta, monto);
+		System.out.println(respuesta.getCodigo()+"**********"+respuesta.getMensaje());
+		
+		if(respuesta.getCodigo().equals("000")){
+			operaciones.transferenciaACH(cuentaOrigen, numeroCuenta, monto);
+			return respuesta.getMensaje();
+			
+		}else if(respuesta.getCodigo().equals("002")){
+			return respuesta.getMensaje();
+
+			
+		}else if(respuesta.getCodigo().equals("004")){
+			return respuesta.getMensaje();			
+		}else{
+			return "ERROR";
+		}
+		
+	}
 }
