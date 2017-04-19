@@ -87,10 +87,15 @@ public class ControladorAvanceCuenta implements Serializable {
 			String id_client = sesion.getUsuario().getCliente().getIdentificationNumber();
 			tarjetas = pagoejb.listarTCCliente(id_client, tipoSeleccionado);
 			cuentasAhorro = operacionesejb.listarCuentaAhorros(tipoSeleccionado, id_client);
-
+			if(tarjetas.isEmpty()){
+				Messages.addGlobalError("No tiene tarjetas de credito");
+			}else if(cuentasAhorro.isEmpty()){
+				Messages.addGlobalError("No tiene cuentas de ahorro");
+			}else{
+			
 			tcSeleccionada = tarjetas.get(0).getNumber();
 			cuentaSeleccionada = cuentasAhorro.get(0).getNumber();
-
+			}
 		} catch (ExcepcionNegocio e) {
 			Messages.addGlobalError(e.getMessage());
 		}
@@ -99,8 +104,14 @@ public class ControladorAvanceCuenta implements Serializable {
 	public void transferir() {
 
 		try {
+			if(tcSeleccionada==null){
+				Messages.addGlobalError("No tiene tarjetas de credito");
+			}else if(cuentaSeleccionada==null){
+				Messages.addGlobalError("No tiene cuentas de ahorro");
+			}else{
 			consumo.avanceCuenta(tcSeleccionada, cantidad, cuentaSeleccionada);
 			Messages.addFlashGlobalInfo("operacion exitoso");
+			}
 		} catch (ExcepcionNegocio e) {
 			Messages.addGlobalError(e.getMessage());
 		}
