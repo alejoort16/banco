@@ -3,6 +3,7 @@ package co.edu.eam.ingesoft.pa.avanzada.servicios;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -27,7 +28,7 @@ public class VerificarCuentaRest {
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/verificarcuenta")
-	public boolean verificarCuenta(@FormParam("numeroCuenta") String numeroCuenta, @FormParam("tipo") int tipo,
+	public RespuestaDTO verificarCuenta(@FormParam("numeroCuenta") String numeroCuenta, @FormParam("tipo") int tipo,
 			@FormParam("cedula") String numeroDocum) {
 
 		TipoDocumento tipod = null;
@@ -44,13 +45,15 @@ public class VerificarCuentaRest {
 		CuentaAsociada cuenta = cuentaEJB.buscarCuentaAsociada(numeroCuenta);
 		if (cuenta != null) {
 			if ((cuenta.getTipoDocumento().equals(tipod)) && (cuenta.getNumeroDocumento().equals(numeroDocum))) {
-				return true;
+				return new RespuestaDTO("esta cuenta se ha verificado correctamente", 0, true);
 			} else {
-				return false;
+				return new RespuestaDTO("los datos de esta cuenta son invalidos", 1, false);
 			}
 		} else {
-			return false;
+			return new RespuestaDTO("cuenta in existente", 1, false);
 		}
 	}
+
+	
 
 }
