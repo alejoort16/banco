@@ -118,7 +118,8 @@ public class NotificacionesEJB {
 
 		RespuestaServicio respuesta = servicio.registrarCuentaAsociada(idbanco, tipo, numerodoc, nombre, numerocuenta);
 
-		if (respuesta.getCodigo().equals("0000")) {
+		System.out.println(respuesta.getCodigo()+"**************************");
+		if (respuesta.getCodigo().equals("000")) {
 
 			CuentaAsociada cuen = cuentaAsociada.buscarCuentaAsociada(numerocuenta);
 			if (cuen != null) {
@@ -173,10 +174,9 @@ public class NotificacionesEJB {
 		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
 	
 			RespuestaServicio respuesta = servicio.transferirMonto(idbanco, numeroCuenta, monto);
-		System.out.println(respuesta.getCodigo()+"**********"+respuesta.getMensaje());
 		
 		if(respuesta.getCodigo().equals("000")){
-			operaciones.transferenciaACH(cuentaOrigen, numeroCuenta, monto);
+			operaciones.transferenciaACH(cuentaOrigen, monto);
 			return respuesta.getMensaje();
 			
 		}else if(respuesta.getCodigo().equals("002")){

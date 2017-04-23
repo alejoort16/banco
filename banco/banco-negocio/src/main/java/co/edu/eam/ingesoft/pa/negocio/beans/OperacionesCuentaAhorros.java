@@ -72,17 +72,20 @@ public class OperacionesCuentaAhorros {
 			String tipo) {
 		double nuevoValor = 0;
 		nuevoValor = cuenta.getAmmount() + cantidad;
+		fechaTransaccion =  new Date();
 
-		CuentaAhorros cu = new CuentaAhorros(cuenta.getNumber(), cuenta.getExpedition_date(), cuenta.getCliente(),
-				cuenta.getSavingInterest(), nuevoValor);
+		cuenta.setAmmount(nuevoValor);
+		producto.editarCuentaAhorros(cuenta);
 
-		producto.editarCuentaAhorros(cu);
+		Transaccion tr;
+		tr = new Transaccion(0, cantidad,fechaTransaccion, fuenteTr, cuenta, tipo);
+		GuardarTransaccion(tr);
 
 		notificaciones
 				.enviarCorreo(
 						"ud ha hecho una consignacion bancaria con un saldo de: " + cantidad
 								+ "\n Fecha de consignacion : " + fechaTransaccion,
-						"cualquiera@hotmail.com", "romanleon2010@hotmail.com", "Consignacion");
+						"cualquiera@hotmail.com",cuenta.getCliente().getCorreo(), "Consignacion");
 
 		return true;
 	}
@@ -95,16 +98,15 @@ public class OperacionesCuentaAhorros {
 			return false;
 		} else {
 			Transaccion tr;
-			CuentaAhorros cu2 = em.find(CuentaAhorros.class, cuenta.getNumber());
-			cu2.setAmmount(nuevoValor);
-			producto.editarCuentaAhorros(cu2);
+			cuenta.setAmmount(nuevoValor);
+			producto.editarCuentaAhorros(cuenta);
 			tr = new Transaccion(0, cantidad, fechaTransaccion, fuenteTr, cuenta, tipo);
 			GuardarTransaccion(tr);
 
 			notificaciones.enviarCorreo(
 					"ud ha hecho un retiro bancario con un saldo de: " + cantidad + "\n Fecha de consignacion : "
 							+ fechaTransaccion,
-					"cualquiera@hotmail.com", "romanleon2010@hotmail.com", "Retiro bancario");
+					"cualquiera@hotmail.com",cuenta.getCliente().getCorreo(), "Retiro bancario");
 			return true;
 
 		}
@@ -180,7 +182,7 @@ public class OperacionesCuentaAhorros {
 									"ud ha hecho una transferencia bancaria con un saldo de: " + monto
 											+ "\nCuenta Origen : " + cuentaActu + "\nCuenta Destino: " + cuentaDest
 											+ "\n Fecha de consignacion : " + trans,
-									"cualquiera@hotmail.com", "romanleon2010@hotmail.com", "Consignacion");
+									"cualquiera@hotmail.com", cuentaActual.getCliente().getCorreo(), "Consignacion");
 				}
 			} else {
 				throw new ExcepcionNegocio("verifique que haya escrito bien los numeros de las cuentas");
@@ -191,7 +193,7 @@ public class OperacionesCuentaAhorros {
 	}
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public void transferenciaACH(String numeroCuenta, String cuentaExtranjera, double cantidad) {
+	public void transferenciaACH(String numeroCuenta, double cantidad) {
 		double nuevoValor = 0;
 		CuentaAhorros cuenta = em.find(CuentaAhorros.class, numeroCuenta);
 		if (cuenta == null) {
@@ -211,6 +213,10 @@ public class OperacionesCuentaAhorros {
 			producto.editarCuentaAhorros(cuenta);
 			tr = new Transaccion(0, cantidad, new Date(), "PAGINA WEB(Tranferencia ACH)", cuenta, "Transferencia ACH");
 			GuardarTransaccion(tr);
+			notificaciones.enviarCorreo(
+					"ud ha hecho un retiro bancario con un saldo de: " + cantidad + "\n Fecha de consignacion : "
+							+ new Date(),
+					"cualquiera@hotmail.com",cuenta.getCliente().getCorreo(), "Retiro bancario");
 		}
 	}
 	
