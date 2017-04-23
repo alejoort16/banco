@@ -10,6 +10,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import co.edu.eam.ingesoft.pa.negocio.beans.CuentaAsociadaEJB;
+import co.edu.eam.ingesoft.pa.negocio.beans.OperacionesCuentaAhorros;
+import co.edu.eam.ingesoft.pa.negocio.beans.ProductoEJB;
+import entidades.CuentaAhorros;
 import entidades.CuentaAsociada;
 import enumeraciones.TipoDocumento;
 
@@ -22,8 +25,16 @@ import enumeraciones.TipoDocumento;
 public class VerificarCuentaRest {
 
 	@EJB
-	CuentaAsociadaEJB cuentaEJB;
+	ProductoEJB prosductosEJB;
 
+	
+	/**
+	 * verifica si una cuenta de ahorros existe
+	 * @param numeroCuenta numero de la cuenta de ahorros
+	 * @param tipo tipo de documento del cliente
+	 * @param numeroDocum numero de documento del cliente
+	 * @return si la cuenta es existente, si es invalida o si no existe la cuenta
+	 */
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -42,9 +53,10 @@ public class VerificarCuentaRest {
 			tipod = TipoDocumento.CE;
 		}
 
-		CuentaAsociada cuenta = cuentaEJB.buscarCuentaAsociada(numeroCuenta);
+		CuentaAhorros cuenta = prosductosEJB.buscarCuentaAhorros(numeroCuenta);
 		if (cuenta != null) {
-			if ((cuenta.getTipoDocumento().equals(tipod)) && (cuenta.getNumeroDocumento().equals(numeroDocum))) {
+			if ((cuenta.getCliente().getIdentificationType().equals(tipod))
+					&& (cuenta.getCliente().getIdentificationNumber().equals(numeroDocum))) {
 				return new RespuestaDTO("esta cuenta se ha verificado correctamente", 0, true);
 			} else {
 				return new RespuestaDTO("los datos de esta cuenta son invalidos", 1, false);
@@ -53,7 +65,5 @@ public class VerificarCuentaRest {
 			return new RespuestaDTO("cuenta in existente", 1, false);
 		}
 	}
-
-	
 
 }

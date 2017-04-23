@@ -76,7 +76,7 @@ public class CuentaAsociada implements Serializable {
 		this.nombreTitular = nombreTitular;
 		this.tipoDocumento = tipoDocumento;
 		this.numeroDocumento = numeroDocumento;
-		this.estado = estado;
+		this.estado = "NO VERIFICADO";
 		this.banco = banco;
 		this.clientePrincipal = clientePrincipal;
 	}
