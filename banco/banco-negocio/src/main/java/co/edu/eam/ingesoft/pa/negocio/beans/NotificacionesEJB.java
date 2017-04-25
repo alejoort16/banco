@@ -58,7 +58,7 @@ public class NotificacionesEJB {
 		RespuestaNotificacion resp = servicio.enviarMail(correo);
 		System.out.println(resp.getMensaje());
 
-	}
+	}	
 
 	public void enviarSms(String mensaje, String destinatario) {
 
@@ -82,7 +82,7 @@ public class NotificacionesEJB {
 		InterbancarioWS_Service banco = new InterbancarioWS_Service();
 		InterbancarioWS servicio = banco.getInterbancarioWSPort();
 
-		String endpointURL = "http://104.197.238.134:8080/interbancario/InterbancarioWS";
+		String endpointURL = "http://104.155.128.249:8080/interbancario/InterbancarioWS/InterbancarioWS";
 		BindingProvider bp = (BindingProvider) servicio;
 		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
 
@@ -112,14 +112,14 @@ public class NotificacionesEJB {
 		InterbancarioWS_Service banco = new InterbancarioWS_Service();
 		InterbancarioWS servicio = banco.getInterbancarioWSPort();
 
-		String endpointURL = "http://104.197.238.134:8080/interbancario/InterbancarioWS";
+		String endpointURL = "http://104.155.128.249:8080/interbancario/InterbancarioWS/InterbancarioWS";
 		BindingProvider bp = (BindingProvider) servicio;
 		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
 
 		RespuestaServicio respuesta = servicio.registrarCuentaAsociada(idbanco, tipo, numerodoc, nombre, numerocuenta);
 
 		System.out.println(respuesta.getCodigo()+"**************************");
-		if (respuesta.getCodigo().equals("000")) {
+		if (respuesta.getCodigo().equals("0000")) {
 
 			CuentaAsociada cuen = cuentaAsociada.buscarCuentaAsociada(numerocuenta);
 			if (cuen != null) {
@@ -169,7 +169,7 @@ public class NotificacionesEJB {
 		InterbancarioWS_Service banco = new InterbancarioWS_Service();
 		InterbancarioWS servicio = banco.getInterbancarioWSPort();
 
-		String endpointURL = "http://104.197.238.134:8080/interbancario/InterbancarioWS";
+		String endpointURL = "http://104.155.128.249:8080/interbancario/InterbancarioWS/InterbancarioWS";
 		BindingProvider bp = (BindingProvider) servicio;
 		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
 	

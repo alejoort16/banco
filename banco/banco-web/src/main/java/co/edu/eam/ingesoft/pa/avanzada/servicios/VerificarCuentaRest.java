@@ -39,7 +39,7 @@ public class VerificarCuentaRest {
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/verificarcuenta")
-	public RespuestaDTO verificarCuenta(@FormParam("numeroCuenta") String numeroCuenta, @FormParam("tipo") int tipo,
+	public String verificarCuenta(@FormParam("numeroCuenta") String numeroCuenta, @FormParam("tipo") int tipo,
 			@FormParam("cedula") String numeroDocum) {
 
 		TipoDocumento tipod = null;
@@ -57,12 +57,12 @@ public class VerificarCuentaRest {
 		if (cuenta != null) {
 			if ((cuenta.getCliente().getIdentificationType().equals(tipod))
 					&& (cuenta.getCliente().getIdentificationNumber().equals(numeroDocum))) {
-				return new RespuestaDTO("esta cuenta se ha verificado correctamente", 0, true);
+				return "EXITO";
 			} else {
-				return new RespuestaDTO("los datos de esta cuenta son invalidos", 1, false);
+				return "ERROR";
 			}
 		} else {
-			return new RespuestaDTO("cuenta in existente", 1, false);
+			return "ERROR";
 		}
 	}
 

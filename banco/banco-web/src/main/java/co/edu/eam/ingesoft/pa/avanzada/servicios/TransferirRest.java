@@ -125,14 +125,14 @@ public class TransferirRest {
 	@Path("/recibirdinero")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public RespuestaDTO recibirDinero(@QueryParam("numerocuenta") String numeroCuenta,
-			@QueryParam("cantidad") double cantidad) {
+	public String recibirDinero(@FormParam("numerocuenta") String numeroCuenta,
+			@FormParam("cantidad") double cantidad) {
 		CuentaAhorros cuenta = productosejb.buscarCuentaAhorros(numeroCuenta);
 		if(cuenta!=null){
 			cuentaejb.consignacion(cuenta, cantidad, new Date(), "Transacción desde otro banco", "Consignación");
-			return new RespuestaDTO("ok", 0, null);
+			return "EXITO";
 		}else{
-			return new RespuestaDTO("error", 1, null);
+			return "ERROR";
 		}
 	}
 		

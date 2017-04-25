@@ -65,8 +65,6 @@ public class ControladorCuentasAsociadas implements Serializable {
 	@Length(min = 3, max = 50, message = "longitud entre 3 y 50")
 	private String nombreTitular;
 
-	@Pattern(regexp = "[0-9]*", message = "solo numeros")
-	@Length(min = 10, max = 20, message = "longitud entre 10 y 20")
 	private String numeroCuenta;
 
 	@Pattern(regexp = "[A-Za-z ]*", message = "solo Letras")
