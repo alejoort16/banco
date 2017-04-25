@@ -83,8 +83,8 @@ public class OperacionesCuentaAhorros {
 
 		notificaciones
 				.enviarCorreo(
-						"ud ha hecho una consignacion bancaria con un saldo de: " + cantidad
-								+ "\n Fecha de consignacion : " + fechaTransaccion,
+						"A su cuenta le han consignado: " + cantidad
+								+ " nuevo saldo: "+nuevoValor+" \n Fecha de consignacion : " + fechaTransaccion,
 						"cualquiera@hotmail.com",cuenta.getCliente().getCorreo(), "Consignacion");
 
 		return true;
