@@ -106,7 +106,7 @@ public class ControladorTransferencia implements Serializable {
 				if(segundaClave.getCodigo().equals(codigo)){
 					if(cantidad>0){
 					CuentaAsociada cu	= asociadasejb.buscarCuentaAsociada(numeroCuentaAsociada);
-			String msj =	webservice.transferirMonto(numeroCuentaOrigen, cu.getBanco().getId(), numeroCuentaAsociada, cantidad);
+			String msj = webservice.transferirMonto(numeroCuentaOrigen, cu.getBanco().getId(), numeroCuentaAsociada, cantidad);
 				Messages.addFlashGlobalInfo(msj);
 					}else{
 						Messages.addGlobalError("Ingrese valor de la transferencia");

@@ -40,7 +40,7 @@ public class OperacionesCuentaAhorros {
 
 	@EJB
 	NotificacionesEJB notificaciones;
-	
+
 	@EJB
 	CodigosEJB segundacontra;
 
@@ -72,20 +72,19 @@ public class OperacionesCuentaAhorros {
 			String tipo) {
 		double nuevoValor = 0;
 		nuevoValor = cuenta.getAmmount() + cantidad;
-		fechaTransaccion =  new Date();
+		fechaTransaccion = new Date();
 
 		cuenta.setAmmount(nuevoValor);
 		producto.editarCuentaAhorros(cuenta);
 
 		Transaccion tr;
-		tr = new Transaccion(0, cantidad,fechaTransaccion, fuenteTr, cuenta, tipo);
+		tr = new Transaccion(0, cantidad, fechaTransaccion, fuenteTr, cuenta, tipo);
 		GuardarTransaccion(tr);
 
-		notificaciones
-				.enviarCorreo(
-						"A su cuenta le han consignado: " + cantidad
-								+ " nuevo saldo: "+nuevoValor+" \n Fecha de consignacion : " + fechaTransaccion,
-						"cualquiera@hotmail.com",cuenta.getCliente().getCorreo(), "Consignacion");
+		notificaciones.enviarCorreo(
+				"A su cuenta le han consignado: " + cantidad + " nuevo saldo: " + nuevoValor
+						+ " \n Fecha de consignacion : " + fechaTransaccion,
+				"cualquiera@hotmail.com", cuenta.getCliente().getCorreo(), "Consignacion");
 
 		return true;
 	}
@@ -106,7 +105,7 @@ public class OperacionesCuentaAhorros {
 			notificaciones.enviarCorreo(
 					"ud ha hecho un retiro bancario con un saldo de: " + cantidad + "\n Fecha de consignacion : "
 							+ fechaTransaccion,
-					"cualquiera@hotmail.com",cuenta.getCliente().getCorreo(), "Retiro bancario");
+					"cualquiera@hotmail.com", cuenta.getCliente().getCorreo(), "Retiro bancario");
 			return true;
 
 		}
@@ -177,12 +176,11 @@ public class OperacionesCuentaAhorros {
 					transaccion.setType("Transferencia");
 					GuardarTransaccion(transaccion);
 
-					notificaciones
-							.enviarCorreo(
-									"ud ha hecho una transferencia bancaria con un saldo de: " + monto
-											+ "\nCuenta Origen : " + cuentaActu + "\nCuenta Destino: " + cuentaDest
-											+ "\n Fecha de consignacion : " + trans,
-									"cualquiera@hotmail.com", cuentaActual.getCliente().getCorreo(), "Consignacion");
+					notificaciones.enviarCorreo(
+							"ud ha hecho una transferencia bancaria con un saldo de: " + monto + "\nCuenta Origen : "
+									+ cuentaActu + "\nCuenta Destino: " + cuentaDest + "\n Fecha de consignacion : "
+									+ trans,
+							"cualquiera@hotmail.com", cuentaActual.getCliente().getCorreo(), "Consignacion");
 				}
 			} else {
 				throw new ExcepcionNegocio("verifique que haya escrito bien los numeros de las cuentas");
@@ -201,10 +199,6 @@ public class OperacionesCuentaAhorros {
 		}
 		nuevoValor = cuenta.getAmmount() - cantidad;
 		if (nuevoValor <= 0) {
-			// NO SE PUEDE PONER MENSAJES EN EL EJB, EN YA QUE VA AL SERVIDOR, I
-			// AM IDIOT
-			// JOptionPane.showMessageDialog(null,
-			// "No es posible la transacción, la cuenta no puede quedar en $0");
 			throw new ExcepcionNegocio("No tiene el dinero suficiente en su cuenta para esta transferencia");
 
 		} else {
@@ -213,13 +207,14 @@ public class OperacionesCuentaAhorros {
 			producto.editarCuentaAhorros(cuenta);
 			tr = new Transaccion(0, cantidad, new Date(), "PAGINA WEB(Tranferencia ACH)", cuenta, "Transferencia ACH");
 			GuardarTransaccion(tr);
-			notificaciones.enviarCorreo(
-					"ud ha hecho un retiro bancario con un saldo de: " + cantidad + "\n Fecha de consignacion : "
-							+ new Date(),
-					"cualquiera@hotmail.com",cuenta.getCliente().getCorreo(), "Retiro bancario");
+			notificaciones
+					.enviarCorreo(
+							"ud ha hecho un retiro bancario con un saldo de: " + cantidad
+									+ "\n Fecha de consignacion : " + new Date(),
+							"cualquiera@hotmail.com", cuenta.getCliente().getCorreo(), "Retiro bancario");
 		}
 	}
-	
+
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void generarSegundaClave(String correo, String celular) {
 		String total = "";
@@ -227,10 +222,10 @@ public class OperacionesCuentaAhorros {
 			int valorx = (int) ((Math.random() * 9) + 1);
 			total = total + valorx;
 		}
-		
+
 		SegundaClave codigo = new SegundaClave(new Date(), total);
 		segundacontra.GuardarCodigo(codigo);
-		//notificaciones.enviarSms("Su codigo es: "+total , celular);
-		notificaciones.enviarCorreo("Su codigo es: "+total, "cualquiera@hotmail.com", correo, "Codigo transacción");
+		// notificaciones.enviarSms("Su codigo es: "+total , celular);
+		notificaciones.enviarCorreo("Su codigo es: " + total, "cualquiera@hotmail.com", correo, "Codigo transacción");
 	}
 }
