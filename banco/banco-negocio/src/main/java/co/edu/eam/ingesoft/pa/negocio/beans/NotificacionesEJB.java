@@ -175,18 +175,18 @@ public class NotificacionesEJB {
 	
 			RespuestaServicio respuesta = servicio.transferirMonto(idbanco, numeroCuenta, monto);
 		
-		if(respuesta.getCodigo().equals("000")){
+		if(respuesta.getCodigo().equals("0000")){
 			operaciones.transferenciaACH(cuentaOrigen, monto);
 			return respuesta.getMensaje();
 			
-		}else if(respuesta.getCodigo().equals("002")){
+		}else if(respuesta.getCodigo().equals("0002")){
 			return respuesta.getMensaje();
 
 			
-		}else if(respuesta.getCodigo().equals("004")){
+		}else if(respuesta.getCodigo().equals("0004")){
 			return respuesta.getMensaje();			
 		}else{
-			return "ERROR";
+			return respuesta.getMensaje();
 		}
 		
 	}
