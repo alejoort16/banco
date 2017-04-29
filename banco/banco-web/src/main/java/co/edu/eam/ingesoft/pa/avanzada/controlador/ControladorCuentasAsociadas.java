@@ -51,14 +51,14 @@ public class ControladorCuentasAsociadas implements Serializable {
 
 	private entidades.Banco banco;
 
-	private co.edu.eam.pa.bancows.Banco bancoservicioweb;
+	//private co.edu.eam.pa.bancows.Banco bancoservicioweb;
 
 	private List<co.edu.eam.pa.bancows.Banco> bancos;
 
 	private List<CuentaAsociada> cuentasAsociadas;
 
 	@Pattern(regexp = "[0-9]*", message = "solo numeros")
-	@Length(min = 4, max = 15, message = "longitud entre 4 y 15")
+	@Length(min = 3, max = 15, message = "longitud entre 4 y 15")
 	private String numeroIdentificacionTitular;
 
 	@Pattern(regexp = "[A-Za-z ]*", message = "solo Letras")
@@ -282,17 +282,19 @@ public class ControladorCuentasAsociadas implements Serializable {
 
 	/**
 	 * @return the banco
-	 */
+	 
 	public co.edu.eam.pa.bancows.Banco getBanco() {
 		return bancoservicioweb;
 	}
+	*/
 
 	/**
 	 * @param banco
 	 *            the banco to set
-	 */
+	 
 	public void setBanco(co.edu.eam.pa.bancows.Banco banco) {
 		this.bancoservicioweb = banco;
 	}
+	*/
 
 }

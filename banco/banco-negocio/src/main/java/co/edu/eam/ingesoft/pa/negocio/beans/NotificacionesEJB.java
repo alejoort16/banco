@@ -1,5 +1,6 @@
 package co.edu.eam.ingesoft.pa.negocio.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -32,9 +33,12 @@ public class NotificacionesEJB {
 
 	@EJB
 	CuentaAsociadaEJB cuentaAsociada;
-	
+
 	@EJB
 	OperacionesCuentaAhorros operaciones;
+
+	@EJB
+	BancoEJB bancoEJB;
 
 	@PersistenceContext
 	private EntityManager em;
@@ -58,7 +62,7 @@ public class NotificacionesEJB {
 		RespuestaNotificacion resp = servicio.enviarMail(correo);
 		System.out.println(resp.getMensaje());
 
-	}	
+	}
 
 	public void enviarSms(String mensaje, String destinatario) {
 
@@ -88,15 +92,25 @@ public class NotificacionesEJB {
 
 		List<Banco> bancos;
 		bancos = servicio.listarBancos();
-		return bancos;
 
+		ArrayList<entidades.Banco> ban = new ArrayList<entidades.Banco>();
+
+		for (int i = 0; i < bancos.size(); i++) {
+			entidades.Banco bancoo = new entidades.Banco(bancos.get(i).getCodigo(), bancos.get(i).getNombre());
+			ban.add(bancoo);
+			entidades.Banco bancoBus = bancoEJB.buscarBanco(ban.get(i).getId());
+			if(bancoBus == null){
+				bancoEJB.crearBanco(bancoo);
+			}
+		}
+
+		return bancos;
 	}
 
 	public String verificarCuenta(String idbanco, String tipodoc, String numerodoc, String nombre,
-			String numerocuenta){
+			String numerocuenta) {
 
 		TipoDocumentoEnum tipo = null;
-
 
 		if (tipodoc.equals("CC")) {
 			tipo = TipoDocumentoEnum.CC;
@@ -107,8 +121,7 @@ public class NotificacionesEJB {
 		} else if (tipodoc.equals("TI")) {
 			tipo = TipoDocumentoEnum.TI;
 		}
-		
-		
+
 		InterbancarioWS_Service banco = new InterbancarioWS_Service();
 		InterbancarioWS servicio = banco.getInterbancarioWSPort();
 
@@ -118,7 +131,7 @@ public class NotificacionesEJB {
 
 		RespuestaServicio respuesta = servicio.registrarCuentaAsociada(idbanco, tipo, numerodoc, nombre, numerocuenta);
 
-		System.out.println(respuesta.getCodigo()+"**************************");
+		System.out.println(respuesta.getCodigo() + "**************************");
 		if (respuesta.getCodigo().equals("0000")) {
 
 			CuentaAsociada cuen = cuentaAsociada.buscarCuentaAsociada(numerocuenta);
@@ -146,7 +159,7 @@ public class NotificacionesEJB {
 				cuen.setEstado(respuesta.getMensaje());
 				cuentaAsociada.eliminarCuentaAsociada(cuen);
 				return "Esta cuenta no es valida, por lo tanto se eliminara";
-				
+
 			} else {
 				throw new ExcepcionNegocio("Esta cuenta no existe");
 			}
@@ -154,7 +167,7 @@ public class NotificacionesEJB {
 		} else if (respuesta.getCodigo().equals("0010")) {
 			CuentaAsociada cuen = cuentaAsociada.buscarCuentaAsociada(numerocuenta);
 			if (cuen != null) {
-				cuentaAsociada.eliminarCuentaAsociada(cuen);		
+				cuentaAsociada.eliminarCuentaAsociada(cuen);
 				return "El banco de esta cuenta no existe, por lo tanto se eliminara";
 			} else {
 				throw new ExcepcionNegocio("Esta cuenta no existe");
@@ -163,31 +176,29 @@ public class NotificacionesEJB {
 			throw new ExcepcionNegocio("codigo no valido");
 		}
 	}
-	
-	
-	public String transferirMonto(String cuentaOrigen, String idbanco, String numeroCuenta, double monto){
+
+	public String transferirMonto(String cuentaOrigen, String idbanco, String numeroCuenta, double monto) {
 		InterbancarioWS_Service banco = new InterbancarioWS_Service();
 		InterbancarioWS servicio = banco.getInterbancarioWSPort();
 
 		String endpointURL = "http://104.155.128.249:8080/interbancario/InterbancarioWS/InterbancarioWS";
 		BindingProvider bp = (BindingProvider) servicio;
 		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
-	
-			RespuestaServicio respuesta = servicio.transferirMonto(idbanco, numeroCuenta, monto);
-		
-		if(respuesta.getCodigo().equals("0000")){
+
+		RespuestaServicio respuesta = servicio.transferirMonto(idbanco, numeroCuenta, monto);
+
+		if (respuesta.getCodigo().equals("0000")) {
 			operaciones.transferenciaACH(cuentaOrigen, monto);
 			return respuesta.getMensaje();
-			
-		}else if(respuesta.getCodigo().equals("0002")){
+
+		} else if (respuesta.getCodigo().equals("0002")) {
 			return respuesta.getMensaje();
 
-			
-		}else if(respuesta.getCodigo().equals("0004")){
-			return respuesta.getMensaje();			
-		}else{
+		} else if (respuesta.getCodigo().equals("0004")) {
+			return respuesta.getMensaje();
+		} else {
 			return respuesta.getMensaje();
 		}
-		
+
 	}
 }

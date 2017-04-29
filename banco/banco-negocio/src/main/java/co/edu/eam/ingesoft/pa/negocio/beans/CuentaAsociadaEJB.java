@@ -37,10 +37,16 @@ public class CuentaAsociadaEJB {
 	@EJB
 	NotificacionesEJB notificaciones;
 
+	@EJB
+	CuentaAsociadaEJB cuentaAsociadaEJB;
+	@EJB
+	BancoEJB bancoEJB;
+
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void crearAsociacion(CuentaAsociada cuenta) {
 
 		CuentaAsociada bus = buscarCuentaAsociada(cuenta.getNumeroCuenta());
+
 		if (bus == null) {
 			em.persist(cuenta);
 			notificaciones.enviarCorreo(
@@ -50,27 +56,16 @@ public class CuentaAsociadaEJB {
 					"infobanco@hotmail.com", cuenta.getClientePrincipal().getCorreo(),
 					"ASOCIACION DE CUENTA EXTRANJERA");
 
-			// notificaciones.enviarSms("A su perfil en el banco Concordia se le
-			// asocio la cuenta "+cuenta.getNumeroCuenta()+" del"
-			// + " banco "+cuenta.getBanco().getName()+" "
-			// + "pertenecienta a "+cuenta.getNombreTitular(),
-			// cuenta.getClientePrincipal().getCelular());
-
-		} else {
-			throw new ExcepcionNegocio("Este numero de cuenta ya esta asociado");
 		}
-
+		else {
+			throw new ExcepcionNegocio("Esta cuenta ya esta asociada");
+		}
 	}
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void eliminarCuentaAsociada(CuentaAsociada cuenta) {
 		cuenta = buscarCuentaAsociada(cuenta.getNumeroCuenta());
-		// if (bus != null) {
 		em.remove(cuenta);
-		// }else{
-		// throw new ExcepcionNegocio("Este numero de cuenta no existe");
-		// }
-
 	}
 
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
