@@ -135,23 +135,7 @@ public class TransferirRest {
 			return "ERROR";
 		}
 	}
-		
-		@POST
-		@Path("/transferir")
-		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-		@Produces(MediaType.APPLICATION_JSON)
-		public RespuestaDTO transferir(@QueryParam("numerocuenta") String numeroCuenta,
-				@QueryParam("cantidad") double cantidad) {
-			CuentaAhorros cuenta = productosejb.buscarCuentaAhorros(numeroCuenta);
-			if(cuenta!=null){
-				cuentaejb.transferenciaACH(numeroCuenta, cantidad);
-				return new RespuestaDTO("transferencia realizada con exito", 0, null);
-			}else{
-				return new RespuestaDTO("error al realizar el retiro de su cuenta", 1, null);
-			}
-		
-		
-	}
+	
 	
 	
 	}
