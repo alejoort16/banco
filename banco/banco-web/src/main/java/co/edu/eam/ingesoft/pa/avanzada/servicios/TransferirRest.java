@@ -33,7 +33,7 @@ public class TransferirRest {
 
 	@EJB
 	private CuentaAsociadaEJB asociadasejb;
-	
+
 	@EJB
 	private ProductoEJB productosejb;
 
@@ -83,23 +83,21 @@ public class TransferirRest {
 		Cliente cli = clienteejb.buscarCliente(tipod, numeroDocum);
 
 		List<CuentaAsociada> cuentas = asociadasejb.listarCuentasAsociadasVerificadas(cli);
-		
-		if(cuentas.isEmpty()){
+
+		if (cuentas.isEmpty()) {
 			return new RespuestaDTO("No hay cuentas asociadas verificadas", 1, null);
-		}else{
+		} else {
 			return new RespuestaDTO("Cuentas verficadas listadas", 0, cuentas);
 		}
 
 	}
-	
 
 	@GET
 	@Path("/generarsegundaclave")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public RespuestaDTO generarYenviarCodigo(@QueryParam("tipo") int tipo,
-		@QueryParam("cedula") String numeroDocum) {
-		
+	public RespuestaDTO generarYenviarCodigo(@QueryParam("tipo") int tipo, @QueryParam("cedula") String numeroDocum) {
+
 		TipoDocumento tipod = null;
 		if (tipo == 1) {
 			tipod = TipoDocumento.CC;
@@ -111,16 +109,16 @@ public class TransferirRest {
 			tipod = TipoDocumento.CE;
 		}
 
-	Cliente cli = clienteejb.buscarCliente(tipod, numeroDocum);
-	
-	if(cli==null){
-		return new RespuestaDTO("Este cliente no existe", 1, null);
-	}else{
-		cuentaejb.generarSegundaClave(cli.getCorreo(),cli.getCelular());
-		return new RespuestaDTO("Codigo generado y enviado", 0, null);
-	}	
+		Cliente cli = clienteejb.buscarCliente(tipod, numeroDocum);
+
+		if (cli == null) {
+			return new RespuestaDTO("Este cliente no existe", 1, null);
+		} else {
+			cuentaejb.generarSegundaClave(cli.getCorreo(), cli.getCelular());
+			return new RespuestaDTO("Codigo generado y enviado", 0, null);
+		}
 	}
-	
+
 	@POST
 	@Path("/recibirdinero")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -128,16 +126,12 @@ public class TransferirRest {
 	public String recibirDinero(@FormParam("numerocuenta") String numeroCuenta,
 			@FormParam("cantidad") double cantidad) {
 		CuentaAhorros cuenta = productosejb.buscarCuentaAhorros(numeroCuenta);
-		if(cuenta!=null){
+		if (cuenta != null) {
 			cuentaejb.consignacion(cuenta, cantidad, new Date(), "Transacción desde otro banco", "Consignación");
 			return "EXITO";
-		}else{
+		} else {
 			return "ERROR";
 		}
 	}
-	
-	
-	
-	}
 
-
+}

@@ -1,6 +1,7 @@
 package co.edu.eam.ingesoft.pa.avanzada.servicios;
 
 import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
@@ -11,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import co.edu.eam.ingesoft.avanzada.banco.dtos.AsociarCuentaDTO;
 import co.edu.eam.ingesoft.avanzada.banco.dtos.TransferirDTO;
+import co.edu.eam.ingesoft.pa.avanzada.controlador.ControladorSesion;
 import co.edu.eam.ingesoft.pa.negocio.beans.BancoEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.ClienteEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.CuentaAsociadaEJB;
@@ -24,7 +26,7 @@ import enumeraciones.TipoDocumento;
 
 @Path("/restMoviles")
 public class ServiciosRestMoviles {
-
+	
 	@EJB
 	CuentaAsociadaEJB cuentaEJB;
 
@@ -53,24 +55,24 @@ public class ServiciosRestMoviles {
 	 * @param tipo
 	 * @return mensaje indicando lo ocurrido
 	 */
-	@POST
+	/**@POST
 	@Path("/asociarCuenta")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public RespuestaDTO asociarCuenta(AsociarCuentaDTO dto) {
 		
 		TipoDocumento tipoDocTitular = null;
-		if (dto.getTipoDoc() == 1) {
+		if (dto.getTipoDocTitular() == 1) {
 			tipoDocTitular = TipoDocumento.CC;
-		} else if (dto.getTipoDoc() == 2) {
+		} else if (dto.getTipoDocTitular() == 2) {
 			tipoDocTitular = TipoDocumento.PAS;
-		} else if (dto.getTipoDoc() == 3) {
+		} else if (dto.getTipoDocTitular() == 3) {
 			tipoDocTitular = TipoDocumento.TI;
-		} else if (dto.getTipoDoc() == 4) {
+		} else if (dto.getTipoDocTitular() == 4) {
 			tipoDocTitular = TipoDocumento.CE;
 		}
 
-		TipoDocumento tipoDocCliente = null;
+		/*TipoDocumento tipoDocCliente = null;
 		if (dto.getTipo() == 1) {
 			tipoDocCliente = TipoDocumento.CC;
 		} else if (dto.getTipo() == 2) {
@@ -96,7 +98,7 @@ public class ServiciosRestMoviles {
 			return new RespuestaDTO("no se encontro el banco", 1, null);
 
 		}
-	}
+	}*/
 	
 	
 	@POST

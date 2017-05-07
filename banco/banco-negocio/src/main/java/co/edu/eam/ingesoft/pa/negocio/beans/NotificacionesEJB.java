@@ -86,7 +86,7 @@ public class NotificacionesEJB {
 		InterbancarioWS_Service banco = new InterbancarioWS_Service();
 		InterbancarioWS servicio = banco.getInterbancarioWSPort();
 
-		String endpointURL = "http://104.155.128.249:8080/interbancario/InterbancarioWS/InterbancarioWS";
+		String endpointURL = "http://104.198.67.149:8080/interbancario/InterbancarioWS/InterbancarioWS";
 		BindingProvider bp = (BindingProvider) servicio;
 		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
 
@@ -99,9 +99,13 @@ public class NotificacionesEJB {
 			entidades.Banco bancoo = new entidades.Banco(bancos.get(i).getCodigo(), bancos.get(i).getNombre());
 			ban.add(bancoo);
 			entidades.Banco bancoBus = bancoEJB.buscarBanco(ban.get(i).getId());
-			if(bancoBus == null){
-				bancoEJB.crearBanco(bancoo);
-			}
+			if(bancos.isEmpty()){
+				throw new ExcepcionNegocio("no hay bancos en la lista");
+			}else{
+				if(bancoBus == null){
+					bancoEJB.crearBanco(bancoo);
+				}
+			}		
 		}
 
 		return bancos;
@@ -125,7 +129,7 @@ public class NotificacionesEJB {
 		InterbancarioWS_Service banco = new InterbancarioWS_Service();
 		InterbancarioWS servicio = banco.getInterbancarioWSPort();
 
-		String endpointURL = "http://104.155.128.249:8080/interbancario/InterbancarioWS/InterbancarioWS";
+		String endpointURL = "http:// 104.198.67.149:8080/interbancario/InterbancarioWS/InterbancarioWS";
 		BindingProvider bp = (BindingProvider) servicio;
 		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
 
@@ -181,7 +185,7 @@ public class NotificacionesEJB {
 		InterbancarioWS_Service banco = new InterbancarioWS_Service();
 		InterbancarioWS servicio = banco.getInterbancarioWSPort();
 
-		String endpointURL = "http://104.155.128.249:8080/interbancario/InterbancarioWS/InterbancarioWS";
+		String endpointURL = "http:// 104.198.67.149:8080/interbancario/InterbancarioWS/InterbancarioWS";
 		BindingProvider bp = (BindingProvider) servicio;
 		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
 

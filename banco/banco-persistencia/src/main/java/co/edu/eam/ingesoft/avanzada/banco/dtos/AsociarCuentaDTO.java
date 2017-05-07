@@ -3,23 +3,20 @@ package co.edu.eam.ingesoft.avanzada.banco.dtos;
 public class AsociarCuentaDTO {
 
 	
+	private String nombreTit;
+	
+	private int tipoDocTitular;
+	
+	private String cedula;
+	
 	private String numeroCuenta;
 	
 	private String nombreAsoc;
-	 
-	private String nombreTit;
-    
-	private int tipoDoc;
-    
-	private String cedula;
-    
+	     
 	private String estado;
     
 	private String codigoBanco;
     
-	private String cedCliente;
-    
-	private int tipo;
 
     public AsociarCuentaDTO(){
     	
@@ -50,13 +47,16 @@ public class AsociarCuentaDTO {
 		this.nombreTit = nombreTit;
 	}
 
-	public int getTipoDoc() {
-		return tipoDoc;
+
+	public int getTipoDocTitular() {
+		return tipoDocTitular;
 	}
 
-	public void setTipoDoc(int tipoDoc) {
-		this.tipoDoc = tipoDoc;
+
+	public void setTipoDocTitular(int tipoDocTitular) {
+		this.tipoDocTitular = tipoDocTitular;
 	}
+
 
 	public String getCedula() {
 		return cedula;
@@ -82,24 +82,5 @@ public class AsociarCuentaDTO {
 		this.codigoBanco = codigoBanco;
 	}
 
-	public String getCedCliente() {
-		return cedCliente;
-	}
-
-	public void setCedCliente(String cedCliente) {
-		this.cedCliente = cedCliente;
-	}
-
-	public int getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
-	}
-    
-    
-    
-    
 	
 }
